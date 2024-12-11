@@ -1,7 +1,11 @@
 const Users = () => {
   return (
-    <main>
-      <h1>Users Page</h1>
+    <main className="">
+      <header>
+        <h2 className="text-xl font-bold">
+          Users
+        </h2>
+      </header>
     </main>
   );
 };

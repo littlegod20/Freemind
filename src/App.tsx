@@ -8,23 +8,25 @@ import Invite_Mail_Settings from "./pages/settings/Invite_Mail_Settings";
 import Profile_Settings from "./pages/settings/Profile_Settings";
 import Users from "./pages/Users";
 
-const App = () => {
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<DashboardLayout />}>
-        <Route index element={<Users />} />
-        <Route path="/clients" element={<Clients />} />
-        <Route path="/invitations" element={<Invitations />} />
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/prefixed-prompts" element={<Prefixed_Prompts />} />
-        <Route
-          path="/invite-mail-settings"
-          element={<Invite_Mail_Settings />}
-        />
-        <Route path="/profile-settings" element={<Profile_Settings />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>;
-};
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<DashboardLayout />}>
+          <Route index element={<Users />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/invitations" element={<Invitations />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/prefixed prompts" element={<Prefixed_Prompts />} />
+          <Route
+            path="/invite mail settings"
+            element={<Invite_Mail_Settings />}
+          />
+          <Route path="/profile settings" element={<Profile_Settings />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 export default App;
