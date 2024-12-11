@@ -18,11 +18,11 @@ const Dashboard = () => {
     navigate(`${val}`);
   };
   return (
-    <main className="h-screen bg-dark-blue sm:px-8 pt-5 w-16 sm:min-w-64 text-sm font-extralight text-white">
+    <main className="hidden sm:block h-screen bg-dark-blue md:px-8 pt-5 w-16 md:min-w-64 text-sm font-extralight text-white">
       <header className="h-[10%]">
-        <img src={Freemind} alt="logo" className="hidden sm:block" />
+        <img src={Freemind} alt="logo" className="hidden md:block" />
       </header>
-      <section className="flex flex-col items-center sm:block">
+      <section className="flex flex-col items-center md:block">
         {dashTabs.slice(0, 5).map((item, index) => (
           <Tab
             name={item.name}
@@ -33,8 +33,8 @@ const Dashboard = () => {
           />
         ))}
       </section>
-      <section className="pt-6 flex flex-col items-center sm:block">
-        <p className="text-xs pb-2 hidden sm:block">Settings</p>
+      <section className="pt-6 flex flex-col items-center md:block">
+        <p className="text-xs pb-2 hidden md:block">Settings</p>
         {dashTabs.slice(5).map((item, index) => (
           <Tab
             name={item.name}

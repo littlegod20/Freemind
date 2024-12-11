@@ -17,7 +17,7 @@ const Tab: React.FC<TabStyles> = ({ Icon, name, activeTab, onNavigation }) => {
         onClick={() => onNavigation(name.toLowerCase())}
       >
         <Icon size={20} />
-        <p className="hidden sm:block">{name}</p>
+        <p className="hidden md:block">{name}</p>
       </div>
     </>
   );

@@ -38,3 +38,51 @@ export const dashTabs = [
     icon: User,
   },
 ];
+
+export const tableTitles = [
+  "Name",
+  "Role",
+  "Joined at",
+  "Last logged in",
+  "Open AI total tokens used",
+  "Open AI total sessions",
+  "Palm total tokens used",
+  "Palm total sessions",
+  "Limit calls / month",
+];
+
+export const tableDetails = [
+  {
+    name: "Alex Johnson",
+    role: "General user",
+    joined: "2023/01/08",
+    lastLogged: "2023/01/08",
+    aiTokensUsed: "2048 tokens",
+    aiTokensSessions: "60",
+    palmTokensUsed: "2048 tokens",
+    palmSessions: "1000",
+    limitCall: "1000",
+  },
+  {
+    name: "Maria Rodriguez",
+    role: "Consultant",
+    joined: "2023/02/09",
+    lastLogged: "2023/02/09",
+    aiTokensUsed: "100 tokens",
+    aiTokensSessions: "500",
+    palmTokensUsed: "100 tokens",
+    palmSessions: "500",
+    limitCall: "500",
+  },
+  {
+    name: "Chris Thompson",
+    role: "Strategist",
+    joined: "2023/02/09",
+    lastLogged: "2023/02/09",
+    aiTokensUsed: "30 tokens",
+    aiTokensSessions: "1000",
+    palmTokensUsed: "30 tokens",
+    palmSessions: "1000",
+    limitCall: "1000",
+  },
+];
