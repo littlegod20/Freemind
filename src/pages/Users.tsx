@@ -1,5 +1,4 @@
-import UserFilters from "../components/widgets/UserFilters";
-
+import UserFilter from "../components/UserFilter";
 
 const Users = () => {
   return (
@@ -10,8 +9,8 @@ const Users = () => {
           Manage all users you have invited to the platform.
         </p>
       </header>
-      <section>
-        <UserFilters/>
+      <section className="pt-5 flex flex-col md:flex-row sm:justify-between">
+        <UserFilter />
       </section>
     </main>
   );
