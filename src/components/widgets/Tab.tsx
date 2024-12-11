@@ -11,8 +11,8 @@ const Tab: React.FC<TabStyles> = ({ Icon, name, activeTab, onNavigation }) => {
   return (
     <>
       <div
-        className={`flex items-center gap-4 py-3 cursor-pointer hover:text-[#16A34A] ${
-          activeTab === name.toLowerCase() ? "text-[#16A34A]" : ""
+        className={`flex items-center gap-4 py-3 cursor-pointer hover:text-green-active ${
+          activeTab === name.toLowerCase() ? "text-green-active" : ""
         }`}
         onClick={() => onNavigation(name.toLowerCase())}
       >

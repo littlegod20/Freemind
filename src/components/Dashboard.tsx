@@ -18,7 +18,7 @@ const Dashboard = () => {
     navigate(`${val}`);
   };
   return (
-    <main className="h-screen bg-[#111827] sm:px-8 pt-5 w-16 sm:min-w-64 text-sm font-extralight text-white">
+    <main className="h-screen bg-dark-blue sm:px-8 pt-5 w-16 sm:min-w-64 text-sm font-extralight text-white">
       <header className="h-[10%]">
         <img src={Freemind} alt="logo" className="hidden sm:block" />
       </header>
