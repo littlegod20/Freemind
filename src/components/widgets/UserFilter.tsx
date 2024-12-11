@@ -1,6 +1,6 @@
 import { Calendar, Search } from "lucide-react";
-import FilterLabel from "./widgets/FilterLabel";
-import Input from "./widgets/Input";
+import FilterLabel from "../FilterLabel";
+import Input from "../Input";
 
 const UserFilter = () => {
   return (
