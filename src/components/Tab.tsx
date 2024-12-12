@@ -21,7 +21,7 @@ const Tab: React.FC<TabStyles> = ({ Icon, name, activeTab, onNavigation }) => {
       >
         <Icon size={20} />
         <p className="hidden md:block">{name}</p>
-        <Tooltip id="my-tooltip" className="md:hidden" />
+        <Tooltip id="my-tooltip" className="md:hidden"/>
       </div>
     </>
   );
