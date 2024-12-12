@@ -13,7 +13,7 @@ const Invitations = () => {
         Button={
           <Button
             title="Invite user"
-            className="bg-[#16A34A] text-white rounded-md border-none hover:bg-[#1d7d40] shadow-sm"
+            className="bg-[#16A34A] text-white rounded-md border-none hover:bg-[#24b057] "
           />
         }
       />
@@ -22,7 +22,7 @@ const Invitations = () => {
         <FilterSearch />
       </section>
 
-      <section>
+      <section className="pt-10">
         <Table tableTitles={invitationTitles} tableDetails={invtationDetails} />
       </section>
     </main>
