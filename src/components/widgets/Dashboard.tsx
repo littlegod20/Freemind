@@ -1,5 +1,5 @@
 import { dashTabs } from "../../utils/constants";
-import Freemind from "../assets/freemind.svg";
+import Freemind from "../../assets/freemind.svg";
 import Tab from "../Tab";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
