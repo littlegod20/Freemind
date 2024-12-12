@@ -86,3 +86,42 @@ export const usersDetails = [
     limitCall: "1000",
   },
 ];
+
+export const invitationTitles = [
+  "Name",
+  "Email",
+  "Role",
+  "Invite Status",
+  "Expires at",
+];
+
+export const invtationDetails = [
+  {
+    name: "Alex Johnson",
+    email: "alex.johnson@emailprovider.com",
+    role: "General user",
+    inviteStatus: "expired",
+    expiresAt: "2023/01/08",
+  },
+  {
+    name: "Alex Johnson",
+    email: "alex.johnson@emailprovider.com",
+    role: "General user",
+    inviteStatus: "expired",
+    expiresAt: "2023/01/08",
+  },
+  {
+    name: "Alex Johnson",
+    email: "alex.johnson@emailprovider.com",
+    role: "General user",
+    inviteStatus: "expired",
+    expiresAt: "2023/01/08",
+  },
+  {
+    name: "Alex Johnson",
+    email: "alex.johnson@emailprovider.com",
+    role: "General user",
+    inviteStatus: "expired",
+    expiresAt: "2023/01/08",
+  },
+];
