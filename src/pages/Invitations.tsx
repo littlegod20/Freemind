@@ -1,5 +1,11 @@
 const Invitations = () => {
-  return <div>Invitations</div>;
+  return (
+    <main>
+      <section>
+        
+      </section>
+    </main>
+  )
 };
 
 export default Invitations;

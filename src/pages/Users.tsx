@@ -1,17 +1,16 @@
+import Header from "../components/Header";
 import Table from "../components/Table";
 import Pagination from "../components/widgets/Pagination";
 import UserFilter from "../components/widgets/UserFilter";
-import {usersDetails, usersTitles } from "../utils/constants";
+import { usersDetails, usersTitles } from "../utils/constants";
 
 const Users = () => {
   return (
     <main className="flex-grow w-full">
-      <header className=" border-slate-200 border-b-2 pb-8  w-full">
-        <h4 className="text-dark-blue">Users</h4>
-        <p className="font-light text-sm text-slate-500">
-          Manage all users you have invited to the platform.
-        </p>
-      </header>
+      <Header
+        title="Users"
+        description="Manage all users you have invited to the platform."
+      />
       <section className="pt-5 flex flex-col md:flex-row sm:justify-between">
         <UserFilter />
       </section>
