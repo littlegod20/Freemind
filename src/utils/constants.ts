@@ -39,7 +39,7 @@ export const dashTabs = [
   },
 ];
 
-export const tableTitles = [
+export const usersTitles = [
   "Name",
   "Role",
   "Joined at",
@@ -51,7 +51,7 @@ export const tableTitles = [
   "Limit calls / month",
 ];
 
-export const tableDetails = [
+export const usersDetails = [
   {
     name: "Alex Johnson",
     role: "General user",

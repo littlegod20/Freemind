@@ -1,6 +1,7 @@
 import Table from "../components/Table";
 import Pagination from "../components/widgets/Pagination";
 import UserFilter from "../components/widgets/UserFilter";
+import {usersDetails, usersTitles } from "../utils/constants";
 
 const Users = () => {
   return (
@@ -17,7 +18,7 @@ const Users = () => {
 
       <section className="pt-10 flex-1">
         <div className="border rounded-lg ">
-          <Table />
+          <Table tableDetails={usersDetails} tableTitles={usersTitles} />
           <Pagination />
         </div>
       </section>

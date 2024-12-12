@@ -1,6 +1,6 @@
-import { tableDetails, tableTitles } from "../utils/constants";
+import { TableTypes } from "../utils/types";
 
-const Table = () => {
+const Table: React.FC<TableTypes> = ({ tableDetails, tableTitles }) => {
   return (
     <>
       <div className="overflow-hidden rounded-lg border">
@@ -17,43 +17,46 @@ const Table = () => {
               ))}
             </tr>
           </thead>
-          <tbody className=" flex w-full text-[#6B7280]">
-            <tr className="w-full">
-              {tableDetails.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-2 text-sm font-normal"
-                >
-                  <td className="md:w-[120px] w-[60px] flex justify-start md:text-left  items-center">
-                    <p className="truncate">{item.name}</p>
-                  </td>
-                  <td className="md:w-[120px] flex justify-start md:text-left items-center w-16 text-no-wrap">
-                    <p className="truncate">{item.role}</p>
-                  </td>
-                  <td className="md:w-[120px] flex justify-start md:text-left items-center w-14">
-                    <p className="truncate">{item.joined}</p>
-                  </td>
-                  <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
-                    <p className="truncate">{item.lastLogged}</p>
-                  </td>
-                  <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
-                    <p className="truncate">{item.aiTokensUsed}</p>
-                  </td>
-                  <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
-                    <p className="truncate">{item.aiTokensSessions}</p>
-                  </td>
-                  <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
-                    <p className="truncate">{item.palmTokensUsed}</p>
-                  </td>
-                  <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
-                    <p className="truncate">{item.palmSessions}</p>
-                  </td>
-                  <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
-                    <p className="truncate">{item.limitCall}</p>
-                  </td>
-                </div>
-              ))}
-            </tr>
+          <tbody className=" flex flex-col w-full text-[#6B7280]">
+            {tableDetails.map((item, index) => (
+              <tr
+                className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-2 text-sm font-normal"
+                key={index}
+              >
+                <td className="md:w-[120px] w-[60px] flex justify-start md:text-left  items-center">
+                  <p className="truncate">{item.name}</p>
+                </td>
+                <td className="md:w-[120px] flex justify-start md:text-left items-center w-16 text-no-wrap">
+                  <p className="truncate">{item.role}</p>
+                </td>
+                <td className="md:w-[120px] flex justify-start md:text-left items-center w-14">
+                  <p className="truncate">{item.joined}</p>
+                </td>
+                <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
+                  <p className="truncate">{item.lastLogged}</p>
+                </td>
+                <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
+                  <p className="truncate">{item.aiTokensUsed}</p>
+                </td>
+                <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
+                  <p className="truncate">{item.aiTokensSessions}</p>
+                </td>
+                <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
+                  <p className="truncate">{item.palmTokensUsed}</p>
+                </td>
+                <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
+                  <p className="truncate">{item.palmSessions}</p>
+                </td>
+                <td className="md:w-[120px] flex justify-start md:text-left items-center w-16">
+                  <p className="truncate flex justify-between items-center w-full">
+                    {item.limitCall}{" "}
+                    <span className="text-black font-black cursor-pointer">
+                      ...
+                    </span>
+                  </p>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
