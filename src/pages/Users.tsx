@@ -6,9 +6,9 @@ import { usersDetails, usersTitles } from "../utils/constants";
 
 const Users = () => {
   return (
-    <main className="flex-grow w-full">
+    <main className="w-full">
       <Header
-        title="Users"
+        title="users"
         description="Manage all users you have invited to the platform."
       />
       <section className="pt-5 flex flex-col md:flex-row sm:justify-between">
