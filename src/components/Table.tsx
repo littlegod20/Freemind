@@ -96,21 +96,19 @@ const Table: React.FC<TableTypes> = ({
                             {detail.show ? (
                               <div className="absolute bg-white right-8 min-w-32 p-2 space-y-3 rounded-md border shadow-sm z-100">
                                 {moreOptions.map((option, optionIndex) => (
-                                  <>
-                                    <p
-                                      className="text-black cursor-pointer last:text-red-600"
-                                      onClick={() =>
-                                        option.path
-                                          ? navigate(
-                                              `${option.path}/${detail.name}`
-                                            )
-                                          : console.log("no execution")
-                                      }
-                                      key={optionIndex}
-                                    >
-                                      {option.label}
-                                    </p>
-                                  </>
+                                  <p
+                                    className="text-black cursor-pointer last:text-red-600"
+                                    onClick={() =>
+                                      option.path
+                                        ? navigate(
+                                            `${option.path}/${detail.name}`
+                                          )
+                                        : console.log("no execution")
+                                    }
+                                    key={optionIndex}
+                                  >
+                                    {option.label}
+                                  </p>
                                 ))}
                               </div>
                             ) : null}
