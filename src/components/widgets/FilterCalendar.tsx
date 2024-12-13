@@ -4,7 +4,7 @@ import Input from "../Input";
 const FilterCalendar = () => {
   return (
     <>
-      <div className="flex flex-col items-start gap-2 hdx:flex-row  pt-2">
+      <div className="flex flex-col items-start gap-2 hdx:flex-row pt-2">
         <Input
           placeholder="From"
           Icon={Calendar}
