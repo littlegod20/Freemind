@@ -1,7 +1,7 @@
 import { dashTabs } from "../../utils/constants";
 import Freemind from "../../assets/freemind.svg";
 import Tab from "../Tab";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
@@ -11,12 +11,21 @@ const Dashboard = () => {
 
   const handleNavigation = (val: string) => {
     setActiveTab(val);
+    localStorage.setItem("dashTab", val);
     if (val === "users") {
       navigate("/");
       return;
     }
     navigate(`${val}`);
   };
+
+  useEffect(() => {
+    const active = localStorage.getItem("dashTab");
+    if (active) {
+      setActiveTab(active);
+    }
+  }, []);
+
   return (
     <main className="hidden sm:block h-screen bg-dark-blue md:px-8 pt-5 w-16 md:min-w-64 text-sm font-extralight text-white">
       <header className="h-[10%]">

@@ -13,7 +13,15 @@ export interface TableDetailsTypes {
   expiryDate?: string;
 }
 
+interface MoreOptions {
+  label: string;
+  path?:string
+  // fn(val: string): void;
+  // fn(): void;
+}
+
 export interface TableTypes {
   tableTitles: string[];
   tableDetails: TableDetailsTypes[];
+  moreOptions: MoreOptions[];
 }

@@ -7,6 +7,9 @@ export default {
         "dark-blue": "#111827",
         "green-active": "#16A34A",
       },
+      zIndex: {
+        100: "100",
+      },
     },
   },
   plugins: [],

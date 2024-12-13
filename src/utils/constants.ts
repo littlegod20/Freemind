@@ -86,3 +86,93 @@ export const usersDetails = [
     limitCall: "1000",
   },
 ];
+
+export const invitationTitles = [
+  "Name",
+  "Email",
+  "Role",
+  "Invite Status",
+  "Expires at",
+];
+
+export const invtationDetails = [
+  {
+    name: "Alex Johnson",
+    email: "alex.johnson@emailprovider.com",
+    role: "General user",
+    inviteStatus: "expired",
+    expiresAt: "2023/01/08",
+  },
+  {
+    name: "Alex Johnson",
+    email: "alex.johnson@emailprovider.com",
+    role: "General user",
+    inviteStatus: "expired",
+    expiresAt: "2023/01/08",
+  },
+  {
+    name: "Alex Johnson",
+    email: "alex.johnson@emailprovider.com",
+    role: "General user",
+    inviteStatus: "expired",
+    expiresAt: "2023/01/08",
+  },
+  {
+    name: "Alex Johnson",
+    email: "alex.johnson@emailprovider.com",
+    role: "General user",
+    inviteStatus: "expired",
+    expiresAt: "2023/01/08",
+  },
+];
+
+export const clientTitles = [
+  "Company",
+  "Created by",
+  "Role",
+  "First log in",
+  "Last logged in",
+  "Num of projects",
+  "Contract expiration date",
+];
+
+export const clientDetails = [
+  {
+    name: "Alex Johnson",
+    createdBy: "Alex Johnson",
+    role: "General user",
+    firstLog: "2023/01/08",
+    lastLog: "2023/01/08",
+    numProjects: "4",
+    contractExp: "2023/01/08",
+  },
+];
+
+export const moreClientOptions = [
+  {
+    label: "Edit user",
+  },
+  {
+    label: "Remove access",
+  },
+];
+
+export const moreUserOptions = [
+  {
+    label: "Edit user",
+    path:'user-details'
+  },
+  {
+    label: "Remove access",
+    // fn: () => console.log("removed"),
+  },
+];
+
+export const moreInviteOptions = [
+  {
+    label: "Resend invitation",
+  },
+  {
+    label: "Delete",
+  },
+];
