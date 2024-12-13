@@ -16,4 +16,7 @@ export interface TableDetailsTypes {
 export interface TableTypes {
   tableTitles: string[];
   tableDetails: TableDetailsTypes[];
+  moreOptions: {
+    label: string;
+  }[];
 }

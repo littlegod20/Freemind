@@ -4,6 +4,15 @@ import Table from "../components/Table";
 import FilterSearch from "../components/widgets/FilterSearch";
 import { invitationTitles, invtationDetails } from "../utils/constants";
 
+const moreInviteOptions = [
+  {
+    label: "Resend invitation",
+  },
+  {
+    label: "Delete",
+  },
+];
+
 const Invitations = () => {
   return (
     <main className="w-full">
@@ -23,7 +32,11 @@ const Invitations = () => {
       </section>
 
       <section className="pt-10">
-        <Table tableTitles={invitationTitles} tableDetails={invtationDetails} />
+        <Table
+          tableTitles={invitationTitles}
+          tableDetails={invtationDetails}
+          moreOptions={moreInviteOptions}
+        />
       </section>
     </main>
   );

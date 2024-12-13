@@ -4,6 +4,15 @@ import Pagination from "../components/widgets/Pagination";
 import FilterParent from "../components/widgets/FilterParent";
 import { usersDetails, usersTitles } from "../utils/constants";
 
+const more = [
+  {
+    label: "Edit user",
+  },
+  {
+    label: "Remove access",
+  },
+];
+
 const Users = () => {
   return (
     <main className="w-full">
@@ -17,7 +26,11 @@ const Users = () => {
 
       <section className="pt-10 flex-1">
         <div className="border rounded-lg ">
-          <Table tableDetails={usersDetails} tableTitles={usersTitles} />
+          <Table
+            tableDetails={usersDetails}
+            tableTitles={usersTitles}
+            moreOptions={more}
+          />
           <Pagination />
         </div>
       </section>

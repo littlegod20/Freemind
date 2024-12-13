@@ -4,6 +4,15 @@ import Table from "../components/Table";
 import FilterParent from "../components/widgets/FilterParent";
 import { clientDetails, clientTitles } from "../utils/constants";
 
+const moreClientOptions = [
+  {
+    label: "Edit user",
+  },
+  {
+    label: "Remove access",
+  },
+];
+
 const Clients = () => {
   return (
     <main>
@@ -23,7 +32,7 @@ const Clients = () => {
       </section>
 
       <section className="pt-10">
-        <Table tableTitles={clientTitles} tableDetails={clientDetails} />
+        <Table tableTitles={clientTitles} tableDetails={clientDetails} moreOptions={moreClientOptions} />
       </section>
     </main>
   );
