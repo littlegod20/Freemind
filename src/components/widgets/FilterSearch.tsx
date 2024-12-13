@@ -6,7 +6,7 @@ import Input from "../Input";
 const FilterSearch = () => {
   return (
     <>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 flex-wrap">
         <FilterLabel />
         <Input
           placeholder="Search"

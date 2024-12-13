@@ -2,6 +2,7 @@ import { Tooltip } from "react-tooltip";
 import { TableDetailsTypes, TableTypes } from "../utils/types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Pagination from "./widgets/Pagination";
 
 const specialRenderers = {
   inviteStatus: (val: string) => {
@@ -21,6 +22,7 @@ const Table: React.FC<TableTypes> = ({
   tableDetails,
   tableTitles,
   moreOptions,
+  pagination = false,
 }) => {
   const [details, setDetails] = useState(
     tableDetails.map((item) => ({ ...item, show: false }))
@@ -38,8 +40,8 @@ const Table: React.FC<TableTypes> = ({
   };
 
   return (
-    <>
-      <div className="overflow-hidden rounded-lg border shadow-inner">
+    <div className="border rounded-lg w-full ">
+      <div className="overflow-scroll rounded-lg border shadow-inner flex">
         <table className="text-sm w-full">
           <thead className="p-2 w-full ">
             <tr className="flex gap-2 p-2 justify-between">
@@ -123,7 +125,8 @@ const Table: React.FC<TableTypes> = ({
           </tbody>
         </table>
       </div>
-    </>
+      {pagination ? <Pagination /> : null}
+    </div>
   );
 };
 

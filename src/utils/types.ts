@@ -15,7 +15,7 @@ export interface TableDetailsTypes {
 
 interface MoreOptions {
   label: string;
-  path?:string
+  path?: string;
   // fn(val: string): void;
   // fn(): void;
 }
@@ -24,4 +24,5 @@ export interface TableTypes {
   tableTitles: string[];
   tableDetails: TableDetailsTypes[];
   moreOptions: MoreOptions[];
+  pagination?: boolean;
 }

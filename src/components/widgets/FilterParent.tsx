@@ -3,7 +3,7 @@ import FilterSearch from "./FilterSearch";
 
 const FilterParent = () => {
   return (
-    <div className="flex flex-col md:flex-row sm:justify-between">
+    <div className="flex flex-col hdx:flex-row sm:justify-between">
       <FilterSearch />
       <FilterCalendar />
     </div>

@@ -10,6 +10,9 @@ export default {
       zIndex: {
         100: "100",
       },
+      screens:{
+        "hdx":'900px'
+      }
     },
   },
   plugins: [],
