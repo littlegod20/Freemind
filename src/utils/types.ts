@@ -16,6 +16,7 @@ export interface TableDetailsTypes {
 interface MoreOptions {
   label: string;
   path?: string;
+  fn?: () => void;
 }
 
 export interface TableTypes {
