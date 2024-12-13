@@ -1,6 +1,7 @@
 import { Tooltip } from "react-tooltip";
 import { TableDetailsTypes, TableTypes } from "../utils/types";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const specialRenderers = {
   inviteStatus: (val: string) => {
@@ -24,6 +25,8 @@ const Table: React.FC<TableTypes> = ({
   const [details, setDetails] = useState(
     tableDetails.map((item) => ({ ...item, show: false }))
   );
+
+  const navigate = useNavigate()
 
   const handleHidden = (id: number) => {
     setDetails((prev) =>
@@ -92,9 +95,17 @@ const Table: React.FC<TableTypes> = ({
                             </span>
                             {item.show ? (
                               <div className="absolute bg-white right-8 min-w-32 p-2 space-y-3 rounded-md border shadow-sm z-100">
-                                {moreOptions.map((item) => (
+                                {moreOptions.map((item, index) => (
                                   <>
-                                    <p className="text-black cursor-pointer last:text-red-600">
+                                    <p
+                                      className="text-black cursor-pointer last:text-red-600"
+                                      onClick={() =>
+                                        item.path
+                                          ? navigate(item.path)
+                                          : console.log("no execution")
+                                      }
+                                      key={index}
+                                    >
                                       {item.label}
                                     </p>
                                   </>

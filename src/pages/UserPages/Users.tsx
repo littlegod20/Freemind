@@ -1,8 +1,12 @@
-import Header from "../components/Header";
-import Table from "../components/Table";
-import Pagination from "../components/widgets/Pagination";
-import FilterParent from "../components/widgets/FilterParent";
-import { moreUserOptions, usersDetails, usersTitles } from "../utils/constants";
+import Header from "../../components/Header";
+import Table from "../../components/Table";
+import Pagination from "../../components/widgets/Pagination";
+import FilterParent from "../../components/widgets/FilterParent";
+import {
+  moreUserOptions,
+  usersDetails,
+  usersTitles,
+} from "../../utils/constants";
 
 const Users = () => {
   return (

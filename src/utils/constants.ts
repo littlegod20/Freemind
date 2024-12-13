@@ -148,11 +148,9 @@ export const clientDetails = [
   },
 ];
 
-
 export const moreClientOptions = [
   {
     label: "Edit user",
-    path: "user-detail",
   },
   {
     label: "Remove access",
@@ -162,9 +160,11 @@ export const moreClientOptions = [
 export const moreUserOptions = [
   {
     label: "Edit user",
+    path:'user-details'
   },
   {
     label: "Remove access",
+    // fn: () => console.log("removed"),
   },
 ];
 
