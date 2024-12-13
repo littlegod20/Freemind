@@ -147,3 +147,32 @@ export const clientDetails = [
     contractExp: "2023/01/08",
   },
 ];
+
+
+export const moreClientOptions = [
+  {
+    label: "Edit user",
+    path: "user-detail",
+  },
+  {
+    label: "Remove access",
+  },
+];
+
+export const moreUserOptions = [
+  {
+    label: "Edit user",
+  },
+  {
+    label: "Remove access",
+  },
+];
+
+export const moreInviteOptions = [
+  {
+    label: "Resend invitation",
+  },
+  {
+    label: "Delete",
+  },
+];

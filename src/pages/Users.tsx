@@ -2,16 +2,7 @@ import Header from "../components/Header";
 import Table from "../components/Table";
 import Pagination from "../components/widgets/Pagination";
 import FilterParent from "../components/widgets/FilterParent";
-import { usersDetails, usersTitles } from "../utils/constants";
-
-const more = [
-  {
-    label: "Edit user",
-  },
-  {
-    label: "Remove access",
-  },
-];
+import { moreUserOptions, usersDetails, usersTitles } from "../utils/constants";
 
 const Users = () => {
   return (
@@ -29,7 +20,7 @@ const Users = () => {
           <Table
             tableDetails={usersDetails}
             tableTitles={usersTitles}
-            moreOptions={more}
+            moreOptions={moreUserOptions}
           />
           <Pagination />
         </div>

@@ -13,10 +13,13 @@ export interface TableDetailsTypes {
   expiryDate?: string;
 }
 
+interface MoreOptions {
+  label: string;
+  path?: string;
+}
+
 export interface TableTypes {
   tableTitles: string[];
   tableDetails: TableDetailsTypes[];
-  moreOptions: {
-    label: string;
-  }[];
+  moreOptions: MoreOptions[];
 }

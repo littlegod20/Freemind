@@ -2,16 +2,9 @@ import Button from "../components/Button";
 import Header from "../components/Header";
 import Table from "../components/Table";
 import FilterParent from "../components/widgets/FilterParent";
-import { clientDetails, clientTitles } from "../utils/constants";
+import { clientDetails, clientTitles, moreClientOptions } from "../utils/constants";
 
-const moreClientOptions = [
-  {
-    label: "Edit user",
-  },
-  {
-    label: "Remove access",
-  },
-];
+
 
 const Clients = () => {
   return (

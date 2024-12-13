@@ -2,16 +2,11 @@ import Button from "../components/Button";
 import Header from "../components/Header";
 import Table from "../components/Table";
 import FilterSearch from "../components/widgets/FilterSearch";
-import { invitationTitles, invtationDetails } from "../utils/constants";
-
-const moreInviteOptions = [
-  {
-    label: "Resend invitation",
-  },
-  {
-    label: "Delete",
-  },
-];
+import {
+  invitationTitles,
+  invtationDetails,
+  moreInviteOptions,
+} from "../utils/constants";
 
 const Invitations = () => {
   return (
