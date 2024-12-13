@@ -26,7 +26,7 @@ const Table: React.FC<TableTypes> = ({
     tableDetails.map((item) => ({ ...item, show: false }))
   );
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleHidden = (id: number) => {
     setDetails((prev) =>
@@ -55,15 +55,15 @@ const Table: React.FC<TableTypes> = ({
           </thead>
 
           <tbody className="flex flex-col w-full text-[#6B7280]">
-            {details.map((item, index) => (
+            {details.map((detail, detailIndex) => (
               <tr
                 className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-3 sm:text-sm text-xs font-normal"
-                key={index}
+                key={detailIndex}
               >
-                {Object.keys(item)
+                {Object.keys(detail)
                   .filter((key) => key !== "show")
-                  .map((key, keyIndex) => {
-                    const value = item[key as keyof TableDetailsTypes];
+                  .map((key, keyDetailIndex) => {
+                    const value = detail[key as keyof TableDetailsTypes];
                     const SpecialRenderer =
                       specialRenderers[key as keyof typeof specialRenderers];
                     return (
@@ -82,31 +82,33 @@ const Table: React.FC<TableTypes> = ({
                             {value}
                           </p>
                         )}
-                        {keyIndex ===
-                          Object.keys(item).filter((key) => key !== "show")
+                        {keyDetailIndex ===
+                          Object.keys(detail).filter((key) => key !== "show")
                             .length -
                             1 && (
                           <div className="">
                             <span
                               className="text-black font-black cursor-pointer ml-2"
-                              onClick={() => handleHidden(index)}
+                              onClick={() => handleHidden(detailIndex)}
                             >
                               ...
                             </span>
-                            {item.show ? (
+                            {detail.show ? (
                               <div className="absolute bg-white right-8 min-w-32 p-2 space-y-3 rounded-md border shadow-sm z-100">
-                                {moreOptions.map((item, index) => (
+                                {moreOptions.map((option, optionIndex) => (
                                   <>
                                     <p
                                       className="text-black cursor-pointer last:text-red-600"
                                       onClick={() =>
-                                        item.path
-                                          ? navigate(item.path)
+                                        option.path
+                                          ? navigate(
+                                              `${option.path}/${detail.name}`
+                                            )
                                           : console.log("no execution")
                                       }
-                                      key={index}
+                                      key={optionIndex}
                                     >
-                                      {item.label}
+                                      {option.label}
                                     </p>
                                   </>
                                 ))}
