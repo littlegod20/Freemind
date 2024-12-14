@@ -37,7 +37,7 @@ const UserDetails = () => {
       <section className="space-y-6">
         <Details statics={statics} details={userDetail} slice1={0} slice2={3} />
         <Details statics={statics} details={userDetail} slice1={3} />
-        <div className="flex justify-between p-5 border rounded-lg">
+        <div className="flex justify-between p-5 border rounded-lg items-center">
           <div>
             <p className="text-sm font-bold">Delete User</p>
             <p className="text-xs font-light text-slate-500">
