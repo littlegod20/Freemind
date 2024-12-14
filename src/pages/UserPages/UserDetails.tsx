@@ -45,7 +45,7 @@ const UserDetails = () => {
             <Button
               title="Edit user details"
               onClick={handleEdit}
-              className="bg-green-active text-white border-0 shadow-inner hover:bg-green-700"
+              className="bg-green-active text-white border-0 shadow-inner hover:bg-button-hover"
             >
               Edit user details
             </Button>
