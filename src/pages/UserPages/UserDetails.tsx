@@ -39,12 +39,12 @@ const UserDetails = () => {
         <Details statics={statics} details={userDetail} slice1={0} slice2={3} />
         <Details statics={statics} details={userDetail} slice1={3} />
         <Action
-          title="Delete users"
+          title="Delete User"
           description=" Deleting this user is permanent and cannot be undone"
           Button={
             <Button
-              title="Delete"
-              className="text-red-600 font-light hover:text-white hover:bg-red-600"
+              title="Delete User"
+              className="text-red-600 font-light hover:text-white hover:bg-red-600 text-sm"
             />
           }
         />
