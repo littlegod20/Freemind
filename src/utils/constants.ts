@@ -176,3 +176,16 @@ export const moreInviteOptions = [
     label: "Delete",
   },
 ];
+
+
+  export const statics = [
+    "Full name",
+    "Email",
+    "Role",
+    "Joined at",
+    "Last logged in",
+    "Open AI total sessions",
+    "Palm total tokens used",
+    "Palm total tokens used",
+    "Palm total sessions",
+  ];

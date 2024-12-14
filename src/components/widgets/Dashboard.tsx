@@ -27,7 +27,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <main className="hidden sm:block h-screen bg-dark-blue md:px-8 pt-5 w-16 md:min-w-64 text-sm font-extralight text-white">
+    <main className="hidden sm:block h-screen bg-dark-blue md:px-8 pt-5 w-16 md:min-w-64 text-sm font-extralight text-white fixed">
       <header className="h-[10%]">
         <img src={Freemind} alt="logo" className="hidden md:block" />
       </header>
