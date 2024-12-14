@@ -2,12 +2,11 @@ import { useParams } from "react-router-dom";
 import { TableDetailsTypes } from "../../utils/types";
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
-import AvatarDetail from "../../components/AvatarDetail";
 import Details from "../../components/Details";
 import { statics } from "../../utils/constants";
-import Action from "../../components/Action";
 import { CardWithForm } from "@/components/Card";
 import { Button } from "@/components/ui/button";
+import EditContainer from "../../components/EditContainer";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -39,9 +38,9 @@ const UserDetails = () => {
     <main>
       <Header title="User Details" description="" back={true} />
       <section className="py-10">
-        <AvatarDetail
-          name={userDetail?.name}
-          email={userDetail?.email}
+        <EditContainer
+          title={userDetail?.name as string}
+          description={userDetail?.email}
           Button={
             <Button
               title="Edit user details"
@@ -51,13 +50,14 @@ const UserDetails = () => {
               Edit user details
             </Button>
           }
+          isUser={true}
         />
       </section>
 
       <section className="space-y-6">
         <Details statics={statics} details={userDetail} slice1={0} slice2={3} />
         <Details statics={statics} details={userDetail} slice1={3} />
-        <Action
+        <EditContainer
           title="Delete User"
           description=" Deleting this user is permanent and cannot be undone"
           Button={
@@ -68,6 +68,7 @@ const UserDetails = () => {
               Delet User
             </Button>
           }
+          border={true}
         />
 
         {edit ? <CardWithForm /> : null}
