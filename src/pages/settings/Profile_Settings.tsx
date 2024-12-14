@@ -44,8 +44,8 @@ const Profile_Settings = () => {
         <EditContainer
           title="Log out"
           Button={
-            <Button className="bg-white text-red-600 p-5 hover:bg-slate-100 ">
-              Logout <LogOut />{" "}
+            <Button className="bg-white text-red-600 p-5 font-light hover:bg-slate-100 shadow-none">
+              <LogOut /> Logout
             </Button>
           }
           border
