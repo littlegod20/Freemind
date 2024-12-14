@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import AvatarDetail from "../../components/AvatarDetail";
 import Details from "../../components/Details";
 import { statics } from "../../utils/constants";
+import Action from "../../components/Action";
 import Button from "../../components/Button";
 
 const UserDetails = () => {
@@ -37,18 +38,16 @@ const UserDetails = () => {
       <section className="space-y-6">
         <Details statics={statics} details={userDetail} slice1={0} slice2={3} />
         <Details statics={statics} details={userDetail} slice1={3} />
-        <div className="flex justify-between p-5 border rounded-lg items-center">
-          <div>
-            <p className="text-sm font-bold">Delete User</p>
-            <p className="text-xs font-light text-slate-500">
-              Deleting this user is permanent and cannot be undone
-            </p>
-          </div>
-          <Button
-            title="Delete"
-            className="text-red-600 font-light hover:text-white hover:bg-red-600"
-          />
-        </div>
+        <Action
+          title="Delete users"
+          description=" Deleting this user is permanent and cannot be undone"
+          Button={
+            <Button
+              title="Delete"
+              className="text-red-600 font-light hover:text-white hover:bg-red-600"
+            />
+          }
+        />
       </section>
     </main>
   );

@@ -1,7 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 import { ReactElement } from "react";
 import { useNavigate } from "react-router-dom";
-interface HeaderTypes {
+
+
+export interface HeaderTypes {
   title: string;
   description: string;
   Button?: ReactElement;
@@ -21,7 +23,7 @@ const Header: React.FC<HeaderTypes> = ({
         {back ? (
           <ArrowLeft
             className="text-slate-500 cursor-pointer"
-            onClick={() => navigate("")}
+            onClick={() => navigate(-1)}
           />
         ) : null}
         <header className="">
