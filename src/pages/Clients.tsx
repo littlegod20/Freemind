@@ -1,4 +1,4 @@
-import Button from "../components/Button";
+import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import Table from "../components/Table";
 import FilterParent from "../components/widgets/FilterParent";
@@ -15,8 +15,10 @@ const Clients = () => {
         Button={
           <Button
             title="New client"
-            className="bg-[#16a34a] text-white rounded-md border-none shadow-sm hover:bg-[#24b057]"
-          />
+            className="bg-green-active text-white rounded-md border-none shadow-sm hover:bg-[#24b057]"
+          >
+            New client
+          </Button>
         }
       />
 

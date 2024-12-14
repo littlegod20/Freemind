@@ -1,12 +1,13 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 import { TableDetailsTypes } from "../utils/types";
-import Button from "./Button";
+import { ReactElement } from "react";
 
 interface AvatarProps extends TableDetailsTypes {
   image?: string;
+  Button?: ReactElement;
 }
 
-const AvatarDetail = ({ name, email, image }: AvatarProps) => {
+const AvatarDetail = ({ name, email, image, Button }: AvatarProps) => {
   return (
     <>
       <div className="w-full flex flex-col sm:flex-row justify-between">
@@ -22,12 +23,7 @@ const AvatarDetail = ({ name, email, image }: AvatarProps) => {
             <p className="text-slate-500 text-xs font-light"> {email} </p>
           </div>
         </div>
-        <div className="flex w-full justify-end pt-3 sm:pt-0">
-          <Button
-            title="Edit user details"
-            className="bg-green-active text-white border-0 shadow-inner hover:bg-green-700"
-          />
-        </div>
+        <div className="flex w-full justify-end pt-3 sm:pt-0">{Button}</div>
       </div>
     </>
   );

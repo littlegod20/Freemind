@@ -6,12 +6,18 @@ import AvatarDetail from "../../components/AvatarDetail";
 import Details from "../../components/Details";
 import { statics } from "../../utils/constants";
 import Action from "../../components/Action";
-import Button from "../../components/Button";
+import { CardWithForm } from "@/components/Card";
+import { Button } from "@/components/ui/button";
 
 const UserDetails = () => {
   const { id } = useParams();
   const [userDetail, setUserDetail] = useState<TableDetailsTypes | null>(null);
-  console.log("id:", id);
+  const [edit, setEdit] = useState(false);
+
+  const handleEdit = () => {
+    setEdit(!edit);
+    console.log("edited");
+  };
 
   useEffect(() => {
     if (id === "Alex Johnson") {
@@ -33,8 +39,21 @@ const UserDetails = () => {
     <main>
       <Header title="User Details" description="" back={true} />
       <section className="py-10">
-        <AvatarDetail name={userDetail?.name} email={userDetail?.email} />
+        <AvatarDetail
+          name={userDetail?.name}
+          email={userDetail?.email}
+          Button={
+            <Button
+              title="Edit user details"
+              onClick={handleEdit}
+              className="bg-green-active text-white border-0 shadow-inner hover:bg-green-700"
+            >
+              Edit user details
+            </Button>
+          }
+        />
       </section>
+
       <section className="space-y-6">
         <Details statics={statics} details={userDetail} slice1={0} slice2={3} />
         <Details statics={statics} details={userDetail} slice1={3} />
@@ -44,10 +63,14 @@ const UserDetails = () => {
           Button={
             <Button
               title="Delete User"
-              className="text-red-600 font-light hover:text-white hover:bg-red-600 text-sm"
-            />
+              className="text-red-600 font-light hover:text-white hover:border-red-600 text-sm bg-white transition-all duration-300 ease-in"
+            >
+              Delet User
+            </Button>
           }
         />
+
+        {edit ? <CardWithForm /> : null}
       </section>
     </main>
   );

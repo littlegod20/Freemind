@@ -1,4 +1,4 @@
-import Button from "../components/Button";
+import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import Table from "../components/Table";
 import FilterSearch from "../components/widgets/FilterSearch";
@@ -17,8 +17,10 @@ const Invitations = () => {
         Button={
           <Button
             title="Invite user"
-            className="bg-[#16A34A] text-white rounded-md border-none hover:bg-[#24b057] "
-          />
+            className="bg-green-active text-white rounded-md border-none hover:bg-[#24b057] "
+          >
+            Invite user
+          </Button>
         }
       />
 
