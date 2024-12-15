@@ -38,7 +38,7 @@ export interface CardWithFormTypes {
 }
 
 export type LabelTypes = {
-  label: string;
+  label?: string;
   placeholder?: string;
   options?: string[];
 };
@@ -50,6 +50,7 @@ export interface InputsTypes {
   slice2?: number;
   type?: string;
   defaultSelect?: boolean;
+  Icon?:LucideIcon
 }
 
 export interface DetailsTypes {
