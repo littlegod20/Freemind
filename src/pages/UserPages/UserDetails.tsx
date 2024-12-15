@@ -7,7 +7,7 @@ import { data, statics } from "../../utils/constants";
 import { CardWithForm } from "@/components/widgets/Card";
 import { Button } from "@/components/ui/button";
 import EditContainer from "../../components/EditContainer";
-import Inputs from "@/components/widgets/Inputs";
+import Inputs from "@/components/Inputs";
 
 const UserDetails = () => {
   const { id } = useParams();

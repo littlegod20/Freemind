@@ -1,12 +1,12 @@
 import { Label } from "@radix-ui/react-label";
-import { Input } from "../ui/input";
+import { Input } from "./ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../ui/select";
+} from "./ui/select";
 import { InputsTypes } from "@/utils/types";
 
 const Inputs: React.FC<InputsTypes> = ({
