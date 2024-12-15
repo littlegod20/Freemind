@@ -3,8 +3,8 @@ import { TableDetailsTypes } from "../../utils/types";
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Details from "../../components/Details";
-import { statics } from "../../utils/constants";
-import { CardWithForm, data } from "@/components/widgets/Card";
+import { data, statics } from "../../utils/constants";
+import { CardWithForm } from "@/components/widgets/Card";
 import { Button } from "@/components/ui/button";
 import EditContainer from "../../components/EditContainer";
 import Inputs from "@/components/widgets/Inputs";
@@ -64,9 +64,10 @@ const UserDetails = () => {
           Button={
             <Button
               title="Delete User"
-              className="text-red-600 font-light hover:text-white hover:border-red-600 text-sm bg-white transition-all duration-300 ease-in"
+              variant={"ghost"}
+              className="text-red-600 font-light hover:text-red-600 hover:bg-red-100 text-sm"
             >
-              Delet User
+              Delete User
             </Button>
           }
           border={true}

@@ -8,28 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export const data = [
-  {
-    label: "First name",
-    placeholder: "eg. John",
-  },
-  {
-    label: "Last name",
-    placeholder: "eg. Doe",
-  },
-  {
-    label: "Email Address",
-    placeholder: "eg. johndoe@gmail.com",
-  },
-  {
-    label: "Limit calls / month",
-    options: ["1000", "2000", "3000"],
-  },
-  {
-    label: "Role",
-    options: ["Consultant", "General user", "Stragegist"],
-  },
-];
+
 
 interface CardWithFormTypes {
   title: string;
