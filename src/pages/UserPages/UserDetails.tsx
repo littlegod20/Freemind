@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Details from "../../components/Details";
 import { data, statics } from "../../utils/constants";
-import { CardWithForm } from "@/components/widgets/Card";
+import { CardWithForm } from "@/components/widgets/CardWithForm";
 import { Button } from "@/components/ui/button";
 import EditContainer from "../../components/EditContainer";
 import Inputs from "@/components/Inputs";
