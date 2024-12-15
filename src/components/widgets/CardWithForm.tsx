@@ -9,9 +9,6 @@ import {
 } from "@/components/ui/card";
 import { CardWithFormTypes } from "@/utils/types";
 
-
-
-
 export function CardWithForm({
   title,
   description,
@@ -39,7 +36,7 @@ export function CardWithForm({
                   ? "text-green-active  bg-opacity-10 hover:bg-opacity-30 hover:text-green-active"
                   : "hover:bg-button-hover hover:text-white"
               }
-            `}
+                `}
             variant="ghost"
             key={index}
           >

@@ -8,16 +8,12 @@ import { CardWithForm } from "@/components/widgets/CardWithForm";
 import { Button } from "@/components/ui/button";
 import EditContainer from "../../components/EditContainer";
 import Inputs from "@/components/Inputs";
+import ModalContainer from "@/components/ModalContainer";
 
 const UserDetails = () => {
   const { id } = useParams();
   const [userDetail, setUserDetail] = useState<TableDetailsTypes | null>(null);
   const [edit, setEdit] = useState(false);
-
-  const handleEdit = () => {
-    setEdit(!edit);
-    console.log("edited");
-  };
 
   useEffect(() => {
     if (id === "Alex Johnson") {
@@ -45,7 +41,7 @@ const UserDetails = () => {
           Button={
             <Button
               title="Edit user details"
-              onClick={handleEdit}
+              onClick={() => setEdit(!edit)}
               className="bg-green-active text-white border-0 shadow-inner hover:bg-button-hover"
             >
               Edit user details
@@ -55,7 +51,7 @@ const UserDetails = () => {
         />
       </section>
 
-      <section className="space-y-6">
+      <section className={`space-y-6`}>
         <Details statics={statics} details={userDetail} slice1={0} slice2={3} />
         <Details statics={statics} details={userDetail} slice1={3} />
         <EditContainer
@@ -74,17 +70,19 @@ const UserDetails = () => {
         />
 
         {edit ? (
-          <CardWithForm title="Edit user details">
-            <Inputs data={data} slice1={0} slice2={2} layout="row" />
-            <Inputs data={data} slice1={2} slice2={3} layout="column" />
-            <Inputs
-              data={data}
-              slice1={3}
-              slice2={5}
-              type="select"
-              defaultSelect={false}
-            />
-          </CardWithForm>
+          <ModalContainer>
+            <CardWithForm title="Edit user details">
+              <Inputs data={data} slice1={0} slice2={2} layout="row" />
+              <Inputs data={data} slice1={2} slice2={3} />
+              <Inputs
+                data={data}
+                slice1={3}
+                slice2={5}
+                type="select"
+                defaultSelect={false}
+              />
+            </CardWithForm>
+          </ModalContainer>
         ) : null}
       </section>
     </main>
