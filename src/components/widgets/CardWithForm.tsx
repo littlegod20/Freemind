@@ -29,7 +29,7 @@ export function CardWithForm({
           <div className="grid w-full items-center gap-4">{children}</div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-between">
+      <CardFooter className="flex justify-end gap-4 items-center">
         {buttonTitles.map((item, index) => (
           <Button
             className={`
