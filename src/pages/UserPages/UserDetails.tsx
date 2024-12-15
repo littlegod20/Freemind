@@ -5,9 +5,9 @@ import Header from "../../components/Header";
 import Details from "../../components/Details";
 import { data, statics } from "../../utils/constants";
 import { Button } from "@/components/ui/button";
-import EditContainer from "../../components/EditContainer";
+import EditContainer from "../../components/widgets/EditContainer";
 import Inputs from "@/components/Inputs";
-import ModalWithForm from "@/components/ModalWithForm";
+import ModalWithForm from "@/components/widgets/ModalWithForm";
 import { useAction } from "@/hooks/useAction";
 
 const UserDetails = () => {

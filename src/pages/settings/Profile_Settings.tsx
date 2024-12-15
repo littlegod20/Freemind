@@ -1,5 +1,5 @@
 import Details from "@/components/Details";
-import EditContainer from "@/components/EditContainer";
+import EditContainer from "@/components/widgets/EditContainer";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { statics } from "@/utils/constants";
@@ -35,7 +35,11 @@ const Profile_Settings = () => {
         <EditContainer
           title="Edit personal details"
           description='To change, click "edit details" and save when done'
-          Button={<Button className="bg-green-active hover:bg-button-hover">Edit details</Button>}
+          Button={
+            <Button className="bg-green-active hover:bg-button-hover">
+              Edit details
+            </Button>
+          }
         />
       </section>
 

@@ -1,5 +1,5 @@
-import ModalContainer from "./ModalContainer";
-import { CardWithForm } from "./widgets/CardWithForm";
+import ModalContainer from "../ModalContainer";
+import { CardWithForm } from "./CardWithForm";
 
 const ModalWithForm = ({
   children,
