@@ -55,15 +55,9 @@ const Inputs: React.FC<InputsTypes> = ({
                   {item.label}
                 </Label>
                 <Select>
-                  <SelectTrigger id={item.label}>
+                  <SelectTrigger id={item.label} className="text-gray-500">
                     <SelectValue
-                      placeholder={
-                        defaultSelect
-                          ? `Select`
-                          : item.options
-                          ? item.options[0]
-                          : item.placeholder
-                      }
+                      placeholder={defaultSelect ? `Select` : item.placeholder}
                     />
                   </SelectTrigger>
                   <SelectContent position="popper">

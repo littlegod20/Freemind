@@ -21,8 +21,10 @@ export function CardWithForm({
     <Card className={`sm:w-[450px] ${className || ""}`}>
       {title ? (
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
-          <CardDescription>{description}</CardDescription>
+          <CardTitle className="pb-4 font-bold">{title}</CardTitle>
+          <CardDescription className="font-light text-xs">
+            {description}
+          </CardDescription>
         </CardHeader>
       ) : null}
       <CardContent>

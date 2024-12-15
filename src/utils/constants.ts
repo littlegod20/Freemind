@@ -205,6 +205,7 @@ export const data = [
   {
     label: "Limit calls / month",
     options: ["1000", "2000", "3000"],
+    placeholder: "Select number of limit calls per month for this user.",
   },
   {
     label: "Role",
