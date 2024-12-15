@@ -7,6 +7,14 @@ import {
   usersTitles,
 } from "../../utils/constants";
 
+const staticUsersData = [
+  {
+    label: "Role",
+    placeholder: "Choose a role",
+    options: ["General User", "Strategist", "Consultant"],
+  },
+];
+
 const Users = () => {
   return (
     <main className="">
@@ -15,7 +23,7 @@ const Users = () => {
         description="Manage all users you have invited to the platform."
       />
       <section className="pt-5">
-        <FilterParent />
+        <FilterParent data={staticUsersData} />
       </section>
 
       <section className="pt-10">

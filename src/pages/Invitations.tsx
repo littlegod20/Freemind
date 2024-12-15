@@ -8,6 +8,19 @@ import {
   moreInviteOptions,
 } from "../utils/constants";
 
+const staticInviteData = [
+  {
+    label: "Status",
+    placeholder: "Choose status",
+    options: ["Expired", "Pending"],
+  },
+  {
+    label: "Role",
+    placeholder: "Choose a role",
+    options: ["General User", "Strategist", "Consultant"],
+  },
+];
+
 const Invitations = () => {
   return (
     <main className="w-full">
@@ -25,7 +38,7 @@ const Invitations = () => {
       />
 
       <section className="pt-5">
-        <FilterSearch />
+        <FilterSearch filterInfo={staticInviteData} />
       </section>
 
       <section className="pt-10">
