@@ -8,11 +8,12 @@ import { Button } from "@/components/ui/button";
 import EditContainer from "../../components/EditContainer";
 import Inputs from "@/components/Inputs";
 import ModalWithForm from "@/components/ModalWithForm";
+import { useAction } from "@/hooks/useAction";
 
 const UserDetails = () => {
   const { id } = useParams();
   const [userDetail, setUserDetail] = useState<TableDetailsTypes | null>(null);
-  const [edit, setEdit] = useState(false);
+  const { close, setClose } = useAction();
 
   useEffect(() => {
     if (id === "Alex Johnson") {
@@ -40,7 +41,7 @@ const UserDetails = () => {
           Button={
             <Button
               title="Edit user details"
-              onClick={() => setEdit(!edit)}
+              onClick={() => (setClose ? setClose(!close) : null)}
               className="bg-green-active text-white border-0 shadow-inner hover:bg-button-hover"
             >
               Edit user details
@@ -68,7 +69,7 @@ const UserDetails = () => {
           border={true}
         />
 
-        {edit ? (
+        {close ? (
           <ModalWithForm title="Edit user details">
             <Inputs data={data} slice1={0} slice2={2} layout="row" />
             <Inputs data={data} slice1={2} slice2={3} />

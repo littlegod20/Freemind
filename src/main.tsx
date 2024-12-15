@@ -3,9 +3,12 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import "../src/utils/string";
 import App from "./App";
+import ActionProvider from "./hooks/useAction";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <ActionProvider>
+      <App />
+    </ActionProvider>
   </StrictMode>
 );

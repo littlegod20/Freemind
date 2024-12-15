@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useAction } from "@/hooks/useAction";
 import { CardWithFormTypes } from "@/utils/types";
 
 export function CardWithForm({
@@ -15,6 +16,8 @@ export function CardWithForm({
   children,
   buttonTitles = ["Cancel", "Save changes"],
 }: CardWithFormTypes) {
+  const { onClose, onSave } = useAction();
+
   return (
     <Card className="sm:w-[450px]">
       <CardHeader>
@@ -39,6 +42,7 @@ export function CardWithForm({
                 `}
             variant="ghost"
             key={index}
+            onClick={item === "Cancel" ? onClose : onSave}
           >
             {" "}
             {item}{" "}
