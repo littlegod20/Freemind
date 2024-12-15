@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Details from "../../components/Details";
 import { data, statics } from "../../utils/constants";
-import { CardWithForm } from "@/components/widgets/CardWithForm";
 import { Button } from "@/components/ui/button";
 import EditContainer from "../../components/EditContainer";
 import Inputs from "@/components/Inputs";
-import ModalContainer from "@/components/ModalContainer";
+import ModalWithForm from "@/components/ModalWithForm";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -70,19 +69,17 @@ const UserDetails = () => {
         />
 
         {edit ? (
-          <ModalContainer>
-            <CardWithForm title="Edit user details">
-              <Inputs data={data} slice1={0} slice2={2} layout="row" />
-              <Inputs data={data} slice1={2} slice2={3} />
-              <Inputs
-                data={data}
-                slice1={3}
-                slice2={5}
-                type="select"
-                defaultSelect={false}
-              />
-            </CardWithForm>
-          </ModalContainer>
+          <ModalWithForm title="Edit user details">
+            <Inputs data={data} slice1={0} slice2={2} layout="row" />
+            <Inputs data={data} slice1={2} slice2={3} />
+            <Inputs
+              data={data}
+              slice1={3}
+              slice2={5}
+              type="select"
+              defaultSelect={false}
+            />
+          </ModalWithForm>
         ) : null}
       </section>
     </main>
