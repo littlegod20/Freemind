@@ -6,9 +6,13 @@ import { statics } from "@/utils/constants";
 import { TableDetailsTypes } from "@/utils/types";
 import { LogOut } from "lucide-react";
 import { useEffect, useState } from "react";
+import ModalWithForm from "@/components/widgets/ModalWithForm";
+import Inputs from "@/components/Inputs";
+import { useAction } from "@/hooks/useAction";
 
 const Profile_Settings = () => {
   const [userDetail, setUserDetail] = useState<TableDetailsTypes | null>(null);
+  const { close, onClose } = useAction();
 
   useEffect(() => {
     setUserDetail({
@@ -25,7 +29,7 @@ const Profile_Settings = () => {
   }, []);
 
   return (
-    <main>
+    <main className="bg-pink-400">
       <Header
         title="Profile Settings"
         description="Manage your personal profile"
@@ -36,7 +40,10 @@ const Profile_Settings = () => {
           title="Edit personal details"
           description='To change, click "edit details" and save when done'
           Button={
-            <Button className="bg-green-active hover:bg-button-hover">
+            <Button
+              className="bg-green-active hover:bg-button-hover"
+              onClick={onClose}
+            >
               Edit details
             </Button>
           }
@@ -55,6 +62,25 @@ const Profile_Settings = () => {
           border
         />
       </section>
+      {close && (
+        <ModalWithForm
+          title="Edit details"
+          // outClick={true}
+          buttonLayout="end"
+          buttonTitles={[
+            { label: "Cancel", action: onClose },
+            { label: "Save changes" },
+          ]}
+        >
+          <Inputs
+            data={[
+              { label: "First name", placeholder: "Alex" },
+              { label: "Last name", placeholder: "Johnson" },
+            ]}
+            layout="row"
+          />
+        </ModalWithForm>
+      )}
     </main>
   );
 };

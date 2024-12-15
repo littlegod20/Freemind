@@ -36,6 +36,7 @@ export interface CardWithFormTypes {
   buttonTitles?: MoreOptions[];
   className?: string;
   buttonLayout?: string;
+  outClick?: boolean;
 }
 
 export type LabelTypes = {

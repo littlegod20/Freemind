@@ -17,8 +17,11 @@ const ModalContainer = ({
   };
 
   return (
-    <section className="fixed inset-0 h-screen" onClick={handleOutClick}>
-      <div className="fixed inset-0 flex bg-black bg-opacity-50 items-center justify-center z-50">
+    <section
+      className="fixed inset-0 h-screen flex items-center justify-center "
+      onClick={handleOutClick}
+    >
+      <div className="fixed inset-0 flex bg-black bg-opacity-50 items-center justify-center z-50 w-full p-5">
         {children}
       </div>
     </section>

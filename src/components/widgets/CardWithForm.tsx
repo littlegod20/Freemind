@@ -18,18 +18,20 @@ export function CardWithForm({
   buttonLayout = "end",
 }: CardWithFormTypes) {
   return (
-    <Card className={`sm:w-[450px] ${className || ""}`}>
+    <Card className={`w-full ${className || ""}`}>
       {title ? (
         <CardHeader>
-          <CardTitle className="pb-4 font-bold">{title}</CardTitle>
-          <CardDescription className="font-light text-xs">
-            {description}
-          </CardDescription>
+          <CardTitle className="font-bold">{title}</CardTitle>
+          {description && (
+            <CardDescription className="font-light text-xs">
+              {description}
+            </CardDescription>
+          )}
         </CardHeader>
       ) : null}
-      <CardContent>
-        <form>
-          <div className="grid w-full items-center gap-4">{children}</div>
+      <CardContent className="w-full">
+        <form className="w-full">
+          <div className="w-full space-y-3 gap-4">{children}</div>
         </form>
       </CardContent>
       <CardFooter className={`flex justify-${buttonLayout} gap-4 items-center`}>

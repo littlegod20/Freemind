@@ -29,7 +29,7 @@ const Invitations = () => {
   const { close, onClose, onSave } = useAction();
 
   return (
-    <main className="w-full">
+    <main className="w-full ">
       <Header
         title="invitations"
         description="Invite a new user to access the platform"
