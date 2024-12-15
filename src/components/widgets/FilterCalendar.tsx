@@ -1,21 +1,21 @@
 import { Calendar } from "lucide-react";
-import Input from "../Input";
+import Inputs from "../Inputs";
 
 const FilterCalendar = () => {
   return (
     <>
-      <div className="flex flex-col items-start gap-2 md:gap-0 md:flex-row pt-2">
-        <Input
-          placeholder="From"
+      <div className="flex flex-col items-start gap-2 hdx:gap-0 hdx:flex-row pt-2">
+        <Inputs
+          data={[{ placeholder: "From" }]}
           Icon={Calendar}
-          onChange={(e) => console.log(e.target.value)}
-          className={{ container: "rounded md:rounded-r-none rounded-l" }}
+          // onChange={(e) => console.log(e.target.value)}
+          className={"rounded hdx:rounded-r-none rounded-l"}
         />
-        <Input
-          placeholder="To"
+        <Inputs
+          data={[{ placeholder: "To" }]}
           Icon={Calendar}
-          onChange={(e) => console.log(e.target.value)}
-          className={{ container: "rounded md:rounded-l-none rounded-r" }}
+          // onChange={(e) => console.log(e.target.value)}
+          className={"rounded hdx:rounded-l-none rounded-r"}
         />
       </div>
     </>

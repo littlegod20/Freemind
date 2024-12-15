@@ -3,9 +3,9 @@ import Dashboard from "../components/widgets/Dashboard";
 
 const DashboardLayout = () => {
   return (
-    <main className="flex w-screen">
+    <main className="flex w-screen h-screen">
       <Dashboard />
-      <section className="px-5 sm:py-6 flex-1">
+      <section className="py-14 sm:py-6 px-4 flex-1 w-3/5 h-screen overflow-scroll">
         <Outlet />
       </section>
     </main>

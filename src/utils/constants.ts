@@ -160,7 +160,7 @@ export const moreClientOptions = [
 export const moreUserOptions = [
   {
     label: "Edit user",
-    path:'user-details'
+    path: "user-details",
   },
   {
     label: "Remove access",
@@ -174,5 +174,41 @@ export const moreInviteOptions = [
   },
   {
     label: "Delete",
+  },
+];
+
+export const statics = [
+  "Full name",
+  "Email",
+  "Role",
+  "Joined at",
+  "Last logged in",
+  "Open AI total sessions",
+  "Palm total tokens used",
+  "Palm total tokens used",
+  "Palm total sessions",
+];
+
+export const data = [
+  {
+    label: "First name",
+    placeholder: "eg. John",
+  },
+  {
+    label: "Last name",
+    placeholder: "eg. Doe",
+  },
+  {
+    label: "Email Address",
+    placeholder: "eg. johndoe@gmail.com",
+  },
+  {
+    label: "Limit calls / month",
+    options: ["1000", "2000", "3000"],
+    placeholder: "Select number of limit calls per month for this user.",
+  },
+  {
+    label: "Role",
+    options: ["Consultant", "General user", "Stragegist"],
   },
 ];

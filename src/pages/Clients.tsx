@@ -1,10 +1,12 @@
-import Button from "../components/Button";
+import { Button } from "@/components/ui/button";
 import Header from "../components/Header";
 import Table from "../components/Table";
 import FilterParent from "../components/widgets/FilterParent";
-import { clientDetails, clientTitles, moreClientOptions } from "../utils/constants";
-
-
+import {
+  clientDetails,
+  clientTitles,
+  moreClientOptions,
+} from "../utils/constants";
 
 const Clients = () => {
   return (
@@ -15,17 +17,31 @@ const Clients = () => {
         Button={
           <Button
             title="New client"
-            className="bg-[#16a34a] text-white rounded-md border-none shadow-sm hover:bg-[#24b057]"
-          />
+            className="bg-green-active text-white rounded-md border-none shadow-sm hover:bg-[#24b057]"
+          >
+            New client
+          </Button>
         }
       />
 
       <section className="pt-5">
-        <FilterParent />
+        <FilterParent
+          data={[
+            {
+              label: "Role",
+              placeholder: "Choose a role",
+              options: ["General User", "Strategist", "Consultant"],
+            },
+          ]}
+        />
       </section>
 
       <section className="pt-10">
-        <Table tableTitles={clientTitles} tableDetails={clientDetails} moreOptions={moreClientOptions} />
+        <Table
+          tableTitles={clientTitles}
+          tableDetails={clientDetails}
+          moreOptions={moreClientOptions}
+        />
       </section>
     </main>
   );

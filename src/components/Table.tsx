@@ -2,25 +2,14 @@ import { Tooltip } from "react-tooltip";
 import { TableDetailsTypes, TableTypes } from "../utils/types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-const specialRenderers = {
-  inviteStatus: (val: string) => {
-    return (
-      <div
-        className="bg-red-100 text-red-60 p-2 text-red-500 rounded-full"
-        data-tooltip-id="my-tooltip"
-        data-tooltip-content={val}
-      >
-        {val.toUpperCase()}
-      </div>
-    );
-  },
-};
+import Pagination from "./widgets/Pagination";
+import { specialRenderers } from "@/utils/helpers";
 
 const Table: React.FC<TableTypes> = ({
   tableDetails,
   tableTitles,
   moreOptions,
+  pagination = false,
 }) => {
   const [details, setDetails] = useState(
     tableDetails.map((item) => ({ ...item, show: false }))
@@ -38,8 +27,8 @@ const Table: React.FC<TableTypes> = ({
   };
 
   return (
-    <>
-      <div className="overflow-hidden rounded-lg border shadow-inner">
+    <div className="border rounded-lg w-full ">
+      <div className="overflow-scroll rounded-lg border shadow-inner flex">
         <table className="text-sm w-full">
           <thead className="p-2 w-full ">
             <tr className="flex gap-2 p-2 justify-between">
@@ -88,7 +77,9 @@ const Table: React.FC<TableTypes> = ({
                             1 && (
                           <div className="">
                             <span
-                              className="text-black font-black cursor-pointer ml-2"
+                              className={`text-black font-black cursor-pointer ml-2 ${
+                                detail.show ? "text-green-active" : ""
+                              }`}
                               onClick={() => handleHidden(detailIndex)}
                             >
                               ...
@@ -123,7 +114,8 @@ const Table: React.FC<TableTypes> = ({
           </tbody>
         </table>
       </div>
-    </>
+      {pagination ? <Pagination /> : null}
+    </div>
   );
 };
 

@@ -1,23 +1,47 @@
-import { Search } from "lucide-react";
-import FilterLabel from "../FilterLabel";
-import Input from "../Input";
+import { ListFilter, Search } from "lucide-react";
+import Inputs from "../Inputs";
+import { useState } from "react";
+import { CardWithForm } from "./CardWithForm";
+import { LabelTypes } from "@/utils/types";
 
+const FilterSearch = ({ filterInfo }: { filterInfo: LabelTypes[] }) => {
+  const [filter, setFilter] = useState(false);
 
-const FilterSearch = () => {
+  const handleFilterShow = () => {
+    setFilter(!filter);
+  };
   return (
     <>
-      <div className="flex items-center gap-2">
-        <FilterLabel />
-        <Input
-          placeholder="Search"
-          onChange={(e) => console.log(e.target.value)}
-          Icon={Search}
-          rotate={true}
-          className={{ container: "rounded" }}
-        />
+      <div className="flex items-center gap-2 flex-wrap">
+        {/* filter lable */}
+        <section
+          className={`flex items-center rounded  hover:bg-gray-100 font-light relative `}
+        >
+          <div
+            className={`flex gap-3 p-2 rounded cursor-pointer ${
+              filter ? "bg-green-100 bg-opacity-70" : ""
+            }`}
+            onClick={handleFilterShow}
+          >
+            <ListFilter />
+            <p>Filters</p>
+          </div>
+          {filter ? (
+            <CardWithForm
+              className="sm:w-64 absolute top-full z-50 left-0 pt-4 mt-2"
+              buttonTitles={[{ label: "Reset" }, { label: "Filter" }]}
+              buttonLayout="between"
+            >
+              <Inputs data={filterInfo} type="select" defaultSelect={false} />
+            </CardWithForm>
+          ) : null}
+        </section>
+
+        {/* search input */}
+        <Inputs data={[{ placeholder: "Search" }]} Icon={Search} />
       </div>
     </>
   );
-}
+};
 
-export default FilterSearch
+export default FilterSearch;
