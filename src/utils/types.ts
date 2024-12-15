@@ -40,8 +40,8 @@ export interface CardWithFormTypes {
 
 export type LabelTypes = {
   label?: string;
-  placeholder?: string;
   options?: string[];
+  placeholder?: string;
 };
 
 export interface InputsTypes {

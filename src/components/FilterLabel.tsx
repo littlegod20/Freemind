@@ -30,7 +30,7 @@ const FilterLabel = () => {
           buttonLayout="between"
         >
           <Inputs
-            data={[{ label: "Role", placeholder: "Choose a role" }]}
+            data={[{ label: "Role", placeholder: "Choose a role", options:["General User", "Strategist", "Consultant"]}]}
             type="select"
             defaultSelect={false}
           />
