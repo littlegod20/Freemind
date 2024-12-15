@@ -17,6 +17,7 @@ const Inputs: React.FC<InputsTypes> = ({
   type = "text",
   defaultSelect = true,
   Icon,
+  className,
 }) => {
   return (
     <>
@@ -29,12 +30,16 @@ const Inputs: React.FC<InputsTypes> = ({
       >
         {type === "text"
           ? data.slice(slice1, slice2).map((item, index) => (
-              <div key={index} className="relative">
+              <div key={index}>
                 <Label htmlFor={item.label} className="text-sm">
                   {item.label}
                 </Label>
                 <div className="relative">
-                  <Input id={item.label} placeholder={item.placeholder} />
+                  <Input
+                    id={item.label}
+                    placeholder={item.placeholder}
+                    className={`${className}`}
+                  />
                   {Icon ? (
                     <Icon size={33} className="absolute right-0 top-0 p-2" />
                   ) : null}

@@ -50,7 +50,8 @@ export interface InputsTypes {
   slice2?: number;
   type?: string;
   defaultSelect?: boolean;
-  Icon?:LucideIcon
+  Icon?: LucideIcon;
+  className?: string;
 }
 
 export interface DetailsTypes {
