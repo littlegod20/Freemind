@@ -18,7 +18,7 @@ export function CardWithForm({
   buttonLayout = "end",
 }: CardWithFormTypes) {
   return (
-    <Card className={`w-full ${className || ""}`}>
+    <Card className={`w-full sm:max-w-[450px] ${className || ""}`}>
       {title ? (
         <CardHeader>
           <CardTitle className="font-bold">{title}</CardTitle>
