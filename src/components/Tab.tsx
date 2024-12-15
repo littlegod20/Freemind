@@ -1,12 +1,5 @@
-import { LucideIcon } from "lucide-react";
+import { TabStyles } from "@/utils/types";
 import { Tooltip } from "react-tooltip";
-
-interface TabStyles {
-  name: string;
-  Icon: LucideIcon;
-  activeTab: string;
-  onNavigation: (val: string) => void;
-}
 
 const Tab: React.FC<TabStyles> = ({ Icon, name, activeTab, onNavigation }) => {
   return (
@@ -21,7 +14,7 @@ const Tab: React.FC<TabStyles> = ({ Icon, name, activeTab, onNavigation }) => {
       >
         <Icon size={20} />
         <p className="hidden md:block">{name}</p>
-        <Tooltip id="my-tooltip" className="md:hidden"/>
+        <Tooltip id="my-tooltip" className="md:hidden" />
       </div>
     </>
   );

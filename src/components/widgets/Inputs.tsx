@@ -7,21 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
-
-type LabelTypes = {
-  label: string;
-  placeholder?: string;
-  options?: string[];
-};
-
-interface InputsTypes {
-  data: LabelTypes[];
-  layout?: "row" | "column";
-  slice1?: number;
-  slice2?: number;
-  type?: string;
-  defaultSelect?: boolean;
-}
+import { InputsTypes } from "@/utils/types";
 
 const Inputs: React.FC<InputsTypes> = ({
   data,

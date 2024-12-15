@@ -1,11 +1,4 @@
-import { TableDetailsTypes } from "../utils/types";
-
-export interface DetailsTypes {
-  statics: string[];
-  details: TableDetailsTypes | null;
-  slice1?: number;
-  slice2?: number;
-}
+import { DetailsTypes } from "../utils/types";
 
 const Details: React.FC<DetailsTypes> = ({
   statics,

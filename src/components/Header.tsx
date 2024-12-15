@@ -1,14 +1,6 @@
+import { HeaderTypes } from "@/utils/types";
 import { ArrowLeft } from "lucide-react";
-import { ReactElement } from "react";
 import { useNavigate } from "react-router-dom";
-
-
-export interface HeaderTypes {
-  title: string;
-  description: string;
-  Button?: ReactElement;
-  back?: boolean;
-}
 
 const Header: React.FC<HeaderTypes> = ({
   title,

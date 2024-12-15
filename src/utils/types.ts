@@ -1,3 +1,6 @@
+import { LucideIcon } from "lucide-react";
+import React from "react";
+
 export interface TableDetailsTypes {
   name?: string;
   role?: string;
@@ -25,4 +28,56 @@ export interface TableTypes {
   tableDetails: TableDetailsTypes[];
   moreOptions: MoreOptions[];
   pagination?: boolean;
+}
+
+export interface CardWithFormTypes {
+  title: string;
+  description?: string;
+  children: React.ReactNode;
+  buttonTitles?: string[];
+}
+
+export type LabelTypes = {
+  label: string;
+  placeholder?: string;
+  options?: string[];
+};
+
+export interface InputsTypes {
+  data: LabelTypes[];
+  layout?: "row" | "column";
+  slice1?: number;
+  slice2?: number;
+  type?: string;
+  defaultSelect?: boolean;
+}
+
+export interface DetailsTypes {
+  statics: string[];
+  details: TableDetailsTypes | null;
+  slice1?: number;
+  slice2?: number;
+}
+
+export interface EditContainerTypes {
+  title: string;
+  description?: string;
+  image?: string;
+  Button?: React.ReactNode;
+  isUser?: boolean;
+  border?: boolean;
+}
+
+export interface HeaderTypes {
+  title: string;
+  description: string;
+  Button?: React.ReactNode;
+  back?: boolean;
+}
+
+export interface TabStyles {
+  name: string;
+  Icon: LucideIcon;
+  activeTab: string;
+  onNavigation: (val: string) => void;
 }

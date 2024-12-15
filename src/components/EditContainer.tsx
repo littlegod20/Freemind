@@ -1,14 +1,5 @@
+import { EditContainerTypes } from "@/utils/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
-import { ReactElement } from "react";
-
-interface EditContainerTypes {
-  title: string;
-  description?: string;
-  image?: string;
-  Button?: ReactElement;
-  isUser?: boolean;
-  border?: boolean;
-}
 
 const EditContainer = ({
   title,

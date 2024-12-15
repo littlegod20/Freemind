@@ -1,7 +1,7 @@
 import { LucideIcon } from "lucide-react";
 import { useRef } from "react";
 
-interface InputTypes {
+export interface InputTypes {
   placeholder: string;
   onChange: (val: React.ChangeEvent<HTMLInputElement>) => void;
   Icon?: LucideIcon;

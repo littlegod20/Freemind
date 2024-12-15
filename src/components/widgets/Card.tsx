@@ -7,15 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { CardWithFormTypes } from "@/utils/types";
 
 
 
-interface CardWithFormTypes {
-  title: string;
-  description?: string;
-  children: React.ReactNode;
-  buttonTitles?: string[];
-}
 
 export function CardWithForm({
   title,
