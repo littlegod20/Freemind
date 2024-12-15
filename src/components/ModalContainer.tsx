@@ -1,18 +1,24 @@
 import { useAction } from "@/hooks/useAction";
 
-const ModalContainer = ({ children }: { children: React.ReactNode }) => {
+const ModalContainer = ({
+  children,
+  outClick = false,
+}: {
+  children: React.ReactNode;
+  outClick?: boolean;
+}) => {
   const { onClose } = useAction();
 
   const handleOutClick = () => {
-    onClose();
+    if (outClick) {
+      onClose();
+    }
+    return;
   };
 
   return (
-    <section className="fixed inset-0 h-screen">
-      <div
-        className="fixed inset-0 flex bg-black bg-opacity-50 items-center justify-center"
-        onClick={handleOutClick}
-      >
+    <section className="fixed inset-0 h-screen" onClick={handleOutClick}>
+      <div className="fixed inset-0 flex bg-black bg-opacity-50 items-center justify-center z-50">
         {children}
       </div>
     </section>

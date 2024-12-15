@@ -20,7 +20,7 @@ const ActionProvider = ({ children }: { children: React.ReactNode }) => {
     console.log("saved");
   };
   return (
-    <ActionContext.Provider value={{ onClose, onSave, close, setClose }}>
+    <ActionContext.Provider value={{ onSave, close, setClose, onClose }}>
       {children}
     </ActionContext.Provider>
   );

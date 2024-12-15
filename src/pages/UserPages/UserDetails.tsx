@@ -13,7 +13,7 @@ import { useAction } from "@/hooks/useAction";
 const UserDetails = () => {
   const { id } = useParams();
   const [userDetail, setUserDetail] = useState<TableDetailsTypes | null>(null);
-  const { close, setClose } = useAction();
+  const { close, setClose, onSave, onClose } = useAction();
 
   useEffect(() => {
     if (id === "Alex Johnson") {
@@ -70,7 +70,13 @@ const UserDetails = () => {
         />
 
         {close ? (
-          <ModalWithForm title="Edit user details">
+          <ModalWithForm
+            title="Edit user details"
+            buttonTitles={[
+              { label: "Cancel", action: onClose },
+              { label: "Save changes", action: onSave },
+            ]}
+          >
             <Inputs data={data} slice1={0} slice2={2} layout="row" />
             <Inputs data={data} slice1={2} slice2={3} />
             <Inputs

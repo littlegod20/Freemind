@@ -62,7 +62,7 @@ const Inputs: React.FC<InputsTypes> = ({
                           ? `Select`
                           : item.options
                           ? item.options[0]
-                          : ""
+                          : item.placeholder
                       }
                     />
                   </SelectTrigger>

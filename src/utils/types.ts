@@ -19,8 +19,7 @@ export interface TableDetailsTypes {
 interface MoreOptions {
   label: string;
   path?: string;
-  // fn(val: string): void;
-  // fn(): void;
+  action?: () => void;
 }
 
 export interface TableTypes {
@@ -31,10 +30,12 @@ export interface TableTypes {
 }
 
 export interface CardWithFormTypes {
-  title: string;
+  title?: string;
   description?: string;
   children: React.ReactNode;
-  buttonTitles?: string[];
+  buttonTitles?: MoreOptions[];
+  className?: string;
+  buttonLayout?: string;
 }
 
 export type LabelTypes = {
