@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Details from "../../components/Details";
 import { statics } from "../../utils/constants";
-import { CardWithForm } from "@/components/Card";
+import { CardWithForm, data } from "@/components/widgets/Card";
 import { Button } from "@/components/ui/button";
 import EditContainer from "../../components/EditContainer";
+import Inputs from "@/components/widgets/Inputs";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -71,7 +72,19 @@ const UserDetails = () => {
           border={true}
         />
 
-        {edit ? <CardWithForm /> : null}
+        {edit ? (
+          <CardWithForm title="Edit user details">
+            <Inputs data={data} slice1={0} slice2={2} layout="row" />
+            <Inputs data={data} slice1={2} slice2={3} layout="column" />
+            <Inputs
+              data={data}
+              slice1={3}
+              slice2={5}
+              type="select"
+              defaultSelect={false}
+            />
+          </CardWithForm>
+        ) : null}
       </section>
     </main>
   );

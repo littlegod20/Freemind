@@ -90,7 +90,9 @@ const Table: React.FC<TableTypes> = ({
                             1 && (
                           <div className="">
                             <span
-                              className="text-black font-black cursor-pointer ml-2"
+                              className={`text-black font-black cursor-pointer ml-2 ${
+                                detail.show ? "text-green-active" : ""
+                              }`}
                               onClick={() => handleHidden(detailIndex)}
                             >
                               ...
