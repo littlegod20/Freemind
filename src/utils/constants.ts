@@ -153,10 +153,10 @@ export const clientDetails = [
 
 export const moreClientOptions = [
   {
-    label: "Edit user",
+    label: "Edit client",
   },
   {
-    label: "Remove access",
+    label: "Delete",
   },
 ];
 

@@ -11,6 +11,8 @@ import {
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import Inputs from "@/components/Inputs";
+import { PhoneInput } from "@/components/widgets/PhoneInput";
+import { Label } from "@/components/ui/label";
 
 const Clients = () => {
   const { onClose, close } = useAction();
@@ -54,7 +56,10 @@ const Clients = () => {
         <ModalWithForm
           title="Create new client"
           description="An invitation will be sent to this email address with a link to access the client portal"
-          buttonTitles={[{ label: "Cancel", action: onClose }, { label: "Send Invite" }]}
+          buttonTitles={[
+            { label: "Cancel", action: onClose },
+            { label: "Send Invite" },
+          ]}
           cancelButton={true}
         >
           <Inputs data={data} slice1={5} slice2={8} />
@@ -68,6 +73,12 @@ const Clients = () => {
           </div>
 
           <Inputs data={data} slice1={0} slice2={2} layout="row" />
+
+          <div className="space-y-1">
+            <Label>Phone number</Label>
+            <PhoneInput defaultCountry="GH" placeholder="Enter phone number" />
+          </div>
+
           <Inputs
             data={[{ label: "Email", placeholder: "Enter email address" }]}
           />

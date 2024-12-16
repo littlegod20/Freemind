@@ -4,14 +4,11 @@ import "./index.css";
 import "../src/utils/string";
 import App from "./App";
 import ActionProvider from "./hooks/useAction";
-import { PrimeReactProvider } from "primereact/api";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ActionProvider>
-      <PrimeReactProvider>
-        <App />
-      </PrimeReactProvider>
+      <App />
     </ActionProvider>
   </StrictMode>
 );
