@@ -7,7 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useAction } from "@/hooks/useAction";
 import { CardWithFormTypes } from "@/utils/types";
+import { X } from "lucide-react";
 
 export function CardWithForm({
   title,
@@ -16,12 +18,21 @@ export function CardWithForm({
   buttonTitles,
   className,
   buttonLayout = "end",
+  cancelButton,
 }: CardWithFormTypes) {
+  const { onClose } = useAction();
   return (
     <Card className={`w-full sm:max-w-[450px] ${className || ""}`}>
       {title ? (
         <CardHeader>
-          <CardTitle className="font-bold">{title}</CardTitle>
+          <CardTitle className="font-bold flex items-center justify-between">
+            {title}{" "}
+            {cancelButton && (
+              <span className="cursor-pointer" onClick={onClose}>
+                <X className="text-slate-500" />
+              </span>
+            )}
+          </CardTitle>
           {description && (
             <CardDescription className="font-light text-xs">
               {description}

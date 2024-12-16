@@ -37,6 +37,7 @@ export interface CardWithFormTypes {
   className?: string;
   buttonLayout?: string;
   outClick?: boolean;
+  cancelButton?:boolean
 }
 
 export type LabelTypes = {

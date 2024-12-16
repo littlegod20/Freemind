@@ -65,8 +65,8 @@ const Profile_Settings = () => {
       {close && (
         <ModalWithForm
           title="Edit details"
-          // outClick={true}
           buttonLayout="end"
+          cancelButton={true}
           buttonTitles={[
             { label: "Cancel", action: onClose },
             { label: "Save changes" },

@@ -8,6 +8,8 @@ const ModalWithForm = ({
   description,
   buttonTitles,
   outClick,
+  buttonLayout,
+  cancelButton
 }: CardWithFormTypes) => {
   return (
     <ModalContainer outClick={outClick}>
@@ -15,6 +17,8 @@ const ModalWithForm = ({
         title={title}
         description={description}
         buttonTitles={buttonTitles}
+        buttonLayout={buttonLayout}
+        cancelButton={cancelButton}
       >
         {children}
       </CardWithForm>
