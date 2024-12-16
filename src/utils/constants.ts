@@ -6,7 +6,10 @@ import {
   User,
   UserPlus,
   Users,
+  Link,
+  Calendar,
 } from "lucide-react";
+import { LabelTypes } from "./types";
 
 export const dashTabs = [
   {
@@ -189,7 +192,7 @@ export const statics = [
   "Palm total sessions",
 ];
 
-export const data = [
+export const data: LabelTypes[] = [
   {
     label: "First name",
     placeholder: "eg. John",
@@ -210,5 +213,19 @@ export const data = [
   {
     label: "Role",
     options: ["Consultant", "General user", "Stragegist"],
+  },
+  {
+    label: "Company name",
+    placeholder: "Enter company name",
+  },
+  {
+    label: "Website",
+    placeholder: "Insert website link",
+    Icon: Link,
+  },
+  {
+    label: "Contract expiry date",
+    placeholder: "Enter date",
+    Icon: Calendar,
   },
 ];

@@ -16,7 +16,6 @@ const Inputs: React.FC<InputsTypes> = ({
   slice2,
   type = "text",
   defaultSelect = true,
-  Icon,
   className,
 }) => {
   return (
@@ -34,14 +33,17 @@ const Inputs: React.FC<InputsTypes> = ({
                 <Label htmlFor={item.label} className="text-sm">
                   {item.label}
                 </Label>
-                <div className="relative">
+                <div className="relative mt-1">
                   <Input
                     id={item.label}
                     placeholder={item.placeholder}
-                    className={`${className}`}
+                    className={`text-sm ${className}`}
                   />
-                  {Icon ? (
-                    <Icon size={33} className="absolute right-0 top-0 p-2" />
+                  {item.Icon ? (
+                    <item.Icon
+                      size={33}
+                      className="absolute right-0 top-0 p-2 text-slate-500 hover:text-black cursor-pointer"
+                    />
                   ) : null}
                 </div>
               </div>

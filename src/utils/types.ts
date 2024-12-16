@@ -44,6 +44,7 @@ export type LabelTypes = {
   label?: string;
   options?: string[];
   placeholder?: string;
+  Icon?: LucideIcon;
 };
 
 export interface InputsTypes {
@@ -53,7 +54,6 @@ export interface InputsTypes {
   slice2?: number;
   type?: string;
   defaultSelect?: boolean;
-  Icon?: LucideIcon;
   className?: string;
 }
 

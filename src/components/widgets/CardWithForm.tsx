@@ -29,7 +29,7 @@ export function CardWithForm({
             {title}{" "}
             {cancelButton && (
               <span className="cursor-pointer" onClick={onClose}>
-                <X className="text-slate-500" />
+                <X className="text-slate-500 hover:text-black transition-all duration-300 ease-in" />
               </span>
             )}
           </CardTitle>

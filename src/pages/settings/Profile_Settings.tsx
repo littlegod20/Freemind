@@ -29,7 +29,7 @@ const Profile_Settings = () => {
   }, []);
 
   return (
-    <main className="bg-pink-400">
+    <main>
       <Header
         title="Profile Settings"
         description="Manage your personal profile"
