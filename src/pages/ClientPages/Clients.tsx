@@ -1,13 +1,13 @@
 import { Button } from "@/components/ui/button";
-import Header from "../components/Header";
-import Table from "../components/Table";
-import FilterParent from "../components/widgets/FilterParent";
+import Header from "../../components/Header";
+import Table from "../../components/Table";
+import FilterParent from "../../components/widgets/FilterParent";
 import {
   clientDetails,
   clientTitles,
   data,
   moreClientOptions,
-} from "../utils/constants";
+} from "../../utils/constants";
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import Inputs from "@/components/Inputs";

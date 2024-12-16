@@ -16,7 +16,7 @@ export interface TableDetailsTypes {
   expiryDate?: string;
 }
 
-interface MoreOptions {
+export interface MoreOptions {
   label: string;
   path?: string;
   action?: () => void;
@@ -37,7 +37,7 @@ export interface CardWithFormTypes {
   className?: string;
   buttonLayout?: string;
   outClick?: boolean;
-  cancelButton?:boolean
+  cancelButton?: boolean;
 }
 
 export type LabelTypes = {

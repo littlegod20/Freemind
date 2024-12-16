@@ -9,7 +9,7 @@ import {
   Link,
   Calendar,
 } from "lucide-react";
-import { LabelTypes } from "./types";
+import { LabelTypes, MoreOptions } from "./types";
 
 export const dashTabs = [
   {
@@ -151,9 +151,11 @@ export const clientDetails = [
   },
 ];
 
-export const moreClientOptions = [
+export const moreClientOptions:MoreOptions[] = [
   {
     label: "Edit client",
+    path: "client-details"
+
   },
   {
     label: "Delete",
