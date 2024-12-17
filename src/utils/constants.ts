@@ -9,7 +9,7 @@ import {
   Link,
   Calendar,
 } from "lucide-react";
-import { LabelTypes, MoreOptions } from "./types";
+import { LabelTypes } from "./types";
 
 export const dashTabs = [
   {
@@ -42,53 +42,7 @@ export const dashTabs = [
   },
 ];
 
-export const usersTitles = [
-  "Name",
-  "Role",
-  "Joined at",
-  "Last logged in",
-  "Open AI total tokens used",
-  "Open AI total sessions",
-  "Palm total tokens used",
-  "Palm total sessions",
-  "Limit calls / month",
-];
 
-export const usersDetails = [
-  {
-    name: "Alex Johnson",
-    role: "General user",
-    joined: "2023/01/08",
-    lastLogged: "2023/01/08",
-    aiTokensUsed: "2048 tokens",
-    aiTokensSessions: "60",
-    palmTokensUsed: "2048 tokens",
-    palmSessions: "1000",
-    limitCall: "1000",
-  },
-  {
-    name: "Maria Rodriguez",
-    role: "Consultant",
-    joined: "2023/02/09",
-    lastLogged: "2023/02/09",
-    aiTokensUsed: "100 tokens",
-    aiTokensSessions: "500",
-    palmTokensUsed: "100 tokens",
-    palmSessions: "500",
-    limitCall: "500",
-  },
-  {
-    name: "Chris Thompson",
-    role: "Strategist",
-    joined: "2023/02/09",
-    lastLogged: "2023/02/09",
-    aiTokensUsed: "30 tokens",
-    aiTokensSessions: "1000",
-    palmTokensUsed: "30 tokens",
-    palmSessions: "1000",
-    limitCall: "1000",
-  },
-];
 
 export const invitationTitles = [
   "Name",
@@ -129,48 +83,7 @@ export const invtationDetails = [
   },
 ];
 
-export const clientTableHeaders = [
-  "Company",
-  "Created by",
-  "Role",
-  "First log in",
-  "Last logged in",
-  "Num of projects",
-  "Contract expiration date",
-];
 
-export const clientTableValues = [
-  {
-    name: "Alex Johnson",
-    createdBy: "Alex Johnson",
-    role: "General user",
-    firstLog: "2023/01/08",
-    lastLog: "2023/01/08",
-    numProjects: "4",
-    contractExp: "2023/01/08",
-  },
-];
-
-export const moreClientOptions: MoreOptions[] = [
-  {
-    label: "Edit client",
-    path: "client-details",
-  },
-  {
-    label: "Delete",
-  },
-];
-
-export const moreUserOptions = [
-  {
-    label: "Edit user",
-    path: "user-details",
-  },
-  {
-    label: "Remove access",
-    // fn: () => console.log("removed"),
-  },
-];
 
 export const moreInviteOptions = [
   {
@@ -203,8 +116,8 @@ export const clientDetailStatics = [
   "First log in",
   "Last logged in",
   "Last Update",
-  "Modified by"
-]
+  "Modified by",
+];
 
 export const data: LabelTypes[] = [
   {
