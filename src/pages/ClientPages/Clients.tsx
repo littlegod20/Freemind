@@ -3,8 +3,8 @@ import Header from "../../components/Header";
 import Table from "../../components/Table";
 import FilterParent from "../../components/widgets/FilterParent";
 import {
-  clientDetails,
-  clientTitles,
+  clientTableHeaders,
+  clientTableValues,
   data,
   moreClientOptions,
 } from "../../utils/constants";
@@ -21,15 +21,7 @@ const Clients = () => {
       <Header
         title="clients"
         description="Manage all clients you have invited to the platform"
-        Button={
-          <Button
-            title="New client"
-            className="bg-green-active text-white rounded-md border-none shadow-sm hover:bg-[#24b057]"
-            onClick={onClose}
-          >
-            New client
-          </Button>
-        }
+        Button={<Button onClick={onClose}>New client</Button>}
       />
 
       <section className="pt-5">
@@ -46,8 +38,8 @@ const Clients = () => {
 
       <section className="pt-10">
         <Table
-          tableTitles={clientTitles}
-          tableDetails={clientDetails}
+          tableTitles={clientTableHeaders}
+          tableDetails={clientTableValues}
           moreOptions={moreClientOptions}
         />
       </section>

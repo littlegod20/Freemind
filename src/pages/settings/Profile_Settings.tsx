@@ -2,7 +2,7 @@ import Details from "@/components/Details";
 import EditContainer from "@/components/widgets/EditContainer";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
-import { statics } from "@/utils/constants";
+import { userDetailStatics } from "@/utils/constants";
 import { TableDetailsTypes } from "@/utils/types";
 import { LogOut } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -51,7 +51,7 @@ const Profile_Settings = () => {
       </section>
 
       <section className="pt-5 space-y-4">
-        <Details statics={statics} details={userDetail} slice1={0} slice2={3} />
+        <Details statics={userDetailStatics} details={userDetail} slice1={0} slice2={3} />
         <EditContainer
           title="Log out"
           Button={

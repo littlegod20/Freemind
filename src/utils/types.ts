@@ -1,5 +1,6 @@
 import { LucideIcon } from "lucide-react";
 import React from "react";
+import { ClassNameValue } from "tailwind-merge";
 
 export interface TableDetailsTypes {
   name?: string;
@@ -14,6 +15,19 @@ export interface TableDetailsTypes {
   email?: string;
   inviteStatus?: string;
   expiryDate?: string;
+}
+
+export interface ClientDetailsTypes {
+  companyName: string;
+  contractExp: string;
+  contactName: string;
+  email: string;
+  phoneNo: string;
+  website: string;
+  firstLogged: string;
+  lastLogged: string;
+  lastUpdate: string;
+  modifiedBy: { name: string; role: string };
 }
 
 export interface MoreOptions {
@@ -34,7 +48,7 @@ export interface CardWithFormTypes {
   description?: string;
   children: React.ReactNode;
   buttonTitles?: MoreOptions[];
-  className?: string;
+  className?: ClassNameValue;
   buttonLayout?: string;
   outClick?: boolean;
   cancelButton?: boolean;
@@ -54,14 +68,15 @@ export interface InputsTypes {
   slice2?: number;
   type?: string;
   defaultSelect?: boolean;
-  className?: string;
+  className?: ClassNameValue;
 }
 
 export interface DetailsTypes {
   statics: string[];
-  details: TableDetailsTypes | null;
+  details: TableDetailsTypes | ClientDetailsTypes | null;
   slice1?: number;
   slice2?: number;
+  modified?: boolean;
 }
 
 export interface EditContainerTypes {
@@ -71,6 +86,7 @@ export interface EditContainerTypes {
   Button?: React.ReactNode;
   isUser?: boolean;
   border?: boolean;
+  titleClassName?: ClassNameValue;
 }
 
 export interface HeaderTypes {

@@ -1,6 +1,6 @@
 import { dashTabs } from "../../utils/constants";
 import Freemind from "../../assets/freemind.svg";
-import Tab from "../Tab";
+import DashTab from "../DashTab";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -33,7 +33,7 @@ const Dashboard = () => {
       </header>
       <section className="flex flex-col items-center md:block">
         {dashTabs.slice(0, 5).map((item, index) => (
-          <Tab
+          <DashTab
             name={item.name}
             Icon={item.icon}
             activeTab={activeTab}
@@ -45,7 +45,7 @@ const Dashboard = () => {
       <section className="pt-6 flex flex-col items-center md:block">
         <p className="text-xs pb-2 hidden md:block">Settings</p>
         {dashTabs.slice(5).map((item, index) => (
-          <Tab
+          <DashTab
             name={item.name}
             Icon={item.icon}
             activeTab={activeTab}

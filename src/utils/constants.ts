@@ -129,7 +129,7 @@ export const invtationDetails = [
   },
 ];
 
-export const clientTitles = [
+export const clientTableHeaders = [
   "Company",
   "Created by",
   "Role",
@@ -139,7 +139,7 @@ export const clientTitles = [
   "Contract expiration date",
 ];
 
-export const clientDetails = [
+export const clientTableValues = [
   {
     name: "Alex Johnson",
     createdBy: "Alex Johnson",
@@ -151,11 +151,10 @@ export const clientDetails = [
   },
 ];
 
-export const moreClientOptions:MoreOptions[] = [
+export const moreClientOptions: MoreOptions[] = [
   {
     label: "Edit client",
-    path: "client-details"
-
+    path: "client-details",
   },
   {
     label: "Delete",
@@ -182,7 +181,7 @@ export const moreInviteOptions = [
   },
 ];
 
-export const statics = [
+export const userDetailStatics = [
   "Full name",
   "Email",
   "Role",
@@ -193,6 +192,19 @@ export const statics = [
   "Palm total tokens used",
   "Palm total sessions",
 ];
+
+export const clientDetailStatics = [
+  "Company name",
+  "Contract expiration date",
+  "Contact name",
+  "Email",
+  "Phone number",
+  "Website",
+  "First log in",
+  "Last logged in",
+  "Last Update",
+  "Modified by"
+]
 
 export const data: LabelTypes[] = [
   {
