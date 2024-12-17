@@ -5,6 +5,7 @@ interface ClientDetailContentTypes {
     | string[]
     | { name: string; role?: string; appStatus?: string; appDate?: string }[];
   border?: boolean;
+  
 }
 
 const ClientDetailContent: React.FC<ClientDetailContentTypes> = ({

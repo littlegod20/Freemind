@@ -9,8 +9,6 @@ interface CommonTabTypes {
   onClickTab: (() => void) | ((val1: string, val2: number) => void);
   children?: React.ReactNode;
   childrenClassName?: ClassNameValue;
-  // childIndex: number;
-  // onIndex: (val: number) => void;
 }
 
 const CommonTab: React.FC<CommonTabTypes> = ({
@@ -18,8 +16,6 @@ const CommonTab: React.FC<CommonTabTypes> = ({
   onClickTab,
   children,
   childrenClassName,
-  // childIndex,
-  // onIndex,
 }) => {
   return (
     <>
