@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/button";
 import Header from "../../components/Header";
 import Table from "../../components/Table";
 import FilterParent from "../../components/widgets/FilterParent";
+import { data } from "../../utils/constants";
 import {
   clientTableHeaders,
   clientTableValues,
-  data,
-  moreClientOptions,
-} from "../../utils/constants";
+  moreClientOptions
+} from "./clientData";
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import Inputs from "@/components/Inputs";

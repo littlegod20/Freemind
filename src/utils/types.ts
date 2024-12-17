@@ -59,6 +59,10 @@ export type LabelTypes = {
   options?: string[];
   placeholder?: string;
   Icon?: LucideIcon;
+  active?: boolean;
+  title?: string;
+  buttonName?: string;
+  child?:React.ReactNode | null
 };
 
 export interface InputsTypes {

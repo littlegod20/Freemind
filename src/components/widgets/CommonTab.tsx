@@ -1,25 +1,25 @@
 import { ClassNameValue } from "tailwind-merge";
 import { Button } from "../ui/button";
 import EditContainer from "./EditContainer";
+import { LabelTypes } from "@/utils/types";
 
 interface CommonTabTypes {
-  tabData: { label: string }[];
+  tabData: LabelTypes[];
   tabName?: string;
-  onClickTab: (() => void) | ((val: string) => void);
-  editContainerTitle?: string;
-  buttonName?: string;
-  children: React.ReactNode;
+  onClickTab: (() => void) | ((val1: string, val2: number) => void);
+  children?: React.ReactNode;
   childrenClassName?: ClassNameValue;
+  // childIndex: number;
+  // onIndex: (val: number) => void;
 }
 
 const CommonTab: React.FC<CommonTabTypes> = ({
   tabData,
-  tabName,
   onClickTab,
-  editContainerTitle,
-  buttonName,
   children,
   childrenClassName,
+  // childIndex,
+  // onIndex,
 }) => {
   return (
     <>
@@ -27,12 +27,16 @@ const CommonTab: React.FC<CommonTabTypes> = ({
         {tabData.map((item, index) => (
           <div
             className={`pb-1 border-b-4 text-gray-500 ${
-              item.label === tabName
+              item.active
                 ? `border-green-active text-green-active`
                 : "border-none"
             } w-1/3 text-center cursor-pointer`}
             key={index}
-            onClick={() => onClickTab(item.label)}
+            onClick={() =>
+              item.label
+                ? onClickTab(item.label, index)
+                : console.log("nothing")
+            }
           >
             {item.label}
           </div>
@@ -40,21 +44,21 @@ const CommonTab: React.FC<CommonTabTypes> = ({
       </div>
       {tabData.map((item, index) => (
         <div key={index}>
-          {item.label === tabName && (
+          {item.active && (
             <>
               <div className="pt-4">
-                {editContainerTitle && (
+                {item.title && (
                   <EditContainer
-                    title={editContainerTitle}
+                    title={item.title}
                     titleClassName="text-xl"
                     Button={
-                      <Button className="font-light">{buttonName}</Button>
+                      <Button className="font-light">{item.buttonName}</Button>
                     }
                   />
                 )}
               </div>
               <section className={`p-2 ${childrenClassName}`}>
-                {children}
+                {item.active && <div>{children}</div>}
               </section>
             </>
           )}

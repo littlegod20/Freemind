@@ -1,22 +1,33 @@
+import CommonTabChild from "@/components/CommonTabChild";
 import Details from "@/components/Details";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import CommonTab from "@/components/widgets/CommonTab";
 import EditContainer from "@/components/widgets/EditContainer";
 import { clientDetailStatics } from "@/utils/constants";
-import { ClientDetailsTypes } from "@/utils/types";
+import { ClientDetailsTypes, LabelTypes } from "@/utils/types";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const clientTabs = [
+const clientTabs: LabelTypes[] = [
   {
     label: "Tab1",
+    active: true,
+    title: "Projects",
+    buttonName: "Add project",
+    child: "ww",
   },
   {
     label: "Tab2",
+    active: false,
+    title: "Applications",
+    buttonName: "Add application",
   },
   {
     label: "Tab3",
+    active: false,
+    title: "Team",
+    buttonName: "Add team member",
   },
 ];
 
@@ -24,11 +35,20 @@ const ClientDetails = () => {
   const { id } = useParams();
   const [userDetail, setUserDetail] = useState<ClientDetailsTypes | null>(null);
 
-  const [tabName, setTabName] = useState("Tab1");
+  const [childIndex, setChildIndex] = useState(0);
+  const [tabData, setTabData] = useState(clientTabs);
 
-  const handleClientTab = (val: string) => {
-    setTabName(val);
-    console.log("tabName:", val);
+  const handleClientTab = (tabLabel: string, indexChild: number) => {
+    setTabData((prev) =>
+      prev.map((item) =>
+        item.label === tabLabel
+          ? { ...item, active: true }
+          : { ...item, active: false }
+      )
+    );
+    setChildIndex(indexChild);
+    // console.log("tabData:", tabData);
+    console.log("childIndex:", indexChild);
   };
 
   useEffect(() => {
@@ -98,13 +118,15 @@ const ClientDetails = () => {
         </section>
         <section className="md:w-1/2 border-l-[1px]">
           <CommonTab
-            tabData={clientTabs}
+            tabData={tabData}
             onClickTab={handleClientTab}
-            tabName={tabName}
-            editContainerTitle="Projects"
-            buttonName="Add project"
           >
-            something
+            <CommonTabChild tabNumber={0} childIndex={childIndex}>
+              <p>Tab 0</p>
+            </CommonTabChild>
+            <CommonTabChild tabNumber={1} childIndex={childIndex}>
+              <p>Tab 1</p>
+            </CommonTabChild>
           </CommonTab>
         </section>
       </div>

@@ -1,11 +1,7 @@
 import Header from "../../components/Header";
 import Table from "../../components/Table";
 import FilterParent from "../../components/widgets/FilterParent";
-import {
-  moreUserOptions,
-  usersDetails,
-  usersTitles,
-} from "../../utils/constants";
+import { moreUserOptions, usersDetails, usersTitles } from "./userData";
 
 const staticUsersData = [
   {
