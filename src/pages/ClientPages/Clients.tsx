@@ -6,13 +6,11 @@ import { data } from "../../utils/constants";
 import {
   clientTableHeaders,
   clientTableValues,
-  moreClientOptions
+  moreClientOptions,
 } from "./clientData";
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
-import Inputs from "@/components/Inputs";
-import { PhoneInput } from "@/components/widgets/PhoneInput";
-import { Label } from "@/components/ui/label";
+import ClientEditInputs from "./components/ClientEditInputs";
 
 const Clients = () => {
   const { onClose, close } = useAction();
@@ -54,26 +52,7 @@ const Clients = () => {
           ]}
           cancelButton={true}
         >
-          <Inputs data={data} slice1={5} slice2={8} />
-
-          <div className="flex justify-evenly items-center gap-2 pt-6">
-            <div className="h-[1px] flex-grow border"></div>
-            <p className="text-xs text-slate-500 text-center">
-              Point of contact
-            </p>
-            <div className="h-[1px] flex-grow border"></div>
-          </div>
-
-          <Inputs data={data} slice1={0} slice2={2} layout="row" />
-
-          <div className="space-y-1">
-            <Label>Phone number</Label>
-            <PhoneInput defaultCountry="GH" placeholder="Enter phone number" />
-          </div>
-
-          <Inputs
-            data={[{ label: "Email", placeholder: "Enter email address" }]}
-          />
+          <ClientEditInputs data={data} />
         </ModalWithForm>
       )}
     </main>

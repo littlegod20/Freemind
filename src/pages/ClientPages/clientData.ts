@@ -1,4 +1,4 @@
-import { MoreOptions } from "@/utils/types";
+import { LabelTypes, MoreOptions } from "@/utils/types";
 
 export const clientTableHeaders = [
   "Company",
@@ -29,5 +29,28 @@ export const moreClientOptions: MoreOptions[] = [
   },
   {
     label: "Delete",
+  },
+];
+
+
+export const clientTabs: LabelTypes[] = [
+  {
+    label: "Tab1",
+    active: true,
+    title: "Projects",
+    buttonName: "Add project",
+    child: "ww",
+  },
+  {
+    label: "Tab2",
+    active: false,
+    title: "Applications",
+    buttonName: "Add application",
+  },
+  {
+    label: "Tab3",
+    active: false,
+    title: "Team",
+    buttonName: "Add team member",
   },
 ];

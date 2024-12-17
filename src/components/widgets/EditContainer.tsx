@@ -1,5 +1,5 @@
 import { EditContainerTypes } from "@/utils/types";
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import AvatarContainer from "../AvatarContainer";
 
 const EditContainer = ({
   title,
@@ -18,14 +18,7 @@ const EditContainer = ({
         }`}
       >
         <div className="flex items-center gap-3 p-2 w-full sm:w-[80%]">
-          {isUser ? (
-            <Avatar>
-              <AvatarImage src={image} />
-              <AvatarFallback className="bg-green-300 px-4 py-3 rounded-full bg-opacity-50 font-bold text-green-900 text-xl">
-                {title?.split("")[0]}
-              </AvatarFallback>
-            </Avatar>
-          ) : null}
+          {isUser ? <AvatarContainer title={title} image={image} /> : null}
           <div className="flex-1 ">
             <p className={`font-bold ${titleClassName}`}>{title}</p>
             <p className="text-slate-500 text-xs font-light"> {description} </p>

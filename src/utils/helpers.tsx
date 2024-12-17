@@ -11,3 +11,17 @@ export const specialRenderers = {
     );
   },
 };
+
+export const hashCode = (str: string) => {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return hash % 360;
+};
+
+export const intoHSL = (hash: number) => {
+  console.log("hash:", hash);
+  console.log("return Hue:", `hsl(${hash}, 70%, 80%)`);
+  return `hsl(${hash}, 70%, 90%)`;
+};
