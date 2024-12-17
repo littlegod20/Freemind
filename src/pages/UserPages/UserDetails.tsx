@@ -3,7 +3,7 @@ import { TableDetailsTypes } from "../../utils/types";
 import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Details from "../../components/Details";
-import { data, statics } from "../../utils/constants";
+import { data, userDetailStatics } from "../../utils/constants";
 import { Button } from "@/components/ui/button";
 import EditContainer from "../../components/widgets/EditContainer";
 import Inputs from "@/components/Inputs";
@@ -52,8 +52,13 @@ const UserDetails = () => {
       </section>
 
       <section className={`space-y-6`}>
-        <Details statics={statics} details={userDetail} slice1={0} slice2={3} />
-        <Details statics={statics} details={userDetail} slice1={3} />
+        <Details
+          statics={userDetailStatics}
+          details={userDetail}
+          slice1={0}
+          slice2={3}
+        />
+        <Details statics={userDetailStatics} details={userDetail} slice1={3} />
         <EditContainer
           title="Delete User"
           description=" Deleting this user is permanent and cannot be undone"

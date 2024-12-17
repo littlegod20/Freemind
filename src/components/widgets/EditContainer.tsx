@@ -8,6 +8,7 @@ const EditContainer = ({
   Button,
   isUser = false,
   border = false,
+  titleClassName,
 }: EditContainerTypes) => {
   return (
     <>
@@ -26,7 +27,7 @@ const EditContainer = ({
             </Avatar>
           ) : null}
           <div className="flex-1 ">
-            <p className="font-bold">{title}</p>
+            <p className={`font-bold ${titleClassName}`}>{title}</p>
             <p className="text-slate-500 text-xs font-light"> {description} </p>
           </div>
         </div>

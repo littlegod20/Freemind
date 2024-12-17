@@ -1,7 +1,12 @@
 import { TabStyles } from "@/utils/types";
 import { Tooltip } from "react-tooltip";
 
-const Tab: React.FC<TabStyles> = ({ Icon, name, activeTab, onNavigation }) => {
+const DashTab: React.FC<TabStyles> = ({
+  Icon,
+  name,
+  activeTab,
+  onNavigation,
+}) => {
   return (
     <>
       <div
@@ -20,4 +25,4 @@ const Tab: React.FC<TabStyles> = ({ Icon, name, activeTab, onNavigation }) => {
   );
 };
 
-export default Tab;
+export default DashTab;

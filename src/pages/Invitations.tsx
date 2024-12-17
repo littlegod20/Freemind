@@ -33,15 +33,7 @@ const Invitations = () => {
       <Header
         title="invitations"
         description="Invite a new user to access the platform"
-        Button={
-          <Button
-            title="Invite user"
-            className="bg-green-active text-white rounded-md border-none hover:bg-[#24b057] "
-            onClick={onClose}
-          >
-            Invite user
-          </Button>
-        }
+        Button={<Button onClick={onClose}>Invite user</Button>}
       />
 
       <section className="pt-5">

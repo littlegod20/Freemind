@@ -23,7 +23,7 @@ const Table: React.FC<TableTypes> = ({
         index === id ? { ...prop, show: !prop.show } : prop
       )
     );
-    console.log("details:", details);
+    // console.log("details:", details);
   };
 
   return (

@@ -6,7 +6,10 @@ import {
   User,
   UserPlus,
   Users,
+  Link,
+  Calendar,
 } from "lucide-react";
+import { LabelTypes, MoreOptions } from "./types";
 
 export const dashTabs = [
   {
@@ -126,7 +129,7 @@ export const invtationDetails = [
   },
 ];
 
-export const clientTitles = [
+export const clientTableHeaders = [
   "Company",
   "Created by",
   "Role",
@@ -136,7 +139,7 @@ export const clientTitles = [
   "Contract expiration date",
 ];
 
-export const clientDetails = [
+export const clientTableValues = [
   {
     name: "Alex Johnson",
     createdBy: "Alex Johnson",
@@ -148,12 +151,13 @@ export const clientDetails = [
   },
 ];
 
-export const moreClientOptions = [
+export const moreClientOptions: MoreOptions[] = [
   {
-    label: "Edit user",
+    label: "Edit client",
+    path: "client-details",
   },
   {
-    label: "Remove access",
+    label: "Delete",
   },
 ];
 
@@ -177,7 +181,7 @@ export const moreInviteOptions = [
   },
 ];
 
-export const statics = [
+export const userDetailStatics = [
   "Full name",
   "Email",
   "Role",
@@ -189,7 +193,20 @@ export const statics = [
   "Palm total sessions",
 ];
 
-export const data = [
+export const clientDetailStatics = [
+  "Company name",
+  "Contract expiration date",
+  "Contact name",
+  "Email",
+  "Phone number",
+  "Website",
+  "First log in",
+  "Last logged in",
+  "Last Update",
+  "Modified by"
+]
+
+export const data: LabelTypes[] = [
   {
     label: "First name",
     placeholder: "eg. John",
@@ -210,5 +227,19 @@ export const data = [
   {
     label: "Role",
     options: ["Consultant", "General user", "Stragegist"],
+  },
+  {
+    label: "Company name",
+    placeholder: "Enter company name",
+  },
+  {
+    label: "Website",
+    placeholder: "Insert website link",
+    Icon: Link,
+  },
+  {
+    label: "Contract expiry date",
+    placeholder: "Enter date",
+    Icon: Calendar,
   },
 ];
