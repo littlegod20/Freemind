@@ -21,7 +21,7 @@ export const hashCode = (str: string) => {
 };
 
 export const intoHSL = (hash: number) => {
-  console.log("hash:", hash);
-  console.log("return Hue:", `hsl(${hash}, 70%, 80%)`);
+  // console.log("hash:", hash);
+  // console.log("return Hue:", `hsl(${hash}, 70%, 80%)`);
   return `hsl(${hash}, 70%, 90%)`;
 };

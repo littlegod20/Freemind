@@ -1,6 +1,4 @@
 import { ClassNameValue } from "tailwind-merge";
-import { Button } from "../ui/button";
-import EditContainer from "./EditContainer";
 import { LabelTypes } from "@/utils/types";
 
 interface CommonTabTypes {
@@ -42,19 +40,8 @@ const CommonTab: React.FC<CommonTabTypes> = ({
         <div key={index}>
           {item.active && (
             <>
-              <div className="pt-4">
-                {item.title && (
-                  <EditContainer
-                    title={item.title}
-                    titleClassName="text-xl"
-                    Button={
-                      <Button className="font-light">{item.buttonName}</Button>
-                    }
-                  />
-                )}
-              </div>
               <section className={`p-2 ${childrenClassName}`}>
-                {item.active && <div>{children}</div>}
+                <div>{children}</div>
               </section>
             </>
           )}

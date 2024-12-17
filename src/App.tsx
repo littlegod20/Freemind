@@ -8,7 +8,7 @@ import Invite_Mail_Settings from "./pages/settings/Invite_Mail_Settings";
 import Profile_Settings from "./pages/settings/Profile_Settings";
 import Users from "./pages/UserPages/Users";
 import UserDetails from "./pages/UserPages/UserDetails";
-import ClientDetails from "./pages/ClientPages/ClientDetails";
+import ClientDetails from "./pages/ClientPages/ClientDetailsPage";
 
 function App() {
   return (

@@ -32,25 +32,23 @@ export const moreClientOptions: MoreOptions[] = [
   },
 ];
 
-
 export const clientTabs: LabelTypes[] = [
   {
     label: "Tab1",
     active: true,
-    title: "Projects",
-    buttonName: "Add project",
-    child: "ww",
+    // title: "Projects",
+    // buttonName: "Add project",
   },
   {
     label: "Tab2",
     active: false,
-    title: "Applications",
-    buttonName: "Add application",
+    // title: "Applications",
+    // buttonName: "Add application",
   },
   {
     label: "Tab3",
     active: false,
-    title: "Team",
-    buttonName: "Add team member",
+    // title: "Team",
+    // buttonName: "Add team member",
   },
 ];
