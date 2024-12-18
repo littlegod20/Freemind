@@ -17,6 +17,7 @@ const Inputs: React.FC<InputsTypes> = ({
   type = "text",
   defaultSelect = true,
   className,
+  onChange
 }) => {
   return (
     <>
@@ -38,6 +39,7 @@ const Inputs: React.FC<InputsTypes> = ({
                     id={item.label}
                     placeholder={item.placeholder}
                     className={`text-sm ${className}`}
+                    onChange={onChange}
                   />
                   {item.Icon ? (
                     <item.Icon

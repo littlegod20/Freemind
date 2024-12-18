@@ -9,7 +9,7 @@ const ModalWithForm = ({
   buttonTitles,
   outClick,
   buttonLayout,
-  cancelButton
+  onCancel
 }: CardWithFormTypes) => {
   return (
     <ModalContainer outClick={outClick}>
@@ -18,7 +18,7 @@ const ModalWithForm = ({
         description={description}
         buttonTitles={buttonTitles}
         buttonLayout={buttonLayout}
-        cancelButton={cancelButton}
+        onCancel={onCancel}
       >
         {children}
       </CardWithForm>

@@ -34,6 +34,7 @@ export interface MoreOptions {
   label: string;
   path?: string;
   action?: () => void;
+  Icon?: LucideIcon;
 }
 
 export interface TableTypes {
@@ -46,12 +47,13 @@ export interface TableTypes {
 export interface CardWithFormTypes {
   title?: string;
   description?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   buttonTitles?: MoreOptions[];
   className?: ClassNameValue;
   buttonLayout?: string;
   outClick?: boolean;
-  cancelButton?: boolean;
+  // cancelButton?: boolean;
+  onCancel?: () => void;
 }
 
 export type LabelTypes = {
@@ -62,7 +64,7 @@ export type LabelTypes = {
   active?: boolean;
   title?: string;
   buttonName?: string;
-  child?:React.ReactNode | null
+  modalDetails?: Partial<CardWithFormTypes>;
 };
 
 export interface InputsTypes {
@@ -73,6 +75,7 @@ export interface InputsTypes {
   type?: string;
   defaultSelect?: boolean;
   className?: ClassNameValue;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface DetailsTypes {
