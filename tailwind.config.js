@@ -4,6 +4,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            h2: {
+              fontSize: "1.5rem",
+              fontWeight: "600",
+            },
+          },
+        },
+      },
       colors: {
         "dark-blue": "#111827",
         "green-active": "#16A34A",
@@ -62,5 +72,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };

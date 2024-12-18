@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Inputs from "@/components/Inputs";
 import { Label } from "@/components/ui/label";
+import TextEditor from "@/components/widgets/Editor/TextEditor";
 
 const Invite_Mail_Settings = () => {
   return (
@@ -17,9 +18,9 @@ const Invite_Mail_Settings = () => {
           className="py-6"
         />
 
-        <div className="space-y-2">
-          <Label>Message</Label>
-          
+        <div className="space-y-2 flex flex-col">
+          <Label className="font-semibold ">Message</Label>
+          <TextEditor />
         </div>
       </section>
     </main>

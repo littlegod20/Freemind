@@ -40,7 +40,7 @@ const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
   const handleClickMore = (val: string, optionIndex: number) => {
     setMore(!more);
     setOptionIndex(optionIndex);
-    console.log("mor:", more);
+    console.log("mor:", val);
   };
   return (
     <>
@@ -139,6 +139,7 @@ const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
                           : ""
                       }`}
                       key={indexOption}
+                      onClick={option.action}
                     >
                       <span>
                         {option.Icon ? <option.Icon size={20} /> : ""}
@@ -148,7 +149,7 @@ const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
                   ))}
               </div>
             </div>
-            </div>
+          </div>
         ))}
       </div>
     </>
