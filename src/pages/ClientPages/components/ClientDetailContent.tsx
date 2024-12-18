@@ -2,18 +2,19 @@ import AvatarContainer from "@/components/AvatarContainer";
 import { Button } from "@/components/ui/button";
 import EditContainer from "@/components/widgets/EditContainer";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
-import { LabelTypes } from "@/utils/types";
+import { LabelTypes, MoreOptions } from "@/utils/types";
 import React, { useState } from "react";
+import { DataObjectTypes } from "../clientTypes";
+import { isDataListType } from "@/utils/helpers";
 
 interface ClientCommonTabDetailTypes {
-  data:
-    | string[]
-    | { name: string; role?: string; appStatus?: string; appDate?: string }[];
+  data: string[] | DataObjectTypes[];
   border?: boolean;
   staticData?: LabelTypes[];
   children?: React.ReactNode;
   showModal?: boolean;
   setShowModal?: React.Dispatch<React.SetStateAction<boolean>>;
+  moreOptions?: MoreOptions[];
 }
 
 const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
@@ -23,14 +24,23 @@ const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
   children,
   showModal,
   setShowModal,
+  moreOptions,
 }) => {
   const [clientAction, setClientAction] = useState("");
+  const [more, setMore] = useState(false);
+  const [optionIndex, setOptionIndex] = useState(0);
 
   const handleClientAction = (buttonName: string) => {
     setClientAction(buttonName);
     if (setShowModal) {
       setShowModal(true);
     }
+  };
+
+  const handleClickMore = (val: string, optionIndex: number) => {
+    setMore(!more);
+    setOptionIndex(optionIndex);
+    console.log("mor:", more);
   };
   return (
     <>
@@ -83,7 +93,7 @@ const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
               <div>
                 <p className="text-sm"> {item}</p>
               </div>
-            ) : typeof item === "object" ? (
+            ) : (
               <>
                 {!item.appStatus && (
                   <AvatarContainer title={item.name} image={""} />
@@ -104,15 +114,41 @@ const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
                   )}
                 </div>
               </>
-            ) : null}
+            )}
 
-            <p
-              className="font-black cursor-pointer"
-              onClick={() => console.log("")}
-            >
-              ...
-            </p>
-          </div>
+            <div className="flex flex-col relative">
+              <p
+                className="font-black cursor-pointer"
+                onClick={() =>
+                  handleClickMore(
+                    isDataListType(item) ? item : item.name,
+                    index
+                  )
+                }
+              >
+                ...
+              </p>
+              <div className="absolute min-w-77 right-full top-7 bg-white z-50 rounded-md  gap-1 flex flex-col shadow-md">
+                {more &&
+                  optionIndex === Object.values(data).indexOf(item) &&
+                  moreOptions?.map((option, indexOption) => (
+                    <p
+                      className={`p-2 text-nowrap transition-all duration-300 ease-out hover:bg-slate-200 rounded-md cursor-pointer flex gap-2 items-center ${
+                        /delete|remove/i.test(option.label)
+                          ? "text-red-600"
+                          : ""
+                      }`}
+                      key={indexOption}
+                    >
+                      <span>
+                        {option.Icon ? <option.Icon size={20} /> : ""}
+                      </span>
+                      {option.label}
+                    </p>
+                  ))}
+              </div>
+            </div>
+            </div>
         ))}
       </div>
     </>

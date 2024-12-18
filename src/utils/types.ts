@@ -34,6 +34,7 @@ export interface MoreOptions {
   label: string;
   path?: string;
   action?: () => void;
+  Icon?: LucideIcon;
 }
 
 export interface TableTypes {

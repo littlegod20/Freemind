@@ -13,7 +13,7 @@ import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
 import Inputs from "@/components/Inputs";
-import { Calendar } from "lucide-react";
+import { Calendar, Edit, Trash2 } from "lucide-react";
 
 const dets = [
   {
@@ -116,6 +116,13 @@ const ClientDetailsPage = () => {
                 "Neurotherapeutic Agent Characterization",
                 "Innovation Grants to Nurture Initial Translational Efforts (IGNITE)",
               ]}
+              moreOptions={[
+                {
+                  label: "Remove project",
+                  action: () => console.log("deleted"),
+                  Icon: Trash2,
+                },
+              ]}
               staticData={[
                 {
                   title: "Projects",
@@ -161,6 +168,18 @@ const ClientDetailsPage = () => {
                   role: "General user",
                   appDate: "Application date",
                   appStatus: "Application status",
+                },
+              ]}
+              moreOptions={[
+                {
+                  label: "Edit application",
+                  action: () => console.log("edit"),
+                  Icon: Edit,
+                },
+                {
+                  label: "Delete application",
+                  action: () => console.log("deleted"),
+                  Icon: Trash2,
                 },
               ]}
               staticData={[
@@ -241,6 +260,13 @@ const ClientDetailsPage = () => {
                       },
                     ],
                   },
+                },
+              ]}
+              moreOptions={[
+                {
+                  label: "Remove team member",
+                  action: () => console.log("removed"),
+                  Icon: Trash2,
                 },
               ]}
               showModal={showModal}

@@ -1,5 +1,6 @@
+import { DataObjectTypes } from "@/pages/ClientPages/clientTypes";
 import ClientDetailContent from "@/pages/ClientPages/components/ClientDetailContent";
-import { LabelTypes } from "@/utils/types";
+import { LabelTypes, MoreOptions } from "@/utils/types";
 import React from "react";
 
 const CommonTabChild = ({
@@ -11,10 +12,10 @@ const CommonTabChild = ({
   showModal,
   setShowModal,
   children,
+  moreOptions
 }: {
-  data:
-    | string[]
-    | { name: string; role?: string; appStatus?: string; appDate?: string }[];
+  data: string[] | DataObjectTypes[];
+  moreOptions?: MoreOptions[];
   border?: boolean;
   tabNumber: number;
   childIndex: number;
@@ -32,6 +33,7 @@ const CommonTabChild = ({
           staticData={staticData}
           showModal={showModal}
           setShowModal={setShowModal}
+          moreOptions = {moreOptions}
         >
           {children}
         </ClientDetailContent>
