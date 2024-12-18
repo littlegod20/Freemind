@@ -75,6 +75,7 @@ export interface InputsTypes {
   type?: string;
   defaultSelect?: boolean;
   className?: ClassNameValue;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface DetailsTypes {

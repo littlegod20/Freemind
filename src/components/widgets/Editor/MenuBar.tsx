@@ -13,13 +13,11 @@ import {
 } from "lucide-react";
 import { Editor } from "@tiptap/core";
 import { Level } from "@tiptap/extension-heading";
+import { memo, useCallback, useState } from "react";
 
+const MenuBar: React.FC<{ editor: Editor | null }> = memo(({ editor }) => {
 
-import { useCallback, useState } from "react";
-
-
-// Menu Bar Component
-const MenuBar: React.FC<{ editor: Editor | null }> = ({ editor }) => {
+  console.count('menubar')
 
   const [currentHeadingLevel, setCurrentHeadingLevel] = useState<Level>(1)
 
@@ -163,6 +161,6 @@ const MenuBar: React.FC<{ editor: Editor | null }> = ({ editor }) => {
       />
     </div>
   );
-};
+});
 
 export default MenuBar;

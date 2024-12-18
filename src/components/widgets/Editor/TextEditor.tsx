@@ -1,4 +1,4 @@
-import React from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import {
   useEditor,
   EditorContent,
@@ -10,10 +10,14 @@ import Underline from "@tiptap/extension-underline";
 import Link from "@tiptap/extension-link";
 import StarterKit from "@tiptap/starter-kit";
 import MenuBar from "./MenuBar";
+import { debounce } from "lodash";
+import DOMPurify from "dompurify";
+import { purifyConfig } from "./constants";
 
-const TextEditor: React.FC = () => {
-  const editor = useEditor({
-    extensions: [
+const TextEditor = ({ onChange }: { onChange: (value: string) => void }) => {
+  // memoizing extensions
+  const extensions = useMemo(
+    () => [
       StarterKit.configure({
         heading: {
           levels: [1, 2] as const,
@@ -28,16 +32,55 @@ const TextEditor: React.FC = () => {
         shouldAutoLink: (href) => /^https?:\/\//.test(href),
       }),
     ],
-    // content: "<p>Start typing your content here...</p>",
+    []
+  );
 
-    editorProps: {
-      attributes: {
-        class:
-          "prose prose-sm sm:prose lg:prose-lg focus:outline-none min-h-[200px] p-4 bg-white border border-gray-300 rounded-b ",
-      },
+  // debouncing onUpdate function
+  const debouncedOnChange = useMemo(
+    () =>
+      debounce((content: string) => {
+        onChange(content);
+      }, 300),
+    [onChange]
+  );
+
+  const sanitizeHtml = useCallback((dirtyHtml: string) => {
+    try {
+      const clean = DOMPurify.sanitize(dirtyHtml, purifyConfig);
+      return clean;
+    } catch (error) {
+      console.log("Sanitization error:", error);
+      return "";
+    }
+  }, []);
+
+  const editor = useEditor({
+    extensions: extensions,
+    // content: sanitizeHtml(value),
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+      
+      debouncedOnChange(sanitizeHtml(html))
+
     },
+    editorProps: useMemo(
+      () => ({
+        attributes: {
+          class:
+            "prose prose-sm sm:prose lg:prose-lg focus:outline-none min-h-[200px] p-4 bg-white border border-gray-300 rounded-b ",
+        },
+      }),
+      []
+    ),
   });
 
+  useEffect(() => {
+    return () => {
+      editor?.destroy();
+    };
+  }, [editor]);
+
+  console.count("editor render");
 
   return (
     <>

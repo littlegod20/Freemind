@@ -8,6 +8,9 @@ export default {
         DEFAULT: {
           css: {
             h2: {
+              fontSize: "1.3rem",
+              lineHeight: "2rem",
+              fontWeiight: "700",
               fontSize: "1.5rem",
               fontWeight: "600",
             },

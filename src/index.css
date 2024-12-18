@@ -32,14 +32,24 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 1.1rem;
 }
 
-h4 {
-  font-size: 1.5rem;
+h2 {
+  font-size: 1.3rem;
   line-height: 2rem;
   font-weight: 700;
 }
+
+
+
+h4 {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+
 
 @layer base {
   :root {
