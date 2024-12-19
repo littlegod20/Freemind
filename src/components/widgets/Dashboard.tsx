@@ -40,7 +40,7 @@ const Dashboard = () => {
 
   return (
     <main
-      className={`hidden sm:block h-screen relative bg-dark-blue  pt-5 transition-all  w-64 duration-300 ease-in text-sm font-extralight text-white  z-50  ${
+      className={`hidden md:block h-screen relative bg-dark-blue  pt-5 transition-all  w-64 duration-300 ease-in text-sm font-extralight text-white  z-50  ${
         increasDash ? "pl-5" : "w-[64px]"
       } `}
     >
