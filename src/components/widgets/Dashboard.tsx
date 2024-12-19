@@ -3,11 +3,18 @@ import Freemind from "../../assets/freemind.svg";
 import DashTab from "../DashTab";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("users");
+  const [increasDash, setIncreaseDash] = useState(true);
 
   const navigate = useNavigate();
+
+  const handleDashIncrease = () => {
+    setIncreaseDash(!increasDash);
+    console.log(increasDash);
+  };
 
   const handleNavigation = (val: string) => {
     setActiveTab(val);
@@ -32,29 +39,52 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <main className="hidden sm:block h-screen bg-dark-blue md:px-8 pt-5 w-16 md:min-w-64 text-sm font-extralight text-white relative z-50">
-      <header className="h-[10%]">
-        <img src={Freemind} alt="logo" className="hidden md:block" />
+    <main
+      className={`hidden sm:block h-screen relative bg-dark-blue  pt-5 transition-all  w-64 duration-300 ease-in text-sm font-extralight text-white  z-50  ${
+        increasDash ? "pl-5" : "w-[64px]"
+      } `}
+    >
+      <header
+        className={`h-[10%] flex items-center gap-2 ${
+          !increasDash ? "pl-5" : "justify-start"
+        }`}
+      >
+        <Menu
+          className="cursor-pointer transition-all hover:scale-110"
+          size={20}
+          onClick={handleDashIncrease}
+        />
+        {increasDash && <img src={Freemind} alt="logo" />}
       </header>
-      <section className="flex flex-col items-center md:block">
+      <section
+        className={`pt-6 flex flex-col items-start ${
+          !increasDash ? " pl-5" : ""
+        } `}
+      >
         {dashTabs.slice(0, 5).map((item, index) => (
           <DashTab
             name={item.name}
             Icon={item.icon}
             activeTab={activeTab}
             onNavigation={handleNavigation}
+            increaseDash={increasDash}
             key={index}
           />
         ))}
       </section>
-      <section className="pt-6 flex flex-col items-center md:block">
-        <p className="text-xs pb-2 hidden md:block">Settings</p>
+      <section
+        className={`pt-6 flex flex-col items-start ${
+          !increasDash ? " pl-5" : ""
+        } `}
+      >
+        {increasDash && <p className="text-xs pb-2">Settings</p>}
         {dashTabs.slice(5).map((item, index) => (
           <DashTab
             name={item.name}
             Icon={item.icon}
             activeTab={activeTab}
             onNavigation={handleNavigation}
+            increaseDash={increasDash}
             key={index}
           />
         ))}

@@ -107,5 +107,6 @@ export interface TabStyles {
   name: string;
   Icon: LucideIcon;
   activeTab: string;
+  increaseDash:boolean
   onNavigation: (val: string) => void;
 }
