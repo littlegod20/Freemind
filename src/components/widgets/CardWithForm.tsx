@@ -50,7 +50,9 @@ export function CardWithForm({
               className={`
               bg-green-active text-white font-light
               ${
-                index == 0
+                /delete|remove|leave/i.test(item.label)
+                  ? "text-red-600 bg-red-200 bg-opacity-25 hover:text-red-600"
+                  : /cancel/i.test(item.label)
                   ? "text-green-active  bg-opacity-10 hover:bg-opacity-30 hover:text-green-active"
                   : "hover:bg-button-hover hover:text-white"
               }
