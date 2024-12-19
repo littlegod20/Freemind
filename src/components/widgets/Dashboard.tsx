@@ -12,6 +12,7 @@ const Dashboard = () => {
   const handleNavigation = (val: string) => {
     setActiveTab(val);
     localStorage.setItem("dashTab", val);
+
     if (val === "users") {
       navigate("/");
       return;
@@ -24,6 +25,10 @@ const Dashboard = () => {
     if (active) {
       setActiveTab(active);
     }
+
+    return () => {
+      localStorage.removeItem("dashTab");
+    };
   }, []);
 
   return (
