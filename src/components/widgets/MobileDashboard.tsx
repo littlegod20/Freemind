@@ -61,7 +61,7 @@ const MobileDashboard = () => {
             showDash ? " bg-dark-blue p-4" : "h-0  overflow-hidden"
           }`}
         >
-          {dashTabs.slice(0, 5).map((item, index) => (
+          {dashTabs.map((item, index) => (
             <DashTab
               name={item.name}
               Icon={item.icon}
