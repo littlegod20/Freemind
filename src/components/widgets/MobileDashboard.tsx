@@ -48,7 +48,6 @@ const MobileDashboard = () => {
           size={40}
         />
       </div>
-      {/* {showDash && ( */}
 
       <section
         className={`absolute top-full w-screen   text-white transition-all duration-300 ease-in z-50 ${
@@ -61,7 +60,7 @@ const MobileDashboard = () => {
             showDash ? " bg-dark-blue p-4" : "h-0  overflow-hidden"
           }`}
         >
-          {dashTabs.slice(0, 5).map((item, index) => (
+          {dashTabs.map((item, index) => (
             <DashTab
               name={item.name}
               Icon={item.icon}
@@ -73,13 +72,8 @@ const MobileDashboard = () => {
           ))}
         </div>
       </section>
-      {/* )} */}
     </section>
   );
 };
 
 export default MobileDashboard;
-
-//  className={`absolute top-full w-screen   text-white transition-all duration-300 ease-in z-50 ${
-//             showDash ? " bg-dark-blue p-4" : "h-0  overflow-hidden"
-//           }`}

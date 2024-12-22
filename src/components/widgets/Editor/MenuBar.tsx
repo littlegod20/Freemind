@@ -17,7 +17,7 @@ import { memo, useCallback, useState } from "react";
 
 const MenuBar: React.FC<{ editor: Editor | null }> = memo(({ editor }) => {
 
-  console.count('menubar')
+  // console.count('menubar')
 
   const [currentHeadingLevel, setCurrentHeadingLevel] = useState<Level>(1)
 
