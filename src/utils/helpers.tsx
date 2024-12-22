@@ -25,8 +25,6 @@ export const hashCode = (str: string) => {
 };
 
 export const intoHSL = (hash: number) => {
-  // console.log("hash:", hash);
-  // console.log("return Hue:", `hsl(${hash}, 70%, 80%)`);
   return `hsl(${hash}, 70%, 90%)`;
 };
 
@@ -34,8 +32,3 @@ export function isDataListType(item: string | DataObjectTypes): item is string {
   return typeof item === "string";
 }
 
-// function isDataObjectType(
-//   data: DataListTypes[] | DataObjectTypes[]
-// ): data is DataObjectTypes[] {
-//   return data.length > 0 && "someUniquePropertyOfDataObjectTypes" in data[0];
-// }

@@ -48,7 +48,6 @@ const MobileDashboard = () => {
           size={40}
         />
       </div>
-      {/* {showDash && ( */}
 
       <section
         className={`absolute top-full w-screen   text-white transition-all duration-300 ease-in z-50 ${
@@ -73,13 +72,8 @@ const MobileDashboard = () => {
           ))}
         </div>
       </section>
-      {/* )} */}
     </section>
   );
 };
 
 export default MobileDashboard;
-
-//  className={`absolute top-full w-screen   text-white transition-all duration-300 ease-in z-50 ${
-//             showDash ? " bg-dark-blue p-4" : "h-0  overflow-hidden"
-//           }`}
