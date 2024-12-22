@@ -19,8 +19,8 @@ const DashTab: React.FC<TabStyles> = ({
         data-tooltip-content={name}
       >
         <Icon size={20} />
-        <p className={` ${increaseDash  ? 'flex': 'hidden'} `}>{name}</p>
-        <Tooltip id="my-tooltip" className="md:hidden" />
+        <p className={` ${increaseDash ? "flex" : "hidden"} `}>{name}</p>
+        <Tooltip id="my-tooltip" className="sm:hidden" />
       </div>
     </>
   );
