@@ -36,7 +36,7 @@ const UserDetails = () => {
       <Header title="User Details" description="" back={true} />
       <section className="py-10">
         <EditContainer
-          title={userDetail?.name as string}
+          title={userDetail?.name ?? ""}
           description={userDetail?.email}
           Button={
             <Button
