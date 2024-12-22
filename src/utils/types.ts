@@ -33,7 +33,7 @@ export interface ClientDetailsTypes {
 export interface MoreOptions {
   label: string;
   path?: string;
-  action?: () => void;
+  action?: () => void | ((val: number) => void);
   Icon?: LucideIcon;
 }
 
@@ -107,6 +107,6 @@ export interface TabStyles {
   name: string;
   Icon: LucideIcon;
   activeTab: string;
-  increaseDash:boolean
+  increaseDash: boolean;
   onNavigation: (val: string) => void;
 }

@@ -80,7 +80,7 @@ const TextEditor = ({ onChange }: { onChange: (value: string) => void }) => {
     };
   }, [editor]);
 
-  console.count("editor render");
+  // console.count("editor render");
 
   return (
     <>

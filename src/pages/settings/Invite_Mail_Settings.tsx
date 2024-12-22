@@ -2,19 +2,26 @@ import Header from "@/components/Header";
 import Inputs from "@/components/Inputs";
 import { Label } from "@/components/ui/label";
 import TextEditor from "@/components/widgets/Editor/TextEditor";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import DOMPurify from "dompurify";
 import { Button } from "@/components/ui/button";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
+import { useNavigate } from "react-router-dom";
 
 const Invite_Mail_Settings = () => {
-  console.count("parent of TextEditor");
+  // console.count("parent of TextEditor");
   const [content, setContent] = useState("");
   const [subject, setSubject] = useState("");
   const [save, setSave] = useState<{ btn: string; isSave: boolean | null }>({
     btn: "",
     isSave: null,
   });
+
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(-1);
+  };
 
   const handleContentChange = (text: string) => {
     setContent(text);
@@ -23,7 +30,6 @@ const Invite_Mail_Settings = () => {
 
   const handleSavedChanges = (btn: string, isSave: boolean | null) => {
     setSave({ btn, isSave });
-    console.log("saved:", save.btn, save.isSave);
   };
 
   const handleSubjectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,6 +37,12 @@ const Invite_Mail_Settings = () => {
     console.log("subject:", subject);
   };
 
+  const sanitizedSubject = useMemo(
+    () => ({
+      __html: DOMPurify.sanitize(subject),
+    }),
+    [subject]
+  );
   const sanitizedContent = useMemo(
     () => ({
       __html: DOMPurify.sanitize(content),
@@ -38,12 +50,9 @@ const Invite_Mail_Settings = () => {
     [content]
   );
 
-  const sanitizedSubject = useMemo(
-    () => ({
-      __html: DOMPurify.sanitize(subject),
-    }),
-    [subject]
-  );
+  useEffect(() => {
+    console.log("saved:", save.btn, save.isSave);
+  });
 
   return (
     <main>
@@ -95,12 +104,15 @@ const Invite_Mail_Settings = () => {
         </section>
       </div>
 
-      {save.isSave ? null : (
+      {save.btn !== "Cancel" ? null : (
         <ModalWithForm
           title="Unsaved changes"
           description="Are you sure you want to leave this page? Leaving this page will delete all unsaved changes"
-          buttonTitles={[{ label: "Leave page" }, { label: "Saved changes" }]}
-          onCancel={() => handleSavedChanges("", true)}
+          buttonTitles={[
+            { label: "Leave page", action: handleNavigate },
+            { label: "Save changes" },
+          ]}
+          onCancel={() => handleSavedChanges("", null)}
         ></ModalWithForm>
       )}
     </main>
