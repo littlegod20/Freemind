@@ -19,11 +19,14 @@ const Table: React.FC<TableTypes> = ({
 
   const handleHidden = (id: number) => {
     setDetails((prev) =>
-      prev.map((prop, index) =>
-        index === id ? { ...prop, show: !prop.show } : prop
-      )
+      prev.map((prop, index) => {
+        if (index === id) {
+          return { ...prop, show: !prop.show };
+        } else {
+          return { ...prop, show: false };
+        }
+      })
     );
-    // console.log("details:", details);
   };
 
   return (
@@ -96,7 +99,7 @@ const Table: React.FC<TableTypes> = ({
                                           )
                                         : option.action
                                         ? option.action()
-                                        : console.log('no executoin')
+                                        : console.log("no executoin")
                                     }
                                     key={optionIndex}
                                   >
