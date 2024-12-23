@@ -50,8 +50,7 @@ const Table: React.FC<TableTypes> = ({
             {details.map((detail, detailIndex) => (
               <tr
                 className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-3 sm:text-sm text-xs font-normal"
-                key={detailIndex}
-                // onClick={() => handleHidden(detailIndex)} 
+                key={detailIndex} 
               >
                 {Object.keys(detail)
                   .filter((key) => key !== "show")
