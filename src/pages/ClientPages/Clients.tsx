@@ -24,7 +24,7 @@ const Clients = () => {
 
       <section className="pt-5">
         <FilterParent
-          data={[
+          filterOptions={[
             {
               label: "Role",
               placeholder: "Choose a role",
@@ -50,7 +50,7 @@ const Clients = () => {
             { label: "Cancel", action: onClose },
             { label: "Send Invite" },
           ]}
-          cancelButton={true}
+          onCancel={onClose}
         >
           <ClientEditInputs data={data} />
         </ModalWithForm>

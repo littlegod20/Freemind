@@ -15,6 +15,12 @@ export interface TableDetailsTypes {
   email?: string;
   inviteStatus?: string;
   expiryDate?: string;
+
+  // prefixed prompts
+  promptTitle?: string;
+  prompt?: string;
+  folder?: string;
+  access?: string;
 }
 
 export interface ClientDetailsTypes {
@@ -28,6 +34,13 @@ export interface ClientDetailsTypes {
   lastLogged: string;
   lastUpdate: string;
   modifiedBy: { name: string; role: string };
+}
+
+export interface PrefixedPromptsTypes {
+  promptTitle: string;
+  prompt: string;
+  folder: string;
+  access: string;
 }
 
 export interface MoreOptions {

@@ -94,7 +94,9 @@ const Table: React.FC<TableTypes> = ({
                                         ? navigate(
                                             `${option.path}/${detail.name}`
                                           )
-                                        : console.log("no execution")
+                                        : option.action
+                                        ? option.action()
+                                        : console.log('no executoin')
                                     }
                                     key={optionIndex}
                                   >
