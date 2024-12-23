@@ -3,8 +3,18 @@ import Table from "@/components/Table";
 import { Button } from "@/components/ui/button";
 import FilterParent from "@/components/widgets/FilterParent";
 import { prefixedPrompts } from "./constants";
+import { useAction } from "@/hooks/useAction";
+import { useState } from "react";
+import EditModal from "./EditModal";
+import AddPromptModal from "./AddPromptModal";
 
 const Prefixed_Prompts = () => {
+  const { onClose, close } = useAction();
+  const [edit, setEdit] = useState(false);
+
+  const handleEdit = () => {
+    setEdit(!edit);
+  };
   return (
     <main>
       <Header
@@ -14,6 +24,7 @@ const Prefixed_Prompts = () => {
           <Button
             className="bg-green-active text-white px-4 py-2 rounded-md hover:bg-green-700"
             variant="default"
+            onClick={onClose}
           >
             Add new prompt
           </Button>
@@ -42,11 +53,15 @@ const Prefixed_Prompts = () => {
           tableTitles={["Prompt title", "Prompt", "Folder", "Access"]}
           tableDetails={prefixedPrompts}
           moreOptions={[
-            { label: "Edit prompt", action: () => console.log("Option1") },
+            { label: "Edit prompt", action: handleEdit },
             { label: "Delete prompt", action: () => console.log("delete") },
           ]}
         />
+
+        {edit && <EditModal handleEdit={handleEdit} />}
       </section>
+
+      {close && <AddPromptModal onClose={onClose} />}
     </main>
   );
 };
