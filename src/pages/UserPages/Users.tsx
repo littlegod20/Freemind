@@ -24,8 +24,8 @@ const Users = () => {
 
       <section className="pt-10">
         <Table
-          tableDetails={usersDetails}
           tableTitles={usersTitles}
+          tableDetails={usersDetails}
           moreOptions={moreUserOptions}
           pagination={true}
         />
