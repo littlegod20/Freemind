@@ -36,13 +36,6 @@ export interface ClientDetailsTypes {
   modifiedBy: { name: string; role: string };
 }
 
-export interface PrefixedPromptsTypes {
-  promptTitle: string;
-  prompt: string;
-  folder: string;
-  access: string;
-}
-
 export interface MoreOptions {
   label: string;
   path?: string;
