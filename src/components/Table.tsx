@@ -19,11 +19,14 @@ const Table: React.FC<TableTypes> = ({
 
   const handleHidden = (id: number) => {
     setDetails((prev) =>
-      prev.map((prop, index) =>
-        index === id ? { ...prop, show: !prop.show } : prop
-      )
+      prev.map((prop, index) => {
+        if (index === id) {
+          return { ...prop, show: !prop.show };
+        } else {
+          return { ...prop, show: false };
+        }
+      })
     );
-    // console.log("details:", details);
   };
 
   return (
@@ -47,7 +50,7 @@ const Table: React.FC<TableTypes> = ({
             {details.map((detail, detailIndex) => (
               <tr
                 className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-3 sm:text-sm text-xs font-normal"
-                key={detailIndex}
+                key={detailIndex} 
               >
                 {Object.keys(detail)
                   .filter((key) => key !== "show")
@@ -75,12 +78,14 @@ const Table: React.FC<TableTypes> = ({
                           Object.keys(detail).filter((key) => key !== "show")
                             .length -
                             1 && (
-                          <div className="">
+                          <div
+                            className="cursor-pointer"
+                            onClick={() => handleHidden(detailIndex)}
+                          >
                             <span
-                              className={`text-black font-black cursor-pointer ml-2 ${
+                              className={`text-black font-black  ml-2 ${
                                 detail.show ? "text-green-active" : ""
                               }`}
-                              onClick={() => handleHidden(detailIndex)}
                             >
                               ...
                             </span>
@@ -94,7 +99,9 @@ const Table: React.FC<TableTypes> = ({
                                         ? navigate(
                                             `${option.path}/${detail.name}`
                                           )
-                                        : console.log("no execution")
+                                        : option.action
+                                        ? option.action()
+                                        : console.log("no executoin")
                                     }
                                     key={optionIndex}
                                   >

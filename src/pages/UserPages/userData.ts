@@ -53,6 +53,6 @@ export const moreUserOptions = [
   },
   {
     label: "Remove access",
-    // fn: () => console.log("removed"),
+    action: () => console.log("removed"),
   },
 ];

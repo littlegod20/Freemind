@@ -19,13 +19,13 @@ const Users = () => {
         description="Manage all users you have invited to the platform."
       />
       <section className="pt-5">
-        <FilterParent data={staticUsersData} />
+        <FilterParent filterOptions={staticUsersData} />
       </section>
 
       <section className="pt-10">
         <Table
-          tableDetails={usersDetails}
           tableTitles={usersTitles}
+          tableDetails={usersDetails}
           moreOptions={moreUserOptions}
           pagination={true}
         />

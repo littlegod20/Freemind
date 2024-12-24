@@ -15,6 +15,12 @@ export interface TableDetailsTypes {
   email?: string;
   inviteStatus?: string;
   expiryDate?: string;
+
+  // prefixed prompts
+  promptTitle?: string;
+  prompt?: string;
+  folder?: string;
+  access?: string;
 }
 
 export interface ClientDetailsTypes {

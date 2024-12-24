@@ -18,10 +18,10 @@ const ModalContainer = ({
 
   return (
     <section
-      className="fixed inset-0 h-screen flex items-center justify-center "
+      className="fixed inset-0 h-screen flex items-center justify-center z-50 w-full p-5 overflow-scroll"
       onClick={handleOutClick}
     >
-      <div className="fixed inset-0 flex bg-black bg-opacity-50 items-center justify-center z-50 w-full p-5">
+      <div className="fixed inset-0 flex bg-black bg-opacity-50 items-center justify-center z-50 w-full p-5 pt-32 sm:pt-5 overflow-scroll">
         {children}
       </div>
     </section>
