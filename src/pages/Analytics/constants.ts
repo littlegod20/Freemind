@@ -1,7 +1,8 @@
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { StatisticsTypes } from "./components/StatisticsBox";
+import { LabelTypes } from "@/utils/types";
 
-const statisticsData: StatisticsTypes = {
+export const statisticsData: StatisticsTypes = {
   data: [
     {
       title: "Total sessions",
@@ -30,4 +31,8 @@ const statisticsData: StatisticsTypes = {
   ],
 };
 
-export default statisticsData;
+export const analyticsTabs: LabelTypes[] = [
+  { label: "3 months ago", active: true },
+  { label: "2 months ago", active: false },
+  { label: "Last month", active: false },
+];

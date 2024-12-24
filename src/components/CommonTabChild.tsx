@@ -14,7 +14,7 @@ const CommonTabChild = ({
   children,
   moreOptions
 }: {
-  data: string[] | DataObjectTypes[];
+  data: string[] | DataObjectTypes[] | null;
   moreOptions?: MoreOptions[];
   border?: boolean;
   tabNumber: number;
@@ -28,7 +28,7 @@ const CommonTabChild = ({
     <>
       {tabNumber === childIndex && (
         <ClientDetailContent
-          data={data}
+          data={data ?? null}
           border={border}
           staticData={staticData}
           showModal={showModal}
