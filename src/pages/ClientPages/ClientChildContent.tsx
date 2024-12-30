@@ -1,89 +1,32 @@
 import AvatarContainer from "@/components/AvatarContainer";
-import { Button } from "@/components/ui/button";
-import EditContainer from "@/components/widgets/EditContainer";
-import ModalWithForm from "@/components/widgets/ModalWithForm";
-import { LabelTypes, MoreOptions } from "@/utils/types";
-import React, { useState } from "react";
-import { DataObjectTypes } from "../clientTypes";
 import { isDataListType } from "@/utils/helpers";
+import { DataObjectTypes } from "./clientTypes";
+import { useState } from "react";
+import { LucideIcon } from "lucide-react";
 
-interface ClientCommonTabDetailTypes {
-  data: string[] | DataObjectTypes[] | null;
-  border?: boolean;
-  staticData?: LabelTypes[];
-  children?: React.ReactNode;
-  showModal?: boolean;
-  setShowModal?: React.Dispatch<React.SetStateAction<boolean>>;
-  moreOptions?: MoreOptions[];
-}
-
-const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
+const ClientChildContent = ({
   data,
   border = true,
-  staticData,
-  children,
-  showModal,
-  setShowModal,
   moreOptions,
+}: {
+  data: DataObjectTypes[] | string[];
+  border?: boolean;
+  moreOptions?: { label: string; action: () => void; Icon?: LucideIcon }[];
 }) => {
-  const [clientAction, setClientAction] = useState("");
   const [more, setMore] = useState(false);
   const [optionIndex, setOptionIndex] = useState(0);
-
-  const handleClientAction = (buttonName: string) => {
-    setClientAction(buttonName);
-    if (setShowModal) {
-      setShowModal(true);
-    }
-  };
 
   const handleClickMore = (val: string, optionIndex: number) => {
     setMore(!more);
     setOptionIndex(optionIndex);
     console.log("mor:", val);
   };
+
   return (
     <>
-      {staticData?.map((item, index) => (
-        <div className="" key={index}>
-          <>
-            <div className="pt-4">
-              {item.title && (
-                <EditContainer
-                  title={item.title}
-                  titleClassName="text-xl"
-                  Button={
-                    <Button
-                      className="font-light"
-                      onClick={() => {
-                        handleClientAction(item.buttonName as string);
-                        console.log(item.buttonName);
-                      }}
-                    >
-                      {item.buttonName}
-                    </Button>
-                  }
-                />
-              )}
-            </div>
-            {clientAction === item.buttonName && showModal && (
-              <ModalWithForm
-                title={item?.modalDetails?.title ?? undefined}
-                description={item?.modalDetails?.description ?? undefined}
-                onCancel={() =>
-                  item.modalDetails?.buttonTitles?.[0]?.action?.() ?? undefined
-                }
-                buttonTitles={item?.modalDetails?.buttonTitles ?? undefined}
-              >
-                {children}
-              </ModalWithForm>
-            )}
-          </>
-        </div>
-      ))}
       <div className="space-y-3 pt-4">
-        {data &&
-          data.map((item, index) => (
+        {data && (
+          data.map((item: DataObjectTypes | string, index: number) => (
             <div
               className={`w-full ${
                 border ? "border" : ""
@@ -154,10 +97,11 @@ const ClientCommonTabDetail: React.FC<ClientCommonTabDetailTypes> = ({
                 </div>
               </div>
             </div>
-          ))}
+          ))
+        )}
       </div>
     </>
   );
 };
 
-export default ClientCommonTabDetail;
+export default ClientChildContent;

@@ -1,10 +1,12 @@
 import Header from "@/components/Header";
 import StatisticsBox from "./components/StatisticsBox";
-import { analyticsTabs, statisticsData } from "./constants";
+import { analyticsTableDetails, analyticsTableTitles, analyticsTabs, statisticsData } from "./constants";
 import CommonTab from "@/components/widgets/CommonTab";
 import { useState } from "react";
 import SessionsTableHeader from "./components/SessionsTableHeader";
 import CommonTabChild from "@/components/CommonTabChild";
+import Table from "@/components/Table";
+import { TableDemo } from "@/components/dummyTable";
 
 const Analytics = () => {
   const [childIndex, setChildIndex] = useState(0);
@@ -39,17 +41,22 @@ const Analytics = () => {
       <section className="mt-8 pt-6 px-4 border rounded-lg shadow-inner">
         <SessionsTableHeader />
 
-        <div className="mt-8">
+        <div className="mt-8 bg-green-500">
           <CommonTab
             tabData={tabData}
             onClickTab={handleAnalyticsTab}
             tabTitleStyle={"justify-between bg-blue-400"}
           >
             <CommonTabChild
-              data={null}
+              data={
+                <TableDemo/>
+              }
               tabNumber={0}
               childIndex={childIndex}
-            ></CommonTabChild>
+            >
+              <p className="text-black z-50">hello</p>
+              {/* <Table tableDetails={analyticsTableDetails} tableTitles={analyticsTableTitles} moreOptions={[{label:'something'}]} /> */}
+            </CommonTabChild>
           </CommonTab>
         </div>
       </section>

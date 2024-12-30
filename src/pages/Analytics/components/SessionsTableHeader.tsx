@@ -1,22 +1,20 @@
-import Inputs from '@/components/Inputs';
+import Inputs from "@/components/Inputs";
 const SessionsTableHeader = () => {
   return (
     <>
-      <header className="font-bold text-xl flex justify-between items-center">
-        Total sessions / user
-        <div className="font-normal">
-          <Inputs
-            data={[
-              { placeholder: "All users", options: ["option1", "option2"] },
-            ]}
-            type="select"
-            className="w-44"
-            defaultSelect={false}
-          />
-        </div>
+      <header className="flex justify-between items-center">
+        <p className="w-[104px] sm:w-full font-bold text-sm sm:text-xl">
+          Total sessions / user
+        </p>
+        <Inputs
+          data={[{ placeholder: "All users", options: ["option1", "option2"] }]}
+          type="select"
+          className="w-44 font-normal"
+          defaultSelect={false}
+        />
       </header>
     </>
   );
-}
+};
 
-export default SessionsTableHeader
+export default SessionsTableHeader;

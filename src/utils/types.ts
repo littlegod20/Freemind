@@ -21,6 +21,9 @@ export interface TableDetailsTypes {
   prompt?: string;
   folder?: string;
   access?: string;
+
+  // session details
+  totalSessions?: string;
 }
 
 export interface ClientDetailsTypes {

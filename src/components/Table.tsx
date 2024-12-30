@@ -71,7 +71,7 @@ const Table: React.FC<TableTypes> = ({
                             data-tooltip-id="my-tooltip"
                             data-tooltip-content={value}
                           >
-                            {value}
+                            {(value)}
                           </p>
                         )}
                         {keyDetailIndex ===
