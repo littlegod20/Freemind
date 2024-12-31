@@ -1,7 +1,7 @@
 import { Calendar } from "lucide-react";
 import Inputs from "../Inputs";
 
-const FilterCalendar = () => {
+const FilterByCalendar = () => {
   return (
     <>
       <div className="flex flex-col items-start gap-2 hdx:gap-0 hdx:flex-row pt-2">
@@ -18,4 +18,4 @@ const FilterCalendar = () => {
   );
 };
 
-export default FilterCalendar;
+export default FilterByCalendar;

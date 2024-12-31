@@ -1,20 +1,20 @@
-import Inputs from "@/components/Inputs";
-const SessionsTableHeader = () => {
+import React from "react";
+const ContainerHeader = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => {
   return (
     <>
-      <header className="flex justify-between items-center px-6">
-        <p className="w-[104px] sm:w-full font-bold text-sm sm:text-xl">
-          Total sessions / user
-        </p>
-        <Inputs
-          data={[{ placeholder: "All users", options: ["option1", "option2"] }]}
-          type="select"
-          className="w-44 font-normal"
-          defaultSelect={false}
-        />
+      <header className="flex flex-col sm:flex-row sm:justify-between sm:items-center px-2 py-2">
+        <p className="w-full font-bold text-sm sm:text-base">{title}</p>
+
+        <div>{children}</div>
       </header>
     </>
   );
 };
 
-export default SessionsTableHeader;
+export default ContainerHeader;

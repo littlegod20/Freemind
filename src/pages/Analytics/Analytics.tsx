@@ -8,9 +8,11 @@ import {
 } from "./constants";
 import CommonTab from "@/components/widgets/CommonTab";
 import { useState } from "react";
-import SessionsTableHeader from "./components/SessionsTableHeader";
 import CommonTabChild from "@/components/CommonTabChild";
 import Table from "@/components/Table";
+import ContainerHeader from "./components/SessionsTableHeader";
+import Inputs from "@/components/Inputs";
+import FilterByCalendar from "@/components/widgets/FilterByCalendar";
 
 const Analytics = () => {
   const [childIndex, setChildIndex] = useState(0);
@@ -41,10 +43,19 @@ const Analytics = () => {
         <StatisticsBox data={statisticsData.data} />
       </section>
 
-      <section className="mt-8 pt-6 border rounded-lg shadow-inner">
-        <SessionsTableHeader />
+      <section className="mt-8 border rounded-lg shadow-inner">
+        <ContainerHeader title="Total sessions / user">
+          <Inputs
+            data={[
+              { placeholder: "All users", options: ["option1", "option2"] },
+            ]}
+            type="select"
+            className="w-44 font-normal"
+            defaultSelect={false}
+          />
+        </ContainerHeader>
 
-        <div className="mt-8">
+        <div className="">
           <CommonTab
             tabData={tabData}
             onClickTab={handleAnalyticsTab}
@@ -64,6 +75,21 @@ const Analytics = () => {
             </CommonTabChild>
           </CommonTab>
         </div>
+      </section>
+
+      <section className="mt-8 border rounded-lg shadow-inner">
+        <ContainerHeader title="Num of calls for service breakdown / user">
+          <FilterByCalendar />
+        </ContainerHeader>
+        <Table
+          tableDetails={analyticsTableDetails}
+          tableTitles={analyticsTableTitles}
+          titlesClassName="w-1/2"
+          detailsClassName="w-1/2"
+          overAllContainerClassName="rounded-b-lg"
+          tableClassName="rounded-none border-b-[1px]"
+          pagination={true}
+        />
       </section>
     </main>
   );
