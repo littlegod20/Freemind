@@ -1,12 +1,16 @@
 import Header from "@/components/Header";
 import StatisticsBox from "./components/StatisticsBox";
-import { analyticsTableDetails, analyticsTableTitles, analyticsTabs, statisticsData } from "./constants";
+import {
+  analyticsTableDetails,
+  analyticsTableTitles,
+  analyticsTabs,
+  statisticsData,
+} from "./constants";
 import CommonTab from "@/components/widgets/CommonTab";
 import { useState } from "react";
 import SessionsTableHeader from "./components/SessionsTableHeader";
 import CommonTabChild from "@/components/CommonTabChild";
 import Table from "@/components/Table";
-import { TableDemo } from "@/components/dummyTable";
 
 const Analytics = () => {
   const [childIndex, setChildIndex] = useState(0);
@@ -24,7 +28,6 @@ const Analytics = () => {
       )
     );
     setChildIndex(indexChild);
-    // console.log("childIndex:", indexChild);
   };
 
   return (
@@ -41,21 +44,19 @@ const Analytics = () => {
       <section className="mt-8 pt-6 px-4 border rounded-lg shadow-inner">
         <SessionsTableHeader />
 
-        <div className="mt-8 bg-green-500">
+        <div className="mt-8">
           <CommonTab
             tabData={tabData}
             onClickTab={handleAnalyticsTab}
             tabTitleStyle={"justify-between bg-blue-400"}
           >
-            <CommonTabChild
-              data={
-                <TableDemo/>
-              }
-              tabNumber={0}
-              childIndex={childIndex}
-            >
-              <p className="text-black z-50">hello</p>
-              {/* <Table tableDetails={analyticsTableDetails} tableTitles={analyticsTableTitles} moreOptions={[{label:'something'}]} /> */}
+            <CommonTabChild tabNumber={0} childIndex={childIndex}>
+              <Table
+                tableTitles={analyticsTableTitles}
+                tableDetails={analyticsTableDetails}
+                titlesClassName="w-1/2"
+                detailsClassName="w-1/2"
+              />
             </CommonTabChild>
           </CommonTab>
         </div>

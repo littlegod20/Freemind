@@ -48,8 +48,10 @@ export interface MoreOptions {
 
 export interface TableTypes {
   tableTitles: string[];
+  titlesClassName?: ClassNameValue;
   tableDetails: TableDetailsTypes[];
-  moreOptions: MoreOptions[];
+  detailsClassName?: ClassNameValue;
+  moreOptions?: MoreOptions[];
   pagination?: boolean;
 }
 

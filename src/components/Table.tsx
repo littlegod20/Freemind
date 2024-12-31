@@ -10,6 +10,8 @@ const Table: React.FC<TableTypes> = ({
   tableTitles,
   moreOptions,
   pagination = false,
+  titlesClassName = "",
+  detailsClassName = "",
 }) => {
   const [details, setDetails] = useState(
     tableDetails.map((item) => ({ ...item, show: false }))
@@ -38,7 +40,7 @@ const Table: React.FC<TableTypes> = ({
               {tableTitles.map((item, index) => (
                 <th
                   key={index}
-                  className="md:w-[120px] flex justify-start md:text-left w-16 text-[#1F2937] font-medium text-xs"
+                  className={` flex justify-start md:text-left text-[#1F2937] font-medium text-xs ${titlesClassName ? titlesClassName : 'md:w-[120px] w-16'}`} 
                 >
                   <p className="truncate md:text-wrap">{item}</p>
                 </th>
@@ -49,8 +51,8 @@ const Table: React.FC<TableTypes> = ({
           <tbody className="flex flex-col w-full text-[#6B7280]">
             {details.map((detail, detailIndex) => (
               <tr
-                className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-3 sm:text-sm text-xs font-normal"
-                key={detailIndex} 
+                className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-2 sm:text-sm text-xs font-normal"
+                key={detailIndex}
               >
                 {Object.keys(detail)
                   .filter((key) => key !== "show")
@@ -61,7 +63,11 @@ const Table: React.FC<TableTypes> = ({
                     return (
                       <td
                         key={key}
-                        className={`md:w-[120px] w-[60px] flex justify-between md:text-left items-center`}
+                        className={` flex justify-between md:text-left items-center ${
+                          detailsClassName
+                            ? detailsClassName
+                            : "md:w-[120px] w-[60px]"
+                        }`}
                       >
                         {SpecialRenderer ? (
                           SpecialRenderer(value as string)
@@ -71,47 +77,49 @@ const Table: React.FC<TableTypes> = ({
                             data-tooltip-id="my-tooltip"
                             data-tooltip-content={value}
                           >
-                            {(value)}
+                            {value}
                           </p>
                         )}
-                        {keyDetailIndex ===
-                          Object.keys(detail).filter((key) => key !== "show")
-                            .length -
-                            1 && (
-                          <div
-                            className="cursor-pointer"
-                            onClick={() => handleHidden(detailIndex)}
-                          >
-                            <span
-                              className={`text-black font-black  ml-2 ${
-                                detail.show ? "text-green-active" : ""
-                              }`}
+                        {moreOptions &&
+                          keyDetailIndex ===
+                            Object.keys(detail).filter((key) => key !== "show")
+                              .length -
+                              1 && (
+                            <div
+                              className="cursor-pointer"
+                              onClick={() => handleHidden(detailIndex)}
                             >
-                              ...
-                            </span>
-                            {detail.show ? (
-                              <div className="absolute bg-white right-8 min-w-32 p-2 space-y-3 rounded-md border shadow-sm z-100">
-                                {moreOptions.map((option, optionIndex) => (
-                                  <p
-                                    className="text-black cursor-pointer last:text-red-600"
-                                    onClick={() =>
-                                      option.path
-                                        ? navigate(
-                                            `${option.path}/${detail.name}`
-                                          )
-                                        : option.action
-                                        ? option.action()
-                                        : console.log("no executoin")
-                                    }
-                                    key={optionIndex}
-                                  >
-                                    {option.label}
-                                  </p>
-                                ))}
-                              </div>
-                            ) : null}
-                          </div>
-                        )}
+                              <span
+                                className={`text-black font-black  ml-2 ${
+                                  detail.show ? "text-green-active" : ""
+                                }`}
+                              >
+                                ...
+                              </span>
+                              {detail.show ? (
+                                <div className="absolute bg-white right-8 min-w-32 p-2 space-y-3 rounded-md border shadow-sm z-100">
+                                  {moreOptions &&
+                                    moreOptions.map((option, optionIndex) => (
+                                      <p
+                                        className="text-black cursor-pointer last:text-red-600"
+                                        onClick={() =>
+                                          option.path
+                                            ? navigate(
+                                                `${option.path}/${detail.name}`
+                                              )
+                                            : option.action
+                                            ? option.action()
+                                            : console.log("no executoin")
+                                        }
+                                        key={optionIndex}
+                                      >
+                                        {option.label}
+                                      </p>
+                                    ))}
+                                </div>
+                              ) : null}
+                            </div>
+                          )}
                         <Tooltip id="my-tooltip" />
                       </td>
                     );
