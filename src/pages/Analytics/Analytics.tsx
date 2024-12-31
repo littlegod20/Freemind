@@ -10,7 +10,7 @@ import CommonTab from "@/components/widgets/CommonTab";
 import { useState } from "react";
 import CommonTabChild from "@/components/CommonTabChild";
 import Table from "@/components/Table";
-import ContainerHeader from "./components/SessionsTableHeader";
+import ContainerHeader from "./components/ContainerHeader";
 import Inputs from "@/components/Inputs";
 import FilterByCalendar from "@/components/widgets/FilterByCalendar";
 
