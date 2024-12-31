@@ -12,6 +12,8 @@ const Table: React.FC<TableTypes> = ({
   pagination = false,
   titlesClassName = "",
   detailsClassName = "",
+  tableClassName = "",
+  overAllContainerClassName = "",
 }) => {
   const [details, setDetails] = useState(
     tableDetails.map((item) => ({ ...item, show: false }))
@@ -32,15 +34,27 @@ const Table: React.FC<TableTypes> = ({
   };
 
   return (
-    <div className="border rounded-lg w-full ">
-      <div className="overflow-scroll rounded-lg border shadow-inner flex">
+    <div
+      className={` w-full ${
+        overAllContainerClassName
+          ? overAllContainerClassName
+          : "rounded-lg border"
+      } `}
+    >
+      <div
+        className={`overflow-scroll   flex ${
+          tableClassName ? tableClassName : "rounded-lg border shadow-inner"
+        }`}
+      >
         <table className="text-sm w-full">
           <thead className="p-2 w-full ">
             <tr className="flex gap-2 p-2 justify-between">
               {tableTitles.map((item, index) => (
                 <th
                   key={index}
-                  className={` flex justify-start md:text-left text-[#1F2937] font-medium text-xs ${titlesClassName ? titlesClassName : 'md:w-[120px] w-16'}`} 
+                  className={` flex justify-start md:text-left text-[#1F2937] font-medium text-xs ${
+                    titlesClassName ? titlesClassName : "md:w-[120px] w-16"
+                  }`}
                 >
                   <p className="truncate md:text-wrap">{item}</p>
                 </th>

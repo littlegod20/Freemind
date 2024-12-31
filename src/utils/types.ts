@@ -53,6 +53,8 @@ export interface TableTypes {
   detailsClassName?: ClassNameValue;
   moreOptions?: MoreOptions[];
   pagination?: boolean;
+  tableClassName?: ClassNameValue;
+  overAllContainerClassName?: ClassNameValue;
 }
 
 export interface CardWithFormTypes {

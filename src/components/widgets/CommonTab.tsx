@@ -19,7 +19,7 @@ const CommonTab: React.FC<CommonTabTypes> = ({
 }) => {
   return (
     <>
-      <div className={`w-full pt-2 flex gap-8 ${!tabTitleStyle ?'justify-between': ''} border-b-[1px]`}>
+      <div className={`w-full pt-2  px-2 flex gap-8 ${!tabTitleStyle ?'justify-between': ''} border-b-[1px]`}>
         {tabData.map((item, index) => (
           <div
             className={`pb-1 border-b-4 text-gray-500 flex ${

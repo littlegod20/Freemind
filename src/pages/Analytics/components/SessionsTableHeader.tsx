@@ -2,7 +2,7 @@ import Inputs from "@/components/Inputs";
 const SessionsTableHeader = () => {
   return (
     <>
-      <header className="flex justify-between items-center">
+      <header className="flex justify-between items-center px-6">
         <p className="w-[104px] sm:w-full font-bold text-sm sm:text-xl">
           Total sessions / user
         </p>

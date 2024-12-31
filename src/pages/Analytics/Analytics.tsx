@@ -41,7 +41,7 @@ const Analytics = () => {
         <StatisticsBox data={statisticsData.data} />
       </section>
 
-      <section className="mt-8 pt-6 px-4 border rounded-lg shadow-inner">
+      <section className="mt-8 pt-6 border rounded-lg shadow-inner">
         <SessionsTableHeader />
 
         <div className="mt-8">
@@ -49,6 +49,7 @@ const Analytics = () => {
             tabData={tabData}
             onClickTab={handleAnalyticsTab}
             tabTitleStyle={"justify-between bg-blue-400"}
+            childrenClassName="px-0 py-0"
           >
             <CommonTabChild tabNumber={0} childIndex={childIndex}>
               <Table
@@ -56,6 +57,9 @@ const Analytics = () => {
                 tableDetails={analyticsTableDetails}
                 titlesClassName="w-1/2"
                 detailsClassName="w-1/2"
+                overAllContainerClassName="rounded-b-lg"
+                tableClassName="rounded-none border-b-[1px]"
+                pagination={true}
               />
             </CommonTabChild>
           </CommonTab>
