@@ -17,7 +17,7 @@ const Inputs: React.FC<InputsTypes> = ({
   type = "text",
   defaultSelect = true,
   className,
-  onChange
+  onChange,
 }) => {
   return (
     <>
@@ -59,7 +59,7 @@ const Inputs: React.FC<InputsTypes> = ({
                   {item.label}
                 </Label>
                 <Select>
-                  <SelectTrigger id={item.label}>
+                  <SelectTrigger id={item.label} className={`${className}`}>
                     <SelectValue
                       placeholder={
                         defaultSelect

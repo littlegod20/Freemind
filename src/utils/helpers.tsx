@@ -1,6 +1,4 @@
-import {
-  DataObjectTypes,
-} from "@/pages/ClientPages/clientTypes";
+import { DataObjectTypes } from "@/pages/ClientPages/clientTypes";
 
 export const specialRenderers = {
   inviteStatus: (val: string) => {
@@ -28,7 +26,20 @@ export const intoHSL = (hash: number) => {
   return `hsl(${hash}, 70%, 90%)`;
 };
 
-export function isDataListType(item: string | DataObjectTypes): item is string {
+export function isDataListType(
+  item: string | DataObjectTypes | React.ReactNode
+): item is string {
   return typeof item === "string";
 }
 
+export function isDataListOrObject(
+  item: string | DataObjectTypes[] | React.ReactNode
+): item is DataObjectTypes[] {
+  return typeof item === "object";
+}
+
+export function isReactNodeType(
+  item: string[] | DataObjectTypes[] | React.ReactNode
+): item is React.ReactNode {
+  return typeof item === "object";
+}

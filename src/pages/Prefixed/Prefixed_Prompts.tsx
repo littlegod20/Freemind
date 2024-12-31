@@ -35,14 +35,9 @@ const Prefixed_Prompts = () => {
         <FilterParent
           filterOptions={[
             {
-              label: "Prompts",
-              placeholder: "Select prompt",
-              options: ["prompt1", "prompt2", "prompt3"],
-            },
-            {
-              label: "Status",
-              placeholder: "Select status",
-              options: ["Active", "Inactive"],
+              label: "Access",
+              placeholder: "Choose role",
+              options: ["Role 1", "Role 2", "Role 3"],
             },
           ]}
         />

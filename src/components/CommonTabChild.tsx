@@ -1,42 +1,29 @@
-import { DataObjectTypes } from "@/pages/ClientPages/clientTypes";
-import ClientDetailContent from "@/pages/ClientPages/components/ClientDetailContent";
-import { LabelTypes, MoreOptions } from "@/utils/types";
-import React from "react";
+import { TabChildContentsTypes } from "@/pages/ClientPages/clientTypes";
+import TabChildContents from "@/pages/ClientPages/components/TabChildContents";
 
 const CommonTabChild = ({
   tabNumber,
   childIndex,
-  data,
-  border = true,
+  modalChildren,
   staticData,
   showModal,
   setShowModal,
   children,
-  moreOptions
-}: {
-  data: string[] | DataObjectTypes[];
-  moreOptions?: MoreOptions[];
-  border?: boolean;
-  tabNumber: number;
-  childIndex: number;
-  staticData?: LabelTypes[];
-  children?: React.ReactNode;
-  showModal?: boolean;
-  setShowModal?: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+}: TabChildContentsTypes) => {
+
+
+
   return (
     <>
       {tabNumber === childIndex && (
-        <ClientDetailContent
-          data={data}
-          border={border}
+        <TabChildContents
+          modalChildren={modalChildren}
           staticData={staticData}
           showModal={showModal}
           setShowModal={setShowModal}
-          moreOptions = {moreOptions}
         >
           {children}
-        </ClientDetailContent>
+        </TabChildContents>
       )}
     </>
   );

@@ -21,6 +21,9 @@ export interface TableDetailsTypes {
   prompt?: string;
   folder?: string;
   access?: string;
+
+  // session details
+  totalSessions?: string;
 }
 
 export interface ClientDetailsTypes {
@@ -45,8 +48,10 @@ export interface MoreOptions {
 
 export interface TableTypes {
   tableTitles: string[];
+  titlesClassName?: ClassNameValue;
   tableDetails: TableDetailsTypes[];
-  moreOptions: MoreOptions[];
+  detailsClassName?: ClassNameValue;
+  moreOptions?: MoreOptions[];
   pagination?: boolean;
 }
 
