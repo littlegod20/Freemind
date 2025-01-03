@@ -19,9 +19,6 @@ import FilterByCalendar from "@/components/widgets/FilterByCalendar";
 const Analytics = () => {
   const [childIndex, setChildIndex] = useState(0);
   const [tabData, setTabData] = useState(analyticsTabs);
-  // const [showModal, setShowModal] = useState(false);
-
-  // const { onClose, close } = useAction();
 
   const handleAnalyticsTab = (tabLabel: string, indexChild: number) => {
     setTabData((prev) =>
