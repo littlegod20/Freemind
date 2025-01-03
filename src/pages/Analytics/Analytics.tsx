@@ -1,9 +1,11 @@
 import Header from "@/components/Header";
 import StatisticsBox from "./components/StatisticsBox";
 import {
-  analyticsTableDetails,
-  analyticsTableTitles,
+  analyticsSessionsDetails,
+  analyticsSessionsTitles,
   analyticsTabs,
+  numOfCallsforServiceDets,
+  numOfCallsforServiceTitles,
   statisticsData,
 } from "./constants";
 import CommonTab from "@/components/widgets/CommonTab";
@@ -64,8 +66,8 @@ const Analytics = () => {
           >
             <CommonTabChild tabNumber={0} childIndex={childIndex}>
               <Table
-                tableTitles={analyticsTableTitles}
-                tableDetails={analyticsTableDetails}
+                tableTitles={analyticsSessionsTitles}
+                tableDetails={analyticsSessionsDetails}
                 titlesClassName="w-1/2"
                 detailsClassName="w-1/2"
                 overAllContainerClassName="rounded-b-lg"
@@ -82,8 +84,8 @@ const Analytics = () => {
           <FilterByCalendar />
         </ContainerHeader>
         <Table
-          tableDetails={analyticsTableDetails}
-          tableTitles={analyticsTableTitles}
+          tableTitles={numOfCallsforServiceTitles}
+          tableDetails={numOfCallsforServiceDets}
           titlesClassName="w-1/2"
           detailsClassName="w-1/2"
           overAllContainerClassName="rounded-b-lg"
