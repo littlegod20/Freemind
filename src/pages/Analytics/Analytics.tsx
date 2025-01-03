@@ -49,7 +49,14 @@ const Analytics = () => {
         <ContainerHeader title="Total sessions / user">
           <Inputs
             data={[
-              { placeholder: "All users", options: ["option1", "option2"] },
+              {
+                options: [
+                  "All users",
+                  ...analyticsSessionsDetails
+                    .map((item) => item.name)
+                    .filter((name): name is string => name !== undefined),
+                ],
+              },
             ]}
             type="select"
             className="w-44 font-normal"

@@ -8,10 +8,12 @@ const FilterByCalendar = () => {
         <Inputs
           data={[{ placeholder: "From", Icon: Calendar }]}
           className={"rounded hdx:rounded-r-none rounded-l"}
+          type="date"
         />
         <Inputs
           data={[{ placeholder: "To", Icon: Calendar }]}
           className={"rounded hdx:rounded-l-none rounded-r"}
+          type="date"
         />
       </div>
     </>
