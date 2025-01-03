@@ -8,6 +8,7 @@ import {
   SelectValue,
 } from "./ui/select";
 import { InputsTypes } from "@/utils/types";
+import DatePicker from "./widgets/DatePicker";
 
 const Inputs: React.FC<InputsTypes> = ({
   data,
@@ -81,6 +82,15 @@ const Inputs: React.FC<InputsTypes> = ({
                     ))}
                   </SelectContent>
                 </Select>
+              </div>
+            ))
+          : type === "date"
+          ? data.slice(slice1, slice2).map((item, index) => (
+              <div key={index}>
+                <DatePicker
+                  placeholder={item.placeholder as string}
+                  className={className}
+                />
               </div>
             ))
           : null}

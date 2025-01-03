@@ -37,9 +37,9 @@ export const analyticsTabs: LabelTypes[] = [
   { label: "Last month", active: false },
 ];
 
-export const analyticsTableTitles: string[] = ["Name", "Total sessions"];
+export const analyticsSessionsTitles: string[] = ["Name", "Total sessions"];
 
-export const analyticsTableDetails: TableDetailsTypes[] = [
+export const analyticsSessionsDetails: TableDetailsTypes[] = [
   {
     name: "Alex Johnson",
     totalSessions: "60",
@@ -51,5 +51,29 @@ export const analyticsTableDetails: TableDetailsTypes[] = [
   {
     name: "Chris Thompson",
     totalSessions: "1000",
+  },
+];
+
+export const numOfCallsforServiceTitles = [
+  "Name",
+  "Open AI",
+  "Palm",
+];
+
+export const numOfCallsforServiceDets = [
+  {
+    name: "Alex Johnson",
+    openAI: "500",
+    palm: "261",
+  },
+  {
+    name: "Maria Rodriguez",
+    openAI: "500",
+    palm: "261",
+  },
+  {
+    name: "Chris Thompson",
+    openAI: "500",
+    palm: "261",
   },
 ];
