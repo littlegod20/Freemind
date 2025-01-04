@@ -37,6 +37,7 @@ const Inputs: React.FC<InputsTypes> = ({
                 </Label>
                 <div className="relative mt-1">
                   <Input
+                    name={item.label}
                     id={item.label}
                     placeholder={item.placeholder}
                     className={`text-sm ${className}`}

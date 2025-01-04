@@ -11,9 +11,23 @@ import {
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
+import {  useEffect, useState } from "react";
 
 const Clients = () => {
   const { onClose, close } = useAction();
+
+  const [details, setDetails] = useState<{ [key: string]: string }[] | null>(
+    null
+  );
+
+  const handleAddClient = (detail: { [key: string]: string }) => {
+    setDetails((prev) => (prev ? [...prev, detail] : [detail]));
+  };
+
+  useEffect(() => {
+    console.log("Parent Details:", details);
+  },[details]);
+
   return (
     <main>
       <Header
@@ -52,7 +66,7 @@ const Clients = () => {
           ]}
           onCancel={onClose}
         >
-          <ClientEditInputs data={data} />
+          <ClientEditInputs data={data} uplift={handleAddClient} />
         </ModalWithForm>
       )}
     </main>
