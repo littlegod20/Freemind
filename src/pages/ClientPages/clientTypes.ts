@@ -19,3 +19,15 @@ export interface TabChildContentsTypes {
   childIndex?:number;
 }
 
+export interface ClientDetailsTypes {
+  companyName: string;
+  contractExp: string;
+  contactName: string;
+  email: string;
+  phoneNo: string;
+  website: string;
+  firstLogged: string;
+  lastLogged: string;
+  lastUpdate: string;
+  modifiedBy: { name: string; role: string };
+}

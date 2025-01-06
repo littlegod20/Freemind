@@ -1,3 +1,4 @@
+import { ClientDetailsTypes } from "@/pages/ClientPages/clientTypes";
 import { LucideIcon } from "lucide-react";
 import React from "react";
 import { ClassNameValue } from "tailwind-merge";
@@ -26,18 +27,6 @@ export interface TableDetailsTypes {
   totalSessions?: string;
 }
 
-export interface ClientDetailsTypes {
-  companyName: string;
-  contractExp: string;
-  contactName: string;
-  email: string;
-  phoneNo: string;
-  website: string;
-  firstLogged: string;
-  lastLogged: string;
-  lastUpdate: string;
-  modifiedBy: { name: string; role: string };
-}
 
 export interface MoreOptions {
   label: string;
