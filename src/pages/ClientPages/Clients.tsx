@@ -5,28 +5,26 @@ import FilterParent from "../../components/widgets/FilterParent";
 import { data } from "../../utils/constants";
 import {
   clientTableHeaders,
-  clientTableValues,
   moreClientOptions,
 } from "./clientData";
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ClientDetailsTypes } from "./clientTypes";
 
 const Clients = () => {
   const { onClose, close } = useAction();
 
-  const [details, setDetails] = useState<{ [key: string]: string }[] | null>(
-    null
-  );
+  const [details, setDetails] = useState<ClientDetailsTypes[] | object[]>([{}]);
 
-  const handleAddClient = (detail: { [key: string]: string }) => {
+  const handleSubmitClient = (detail: ClientDetailsTypes) => {
     setDetails((prev) => (prev ? [...prev, detail] : [detail]));
   };
 
   useEffect(() => {
     console.log("Parent Details:", details);
-  },[details]);
+  }, [details]);
 
   return (
     <main>
@@ -51,7 +49,7 @@ const Clients = () => {
       <section className="pt-10">
         <Table
           tableTitles={clientTableHeaders}
-          tableDetails={clientTableValues}
+          tableDetails={details}
           moreOptions={moreClientOptions}
         />
       </section>
@@ -66,7 +64,7 @@ const Clients = () => {
           ]}
           onCancel={onClose}
         >
-          <ClientEditInputs data={data} uplift={handleAddClient} />
+          <ClientEditInputs data={data} onSubmit={() => handleSubmitClient} />
         </ModalWithForm>
       )}
     </main>

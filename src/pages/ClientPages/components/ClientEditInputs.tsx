@@ -2,31 +2,27 @@ import Inputs from "@/components/Inputs";
 import { PhoneInput } from "@/components/widgets/PhoneInput";
 import { LabelTypes } from "@/utils/types";
 import { Label } from "@radix-ui/react-label";
-import { useEffect, useState } from "react";
-
-interface Props {
-  [key: string]: string;
-}
+import React, { useEffect, useState } from "react";
+import { ClientDetailsTypes } from "../clientTypes";
 
 const ClientEditInputs = ({
   data,
-  uplift,
+  onSubmit,
 }: {
   data: LabelTypes[];
-  uplift: (obj: Props) => void;
+  onSubmit: (data: ClientDetailsTypes | object) => void;
 }) => {
-  const [details, setDetails] = useState<Props>();
+  const [detail, setDetail] = useState<ClientDetailsTypes | object>({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setDetails((prev) => ({ ...prev, [name]: value }));
+    setDetail((prev) => (prev ? { ...prev, [name.camelCase()]: value } : prev));
   };
 
   useEffect(() => {
-    uplift(details as Props);
-    console.log("Details:", details);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [details]);
+    console.log("Details:", detail);
+    onSubmit(detail);
+  }, [detail, onSubmit]);
 
   return (
     <>

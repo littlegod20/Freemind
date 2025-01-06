@@ -38,12 +38,10 @@ export function CardWithForm({
           )}
         </CardHeader>
       ) : null}
-      <CardContent className="w-full">
-        <form className="w-full">
+      <CardContent className="w-full ">
+        <form className="w-full h-full flex flex-col" onSubmit={(e) => e.preventDefault()}>
           <div className="w-full space-y-3 gap-4">{children}</div>
-        </form>
-      </CardContent>
-      <CardFooter className={`flex justify-${buttonLayout} gap-4 items-center`}>
+      <CardFooter className={`flex justify-${buttonLayout} gap-4 w-full items-center py-2 px-0`}>
         {buttonTitles &&
           buttonTitles.map((item, index) => (
             <Button
@@ -68,6 +66,8 @@ export function CardWithForm({
             </Button>
           ))}
       </CardFooter>
+        </form>
+      </CardContent>
     </Card>
   );
 }

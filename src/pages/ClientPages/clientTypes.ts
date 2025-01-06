@@ -21,13 +21,17 @@ export interface TabChildContentsTypes {
 
 export interface ClientDetailsTypes {
   companyName: string;
-  contractExp: string;
-  contactName: string;
+  contractExpiryDate: string;
+  role: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  phoneNo: string;
+  phoneNumber: string;
   website: string;
   firstLogged: string;
   lastLogged: string;
   lastUpdate: string;
+  numberOfProjects: string;
   modifiedBy: { name: string; role: string };
+  createdBy: string;
 }
