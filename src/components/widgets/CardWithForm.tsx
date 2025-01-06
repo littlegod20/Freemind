@@ -18,6 +18,7 @@ export function CardWithForm({
   className,
   buttonLayout = "end",
   onCancel,
+  submitForm,
 }: CardWithFormTypes) {
   return (
     <Card className={`w-full sm:max-w-[450px] ${className || ""}`}>
@@ -39,7 +40,7 @@ export function CardWithForm({
         </CardHeader>
       ) : null}
       <CardContent className="w-full ">
-        <form className="w-full h-full flex flex-col" onSubmit={(e) => e.preventDefault()}>
+        <form className="w-full h-full flex flex-col" onSubmit={submitForm}>
           <div className="w-full space-y-3 gap-4">{children}</div>
       <CardFooter className={`flex justify-${buttonLayout} gap-4 w-full items-center py-2 px-0`}>
         {buttonTitles &&
@@ -58,7 +59,7 @@ export function CardWithForm({
               variant="ghost"
               key={index}
               onClick={() =>
-                item.action ? item.action() : console.log("nothing")
+                item.action ? item.action() : null
               }
             >
               {" "}

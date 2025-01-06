@@ -3,10 +3,7 @@ import Header from "../../components/Header";
 import Table from "../../components/Table";
 import FilterParent from "../../components/widgets/FilterParent";
 import { data } from "../../utils/constants";
-import {
-  clientTableHeaders,
-  moreClientOptions,
-} from "./clientData";
+import { clientTableHeaders, moreClientOptions } from "./clientData";
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
@@ -18,9 +15,14 @@ const Clients = () => {
 
   const [details, setDetails] = useState<ClientDetailsTypes[] | object[]>([{}]);
 
-  const handleSubmitClient = (detail: ClientDetailsTypes) => {
-    setDetails((prev) => (prev ? [...prev, detail] : [detail]));
+  const handleSubmitClient = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log("Client submitted");
   };
+
+  // (detail: ClientDetailsTypes) => {
+  //   setDetails((prev) => (prev ? [...prev, detail] : [detail]));
+  // };
 
   useEffect(() => {
     console.log("Parent Details:", details);
@@ -63,6 +65,7 @@ const Clients = () => {
             { label: "Send Invite" },
           ]}
           onCancel={onClose}
+          submitForm={handleSubmitClient}
         >
           <ClientEditInputs data={data} onSubmit={() => handleSubmitClient} />
         </ModalWithForm>

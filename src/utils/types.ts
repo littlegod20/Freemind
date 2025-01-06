@@ -54,8 +54,8 @@ export interface CardWithFormTypes {
   className?: ClassNameValue;
   buttonLayout?: string;
   outClick?: boolean;
-  // cancelButton?: boolean;
   onCancel?: () => void;
+  submitForm?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export type LabelTypes = {
