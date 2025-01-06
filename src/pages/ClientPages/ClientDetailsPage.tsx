@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import CommonTab from "@/components/widgets/CommonTab";
 import EditContainer from "@/components/widgets/EditContainer";
 import { clientDetailStatics, data } from "@/utils/constants";
-import { ClientDetailsTypes } from "@/utils/types";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { clientTabs } from "./clientData";
@@ -12,6 +11,7 @@ import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
 import ClientTabChildren from "./ClientTabChildren";
+import { TableDetailsTypes } from "@/utils/types";
 
 const dets = [
   {
@@ -34,7 +34,7 @@ const dets = [
 
 const ClientDetailsPage = () => {
   const { id } = useParams();
-  const [userDetail, setUserDetail] = useState<ClientDetailsTypes | null>(null);
+  const [clientData, setClientData] = useState<TableDetailsTypes | object>({});
   const [tabData, setTabData] = useState(clientTabs);
   const [childIndex, setChildIndex] = useState(0);
 
@@ -49,17 +49,17 @@ const ClientDetailsPage = () => {
       )
     );
     setChildIndex(indexChild);
-    // console.log("childIndex:", indexChild);
   };
 
   useEffect(() => {
     if (id === "Alex Johnson") {
-      setUserDetail({
+      setClientData({
+        // id: 'Alex Johnson',
         companyName: "Jobmanor",
-        contractExp: "8/21/15",
-        contactName: "Alex Johnson",
+        contractExpiryDate: "8/21/15",
+        firstName: "Alex Johnson",
         email: "alex.johnson@emailprovider.com",
-        phoneNo: "+ 1 (726) 202-2022",
+        phoneNumber: "+ 1 (726) 202-2022",
         website: "https://thejobmanor.com/",
         firstLogged: "8/21/15",
         lastLogged: "8/21/15",
@@ -81,7 +81,7 @@ const ClientDetailsPage = () => {
           {dets.map((item, index) => (
             <Details
               statics={clientDetailStatics}
-              details={userDetail}
+              details={clientData}
               slice1={item.slice1}
               slice2={item.slice2}
               key={index}

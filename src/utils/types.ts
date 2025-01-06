@@ -1,9 +1,11 @@
-import { ClientDetailsTypes } from "@/pages/ClientPages/clientTypes";
+// import { ClientDetailsTypes } from "@/pages/ClientPages/clientTypes";
 import { LucideIcon } from "lucide-react";
 import React from "react";
 import { ClassNameValue } from "tailwind-merge";
 
 export interface TableDetailsTypes {
+  // users
+  id?: string
   name?: string;
   role?: string;
   joined?: string;
@@ -25,8 +27,20 @@ export interface TableDetailsTypes {
 
   // session details
   totalSessions?: string;
-}
 
+  // client details
+  companyName?: string;
+  contractExpiryDate?: string;
+  firstName?: string;
+  lastName?: string;
+  phoneNumber?: string;
+  website?: string;
+  firstLogged?: string;
+  lastUpdate?: string;
+  numberOfProjects?: string;
+  modifiedBy?: { name: string; role: string };
+  createdBy?: string;
+}
 
 export interface MoreOptions {
   label: string;
@@ -82,7 +96,7 @@ export interface InputsTypes {
 
 export interface DetailsTypes {
   statics: string[];
-  details: TableDetailsTypes | ClientDetailsTypes | null;
+  details: TableDetailsTypes | null;
   slice1?: number;
   slice2?: number;
   modified?: boolean;

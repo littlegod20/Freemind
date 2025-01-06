@@ -1,28 +1,22 @@
 import Inputs from "@/components/Inputs";
 import { PhoneInput } from "@/components/widgets/PhoneInput";
-import { LabelTypes } from "@/utils/types";
+import { LabelTypes, TableDetailsTypes } from "@/utils/types";
 import { Label } from "@radix-ui/react-label";
-import React, { useEffect, useState } from "react";
-import { ClientDetailsTypes } from "../clientTypes";
+import React from "react";
 
 const ClientEditInputs = ({
   data,
-  onSubmit,
+  setSingleClient
 }: {
   data: LabelTypes[];
-  onSubmit: (data: ClientDetailsTypes | object) => void;
+  setSingleClient?: React.Dispatch<React.SetStateAction<TableDetailsTypes|object>>
+
 }) => {
-  const [detail, setDetail] = useState<ClientDetailsTypes | object>({});
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setDetail((prev) => (prev ? { ...prev, [name.camelCase()]: value } : prev));
+    setSingleClient?.((prev) => (prev ? { ...prev, [name.camelCase()]: value } : prev));
   };
-
-  useEffect(() => {
-    console.log("Details:", detail);
-    onSubmit(detail);
-  }, [detail, onSubmit]);
 
   return (
     <>

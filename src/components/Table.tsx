@@ -89,9 +89,9 @@ const Table: React.FC<TableTypes> = ({
                           <p
                             className="truncate text-center"
                             data-tooltip-id="my-tooltip"
-                            data-tooltip-content={value}
+                            data-tooltip-content={value as string}
                           >
-                            {value}
+                            {value as string}
                           </p>
                         )}
                         {moreOptions &&
@@ -119,7 +119,7 @@ const Table: React.FC<TableTypes> = ({
                                         onClick={() =>
                                           option.path
                                             ? navigate(
-                                                `${option.path}/${detail.name}`
+                                                `${option.path}/${detail.id}`
                                               )
                                             : option.action
                                             ? option.action()

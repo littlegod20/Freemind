@@ -19,19 +19,16 @@ export interface TabChildContentsTypes {
   childIndex?:number;
 }
 
-export interface ClientDetailsTypes {
-  companyName: string;
-  contractExpiryDate: string;
-  role: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  website: string;
-  firstLogged: string;
-  lastLogged: string;
-  lastUpdate: string;
-  numberOfProjects: string;
-  modifiedBy: { name: string; role: string };
-  createdBy: string;
-}
+// export interface ClientDetailsTypes {
+//   companyName: string;
+//   contractExpiryDate: string;
+//   firstName: string;
+//   lastName: string;
+//   phoneNumber: string;
+//   website: string;
+//   firstLogged: string;
+//   lastUpdate: string;
+//   numberOfProjects: string;
+//   modifiedBy: { name: string; role: string };
+//   createdBy: string;
+// }

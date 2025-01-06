@@ -3,30 +3,37 @@ import Header from "../../components/Header";
 import Table from "../../components/Table";
 import FilterParent from "../../components/widgets/FilterParent";
 import { data } from "../../utils/constants";
-import { clientTableHeaders, moreClientOptions } from "./clientData";
+import {
+  clientTableHeaders,
+  clientTableValues,
+  moreClientOptions,
+} from "./clientData";
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
 import { useEffect, useState } from "react";
-import { ClientDetailsTypes } from "./clientTypes";
+import { TableDetailsTypes } from "@/utils/types";
 
 const Clients = () => {
   const { onClose, close } = useAction();
 
-  const [details, setDetails] = useState<ClientDetailsTypes[] | object[]>([{}]);
+  const [clientArray, setClientArray] = useState<
+    TableDetailsTypes[] | object[]
+  >(clientTableValues);
+
+  const [singleClient, setSingleClient] = useState<TableDetailsTypes | object>(
+    {}
+  );
 
   const handleSubmitClient = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setClientArray((prev) => (singleClient ? [...prev, singleClient] : prev));
     console.log("Client submitted");
   };
 
-  // (detail: ClientDetailsTypes) => {
-  //   setDetails((prev) => (prev ? [...prev, detail] : [detail]));
-  // };
-
   useEffect(() => {
-    console.log("Parent Details:", details);
-  }, [details]);
+    console.log("Parent Details:", clientArray);
+  }, [clientArray]);
 
   return (
     <main>
@@ -51,7 +58,7 @@ const Clients = () => {
       <section className="pt-10">
         <Table
           tableTitles={clientTableHeaders}
-          tableDetails={details}
+          tableDetails={clientArray}
           moreOptions={moreClientOptions}
         />
       </section>
@@ -67,7 +74,7 @@ const Clients = () => {
           onCancel={onClose}
           submitForm={handleSubmitClient}
         >
-          <ClientEditInputs data={data} onSubmit={() => handleSubmitClient} />
+          <ClientEditInputs data={data} setSingleClient={setSingleClient} />
         </ModalWithForm>
       )}
     </main>

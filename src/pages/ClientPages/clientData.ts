@@ -1,5 +1,4 @@
-import { LabelTypes, MoreOptions } from "@/utils/types";
-import { ClientDetailsTypes } from "./clientTypes";
+import { LabelTypes, MoreOptions, TableDetailsTypes } from "@/utils/types";
 
 export const clientTableHeaders = [
   "Company",
@@ -11,8 +10,9 @@ export const clientTableHeaders = [
   "Contract expiration date",
 ];
 
-export const clientTableValues: Partial<ClientDetailsTypes>[] = [
+export const clientTableValues: TableDetailsTypes[] = [
   {
+    id: "Alex Johnson",
     companyName: "Alex Johnson",
     createdBy: "Alex Johnson",
     role: "General user",
