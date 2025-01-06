@@ -17,23 +17,24 @@ import { TableDetailsTypes } from "@/utils/types";
 const Clients = () => {
   const { onClose, close } = useAction();
 
-  const [clientArray, setClientArray] = useState<
-    TableDetailsTypes[] | object[]
-  >(clientTableValues);
+  const [clientArray, setClientArray] = useState<TableDetailsTypes[] | null>(
+    clientTableValues
+  );
 
-  const [singleClient, setSingleClient] = useState<TableDetailsTypes | object>(
-    {}
+  const [singleClient, setSingleClient] = useState<TableDetailsTypes | null>(
+    null
   );
 
   const handleSubmitClient = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setClientArray((prev) => (singleClient ? [...prev, singleClient] : prev));
+    setClientArray((prev) => singleClient ? (prev ? [...prev, singleClient] : [singleClient]) : prev);
     console.log("Client submitted");
   };
 
   useEffect(() => {
+    console.log("Client Details:", singleClient);
     console.log("Parent Details:", clientArray);
-  }, [clientArray]);
+  }, [clientArray, singleClient]);
 
   return (
     <main>

@@ -9,7 +9,7 @@ const ClientEditInputs = ({
   setSingleClient
 }: {
   data: LabelTypes[];
-  setSingleClient?: React.Dispatch<React.SetStateAction<TableDetailsTypes|object>>
+  setSingleClient?: React.Dispatch<React.SetStateAction<TableDetailsTypes|null>>
 
 }) => {
 

@@ -5,7 +5,7 @@ import { ClassNameValue } from "tailwind-merge";
 
 export interface TableDetailsTypes {
   // users
-  id?: string
+  id: string;
   name?: string;
   role?: string;
   joined?: string;
@@ -52,7 +52,7 @@ export interface MoreOptions {
 export interface TableTypes {
   tableTitles: string[];
   titlesClassName?: ClassNameValue;
-  tableDetails: TableDetailsTypes[];
+  tableDetails: TableDetailsTypes[] | null;
   detailsClassName?: ClassNameValue;
   moreOptions?: MoreOptions[];
   pagination?: boolean;

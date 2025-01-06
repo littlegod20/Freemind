@@ -34,7 +34,7 @@ const dets = [
 
 const ClientDetailsPage = () => {
   const { id } = useParams();
-  const [clientData, setClientData] = useState<TableDetailsTypes | object>({});
+  const [clientData, setClientData] = useState<TableDetailsTypes | null>(null);
   const [tabData, setTabData] = useState(clientTabs);
   const [childIndex, setChildIndex] = useState(0);
 
@@ -52,9 +52,9 @@ const ClientDetailsPage = () => {
   };
 
   useEffect(() => {
-    if (id === "Alex Johnson") {
+    if (id === "Alex Johnson" ) {
       setClientData({
-        // id: 'Alex Johnson',
+        id: 'Alex Johnson',
         companyName: "Jobmanor",
         contractExpiryDate: "8/21/15",
         firstName: "Alex Johnson",
