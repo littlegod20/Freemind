@@ -9,8 +9,10 @@ import {
   moreInviteOptions,
 } from "../utils/constants";
 import { useAction } from "@/hooks/useAction";
-import ModalWithForm from "@/components/widgets/ModalWithForm";
 import Inputs from "@/components/Inputs";
+import { lazy } from "react";
+
+const ModalWithForm = lazy(() => import("@/components/widgets/ModalWithForm"));
 
 const staticInviteData = [
   {

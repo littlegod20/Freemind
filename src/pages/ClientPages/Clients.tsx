@@ -5,9 +5,8 @@ import FilterParent from "../../components/widgets/FilterParent";
 import { data } from "../../utils/constants";
 import { clientTableHeaders, moreClientOptions } from "./clientData";
 import { useAction } from "@/hooks/useAction";
-import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { TableDetailsTypes } from "@/utils/types";
 import { v4 as uuid } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +15,8 @@ import {
   fetchClientsInvite,
   postClientInvite,
 } from "@/store/slices/clientSlice";
+
+const ModalWithForm = lazy(() => import("@/components/widgets/ModalWithForm"));
 
 const Clients = () => {
   const { onClose, close } = useAction();
@@ -112,18 +113,20 @@ const Clients = () => {
       </section>
 
       {close && (
-        <ModalWithForm
-          title="Create new client"
-          description="An invitation will be sent to this email address with a link to access the client portal"
-          buttonTitles={[
-            { label: "Cancel", action: onClose },
-            { label: "Send Invite" },
-          ]}
-          onCancel={onClose}
-          submitForm={handleSubmitClient}
-        >
-          <ClientEditInputs data={data} setSingleClient={setSingleClient} />
-        </ModalWithForm>
+        <Suspense>
+          <ModalWithForm
+            title="Create new client"
+            description="An invitation will be sent to this email address with a link to access the client portal"
+            buttonTitles={[
+              { label: "Cancel", action: onClose },
+              { label: "Send Invite" },
+            ]}
+            onCancel={onClose}
+            submitForm={handleSubmitClient}
+          >
+            <ClientEditInputs data={data} setSingleClient={setSingleClient} />
+          </ModalWithForm>
+        </Suspense>
       )}
     </main>
   );

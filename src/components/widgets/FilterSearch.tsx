@@ -1,8 +1,9 @@
 import { ListFilter, Search } from "lucide-react";
 import Inputs from "../Inputs";
-import { useState } from "react";
-import { CardWithForm } from "./CardWithForm";
+import { lazy, useState } from "react";
 import { LabelTypes } from "@/utils/types";
+
+const CardWithForm = lazy(() => import("./CardWithForm"));
 
 const FilterSearch = ({ filterInfo }: { filterInfo: LabelTypes[] }) => {
   const [filter, setFilter] = useState(false);

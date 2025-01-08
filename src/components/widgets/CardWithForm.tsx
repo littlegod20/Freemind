@@ -10,7 +10,7 @@ import {
 import { CardWithFormTypes } from "@/utils/types";
 import { X } from "lucide-react";
 
-export function CardWithForm({
+const CardWithForm =({
   title,
   description,
   children,
@@ -19,7 +19,7 @@ export function CardWithForm({
   buttonLayout = "end",
   onCancel,
   submitForm,
-}: CardWithFormTypes) {
+}: CardWithFormTypes) => {
   return (
     <Card className={`w-full sm:max-w-[450px] ${className || ""}`}>
       {title ? (
@@ -72,3 +72,5 @@ export function CardWithForm({
     </Card>
   );
 }
+
+export default CardWithForm

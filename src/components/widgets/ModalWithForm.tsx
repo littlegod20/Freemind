@@ -1,6 +1,6 @@
 import { CardWithFormTypes } from "@/utils/types";
 import ModalContainer from "../ModalContainer";
-import { CardWithForm } from "./CardWithForm";
+import CardWithForm from "./CardWithForm";
 
 const ModalWithForm = ({
   children,
