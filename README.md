@@ -8,10 +8,7 @@
 - Vite
 - TailwindCSS
 - TypeScript
-- React Query
 - React Router
-- React Hook Form
-- Zod
 
 ## Installation
 
