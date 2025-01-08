@@ -38,7 +38,7 @@ const FilterSearch = ({ filterInfo }: { filterInfo: LabelTypes[] }) => {
         </section>
 
         {/* search input */}
-        <Inputs data={[{ placeholder: "Search", Icon: Search }]} />
+        <Inputs data={[{ placeholder: "Search", Icon: Search , type:'text'}]} />
       </div>
     </>
   );
