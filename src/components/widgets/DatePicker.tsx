@@ -23,7 +23,7 @@ export function DatePicker({placeholder, className}: {placeholder: string, class
         <Button
           variant={"outline"}
           className={`${cn(
-            "w-[280px] justify-between text-left font-normal",
+            "justify-between text-left font-normal",
             !date && "text-muted-foreground"
           )} ${className}`}
         >

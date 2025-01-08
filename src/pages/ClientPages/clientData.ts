@@ -1,4 +1,4 @@
-import { LabelTypes, MoreOptions } from "@/utils/types";
+import { LabelTypes, MoreOptions, TableDetailsTypes } from "@/utils/types";
 
 export const clientTableHeaders = [
   "Company",
@@ -10,15 +10,16 @@ export const clientTableHeaders = [
   "Contract expiration date",
 ];
 
-export const clientTableValues = [
+export const clientTableValues: TableDetailsTypes[] = [
   {
-    name: "Alex Johnson",
+    id: "Alex Johnson",
+    companyName: "Alex Johnson",
     createdBy: "Alex Johnson",
     role: "General user",
-    firstLog: "2023/01/08",
-    lastLog: "2023/01/08",
-    numProjects: "4",
-    contractExp: "2023/01/08",
+    firstLogged: "2023/01/08",
+    lastLogged: "2023/01/08",
+    numberOfProjects: "4",
+    contractExpiryDate: "2023/01/08",
   },
 ];
 

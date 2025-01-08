@@ -18,6 +18,7 @@ const UserDetails = () => {
   useEffect(() => {
     if (id === "Alex Johnson") {
       setUserDetail({
+        id: "Alex Johnson",
         name: "Alex Johnson",
         email: "alex.johnson@emailprovider.com",
         role: "General user",

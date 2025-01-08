@@ -1,8 +1,11 @@
+// import { ClientDetailsTypes } from "@/pages/ClientPages/clientTypes";
 import { LucideIcon } from "lucide-react";
 import React from "react";
 import { ClassNameValue } from "tailwind-merge";
 
 export interface TableDetailsTypes {
+  // users
+  id: string;
   name?: string;
   role?: string;
   joined?: string;
@@ -24,19 +27,19 @@ export interface TableDetailsTypes {
 
   // session details
   totalSessions?: string;
-}
 
-export interface ClientDetailsTypes {
-  companyName: string;
-  contractExp: string;
-  contactName: string;
-  email: string;
-  phoneNo: string;
-  website: string;
-  firstLogged: string;
-  lastLogged: string;
-  lastUpdate: string;
-  modifiedBy: { name: string; role: string };
+  // client details
+  companyName?: string;
+  contractExpiryDate?: string;
+  firstName?: string;
+  lastName?: string;
+  phoneNumber?: string;
+  website?: string;
+  firstLogged?: string;
+  lastUpdate?: string;
+  numberOfProjects?: string;
+  modifiedBy?: { name: string; role: string };
+  createdBy?: string;
 }
 
 export interface MoreOptions {
@@ -49,7 +52,7 @@ export interface MoreOptions {
 export interface TableTypes {
   tableTitles: string[];
   titlesClassName?: ClassNameValue;
-  tableDetails: TableDetailsTypes[];
+  tableDetails: TableDetailsTypes[] | null;
   detailsClassName?: ClassNameValue;
   moreOptions?: MoreOptions[];
   pagination?: boolean;
@@ -65,14 +68,16 @@ export interface CardWithFormTypes {
   className?: ClassNameValue;
   buttonLayout?: string;
   outClick?: boolean;
-  // cancelButton?: boolean;
   onCancel?: () => void;
+  submitForm?: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export type LabelTypes = {
   label?: string;
   options?: string[];
+  type?: string;
   placeholder?: string;
+  required?:boolean;
   Icon?: LucideIcon;
   active?: boolean;
   title?: string;
@@ -86,6 +91,7 @@ export interface InputsTypes {
   slice1?: number;
   slice2?: number;
   type?: string;
+  required?: boolean;
   defaultSelect?: boolean;
   className?: ClassNameValue;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -93,7 +99,7 @@ export interface InputsTypes {
 
 export interface DetailsTypes {
   statics: string[];
-  details: TableDetailsTypes | ClientDetailsTypes | null;
+  details: TableDetailsTypes | null;
   slice1?: number;
   slice2?: number;
   modified?: boolean;

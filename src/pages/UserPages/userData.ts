@@ -12,6 +12,7 @@ export const usersTitles = [
 
 export const usersDetails = [
   {
+    id: "Alex Johnson",
     name: "Alex Johnson",
     role: "General user",
     joined: "2023/01/08",
@@ -23,6 +24,7 @@ export const usersDetails = [
     limitCall: "1000",
   },
   {
+    id: "Maria Rodriguez",
     name: "Maria Rodriguez",
     role: "Consultant",
     joined: "2023/02/09",
@@ -34,6 +36,7 @@ export const usersDetails = [
     limitCall: "500",
   },
   {
+    id: "Chris Thompson",
     name: "Chris Thompson",
     role: "Strategist",
     joined: "2023/02/09",

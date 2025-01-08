@@ -7,7 +7,6 @@ import {
   UserPlus,
   Users,
   Link,
-  Calendar,
 } from "lucide-react";
 import { LabelTypes } from "./types";
 
@@ -42,8 +41,6 @@ export const dashTabs = [
   },
 ];
 
-
-
 export const invitationTitles = [
   "Name",
   "Email",
@@ -54,6 +51,7 @@ export const invitationTitles = [
 
 export const invtationDetails = [
   {
+    id:'0',
     name: "Alex Johnson",
     email: "alex.johnson@emailprovider.com",
     role: "General user",
@@ -61,6 +59,7 @@ export const invtationDetails = [
     expiresAt: "2023/01/08",
   },
   {
+    id:'1',
     name: "Alex Johnson",
     email: "alex.johnson@emailprovider.com",
     role: "General user",
@@ -68,6 +67,7 @@ export const invtationDetails = [
     expiresAt: "2023/01/08",
   },
   {
+    id:'2',
     name: "Alex Johnson",
     email: "alex.johnson@emailprovider.com",
     role: "General user",
@@ -75,6 +75,7 @@ export const invtationDetails = [
     expiresAt: "2023/01/08",
   },
   {
+    id:'3',
     name: "Alex Johnson",
     email: "alex.johnson@emailprovider.com",
     role: "General user",
@@ -82,8 +83,6 @@ export const invtationDetails = [
     expiresAt: "2023/01/08",
   },
 ];
-
-
 
 export const moreInviteOptions = [
   {
@@ -123,36 +122,43 @@ export const data: LabelTypes[] = [
   {
     label: "First name",
     placeholder: "eg. John",
+    type: "text",
   },
   {
     label: "Last name",
     placeholder: "eg. Doe",
+    type: "text",
   },
   {
     label: "Email Address",
     placeholder: "eg. johndoe@gmail.com",
+    type: "email",
   },
   {
     label: "Limit calls / month",
     options: ["1000", "2000", "3000"],
     placeholder: "Select number of limit calls per month for this user.",
+    type: "select",
   },
   {
     label: "Role",
     options: ["Consultant", "General user", "Stragegist"],
+    type: "select",
   },
   {
     label: "Company name",
     placeholder: "Enter company name",
+    type: "text",
   },
   {
     label: "Website",
     placeholder: "Insert website link",
     Icon: Link,
+    type: "text",
   },
   {
     label: "Contract expiry date",
     placeholder: "Enter date",
-    Icon: Calendar,
+    type: "date",
   },
 ];
