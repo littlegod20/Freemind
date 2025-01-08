@@ -16,6 +16,7 @@ const Profile_Settings = () => {
 
   useEffect(() => {
     setUserDetail({
+      id: "0",
       name: "Alex Johnson",
       email: "alex.johnson@emailprovider.com",
       role: "General user",
@@ -51,7 +52,12 @@ const Profile_Settings = () => {
       </section>
 
       <section className="pt-5 space-y-4">
-        <Details statics={userDetailStatics} details={userDetail} slice1={0} slice2={3} />
+        <Details
+          statics={userDetailStatics}
+          details={userDetail}
+          slice1={0}
+          slice2={3}
+        />
         <EditContainer
           title="Log out"
           Button={
@@ -73,8 +79,8 @@ const Profile_Settings = () => {
         >
           <Inputs
             data={[
-              { label: "First name", placeholder: "Alex" },
-              { label: "Last name", placeholder: "Johnson" },
+              { label: "First name", placeholder: "Alex", type: "text" },
+              { label: "Last name", placeholder: "Johnson", type: "text" },
             ]}
             layout="row"
           />

@@ -1,9 +1,8 @@
 import { ListFilter, Search } from "lucide-react";
 import Inputs from "../Inputs";
-import { lazy, useState } from "react";
+import { useState } from "react";
+import CardWithForm  from "./CardWithForm";
 import { LabelTypes } from "@/utils/types";
-
-const CardWithForm = lazy(() => import("./CardWithForm"));
 
 const FilterSearch = ({ filterInfo }: { filterInfo: LabelTypes[] }) => {
   const [filter, setFilter] = useState(false);
@@ -33,7 +32,7 @@ const FilterSearch = ({ filterInfo }: { filterInfo: LabelTypes[] }) => {
               buttonTitles={[{ label: "Reset" }, { label: "Filter" }]}
               buttonLayout="between"
             >
-              <Inputs data={filterInfo} type="select" defaultSelect={false} />
+              <Inputs data={filterInfo}  defaultSelect={false} />
             </CardWithForm>
           ) : null}
         </section>
