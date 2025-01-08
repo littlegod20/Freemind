@@ -10,7 +10,7 @@ import {
 import { CardWithFormTypes } from "@/utils/types";
 import { X } from "lucide-react";
 
-const CardWithForm =({
+const CardWithForm = ({
   title,
   description,
   children,
@@ -42,11 +42,13 @@ const CardWithForm =({
       <CardContent className="w-full ">
         <form className="w-full h-full flex flex-col" onSubmit={submitForm}>
           <div className="w-full space-y-3 gap-4">{children}</div>
-      <CardFooter className={`flex justify-${buttonLayout} gap-4 w-full items-center py-2 px-0`}>
-        {buttonTitles &&
-          buttonTitles.map((item, index) => (
-            <Button
-              className={`
+          <CardFooter
+            className={`flex justify-${buttonLayout} gap-4 w-full items-center py-2 px-0`}
+          >
+            {buttonTitles &&
+              buttonTitles.map((item, index) => (
+                <Button
+                  className={`
               bg-green-active text-white font-light
               ${
                 /delete|remove|leave/i.test(item.label)
@@ -56,21 +58,19 @@ const CardWithForm =({
                   : "hover:bg-button-hover hover:text-white"
               }
                 `}
-              variant="ghost"
-              key={index}
-              onClick={() =>
-                item.action ? item.action() : null
-              }
-            >
-              {" "}
-              {item.label}{" "}
-            </Button>
-          ))}
-      </CardFooter>
+                  variant="ghost"
+                  key={index}
+                  onClick={() => (item.action ? item.action() : null)}
+                >
+                  {" "}
+                  {item.label}{" "}
+                </Button>
+              ))}
+          </CardFooter>
         </form>
       </CardContent>
     </Card>
   );
-}
+};
 
-export default CardWithForm
+export default CardWithForm;
