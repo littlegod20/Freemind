@@ -98,6 +98,7 @@ const Clients = () => {
             {
               label: "Role",
               placeholder: "Choose a role",
+              type:'select',
               options: ["General User", "Strategist", "Consultant"],
             },
           ]}

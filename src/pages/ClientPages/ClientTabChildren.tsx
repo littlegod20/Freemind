@@ -19,6 +19,7 @@ const ClientTabChildren = ({ childIndex }: { childIndex: number }) => {
                 label: "Select project",
                 placeholder: "Select",
                 options: ["project 1", "project 2"],
+                type:'select'
               },
             ]}
           />
@@ -70,11 +71,12 @@ const ClientTabChildren = ({ childIndex }: { childIndex: number }) => {
           <>
             <Inputs
               data={[
-                { label: "Applied for", placeholder: "Enter grant name" },
+                { label: "Applied for", placeholder: "Enter grant name" , type:'text'},
                 {
                   label: "Applied at",
                   placeholder: "Enter date",
                   Icon: Calendar,
+                  type:'date'
                 },
               ]}
             />
@@ -84,6 +86,7 @@ const ClientTabChildren = ({ childIndex }: { childIndex: number }) => {
                   label: "Application status",
                   placeholder: "Select",
                   options: ["status1", "status2"],
+                  type:'select'
                 },
               ]}
               type="select"
@@ -147,6 +150,7 @@ const ClientTabChildren = ({ childIndex }: { childIndex: number }) => {
                 label: "Select team member",
                 placeholder: "Select",
                 options: ["member1", "member2"],
+                type:'select'
               },
             ]}
           />

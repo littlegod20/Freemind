@@ -15,6 +15,7 @@ const AddPromptModal = ({onClose}:{onClose:()=>void}) => {
           {
             label: "Prompt tile",
             placeholder: "Enter title of prompt",
+            type:'text'
           },
         ]}
       />
@@ -39,6 +40,7 @@ const AddPromptModal = ({onClose}:{onClose:()=>void}) => {
             label: "Access",
             placeholder: "Select",
             options: ["General", "Strategist", "Consultant"],
+            type:'select'
           },
         ]}
         type="select"

@@ -8,6 +8,7 @@ const staticUsersData = [
     label: "Role",
     placeholder: "Choose a role",
     options: ["General User", "Strategist", "Consultant"],
+    type:'select'
   },
 ];
 

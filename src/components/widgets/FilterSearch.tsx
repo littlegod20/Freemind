@@ -32,7 +32,7 @@ const FilterSearch = ({ filterInfo }: { filterInfo: LabelTypes[] }) => {
               buttonTitles={[{ label: "Reset" }, { label: "Filter" }]}
               buttonLayout="between"
             >
-              <Inputs data={filterInfo} type="select" defaultSelect={false} />
+              <Inputs data={filterInfo}  defaultSelect={false} />
             </CardWithForm>
           ) : null}
         </section>

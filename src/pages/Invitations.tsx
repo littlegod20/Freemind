@@ -19,11 +19,13 @@ const staticInviteData = [
     label: "Status",
     placeholder: "Choose status",
     options: ["Expired", "Pending"],
+    type:'select'
   },
   {
     label: "Role",
     placeholder: "Choose a role",
     options: ["General User", "Strategist", "Consultant"],
+    type:'select'
   },
 ];
 

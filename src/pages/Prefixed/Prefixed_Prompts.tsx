@@ -38,6 +38,7 @@ const Prefixed_Prompts = () => {
               label: "Access",
               placeholder: "Choose role",
               options: ["Role 1", "Role 2", "Role 3"],
+              type: "select",
             },
           ]}
         />
