@@ -75,6 +75,7 @@ export interface CardWithFormTypes {
 export type LabelTypes = {
   label?: string;
   options?: string[];
+  type?: string;
   placeholder?: string;
   Icon?: LucideIcon;
   active?: boolean;
@@ -89,6 +90,7 @@ export interface InputsTypes {
   slice1?: number;
   slice2?: number;
   type?: string;
+  required?: boolean;
   defaultSelect?: boolean;
   className?: ClassNameValue;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;

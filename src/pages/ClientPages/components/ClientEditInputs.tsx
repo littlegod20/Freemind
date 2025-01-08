@@ -6,21 +6,37 @@ import React from "react";
 
 const ClientEditInputs = ({
   data,
-  setSingleClient
+  setSingleClient,
 }: {
   data: LabelTypes[];
-  setSingleClient?: React.Dispatch<React.SetStateAction<TableDetailsTypes|null>>
-
+  setSingleClient?: React.Dispatch<
+    React.SetStateAction<TableDetailsTypes | null>
+  >;
 }) => {
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setSingleClient?.((prev) => (prev ? { ...prev, [name.camelCase()]: value } : prev));
+
+    if (!setSingleClient) return;
+
+    setSingleClient((prev) =>
+      prev
+        ? {
+            ...prev,
+            [name.camelCase()]: value,
+          }
+        : prev
+    );
   };
 
   return (
     <>
-      <Inputs data={data} slice1={5} slice2={8} onChange={handleInputChange} />
+      <Inputs
+        data={data}
+        slice1={5}
+        slice2={8}
+        onChange={handleInputChange}
+        required={true}
+      />
 
       <div className="flex justify-evenly items-center gap-2 pt-6">
         <div className="h-[1px] flex-grow border"></div>
@@ -34,6 +50,7 @@ const ClientEditInputs = ({
         slice2={2}
         layout="row"
         onChange={handleInputChange}
+        required={true}
       />
 
       <div className="space-y-1">
@@ -46,8 +63,9 @@ const ClientEditInputs = ({
       </div>
 
       <Inputs
-        data={[{ label: "Email", placeholder: "Enter email address" }]}
+        data={[{ label: "Email", placeholder: "Enter email address", type:'email'}]}
         onChange={handleInputChange}
+        required={true}
       />
     </>
   );

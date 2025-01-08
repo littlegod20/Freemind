@@ -52,9 +52,9 @@ const ClientDetailsPage = () => {
   };
 
   useEffect(() => {
-    if (id === "Alex Johnson" ) {
+    if (id === "973dcd77-8abb-452e-8cda-dd7aed4d1719") {
       setClientData({
-        id: 'Alex Johnson',
+        id: "Alex Johnson",
         companyName: "Jobmanor",
         contractExpiryDate: "8/21/15",
         firstName: "Alex Johnson",

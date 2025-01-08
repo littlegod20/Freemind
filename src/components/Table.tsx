@@ -65,14 +65,14 @@ const Table: React.FC<TableTypes> = ({
           </thead>
 
           <tbody className="flex flex-col w-full text-[#6B7280]">
-            {details &&
+            {details ? (
               details.map((detail, detailIndex) => (
                 <tr
                   className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-2 sm:text-sm text-xs font-normal"
                   key={detailIndex}
                 >
                   {Object.keys(detail)
-                    .filter((key) => key !== "show")
+                    .filter((key) => key !== "show" && key !== "id")
                     .map((key, keyDetailIndex) => {
                       const value = detail[key as keyof TableDetailsTypes];
                       const SpecialRenderer =
@@ -100,7 +100,7 @@ const Table: React.FC<TableTypes> = ({
                           {moreOptions &&
                             keyDetailIndex ===
                               Object.keys(detail).filter(
-                                (key) => key !== "show"
+                                (key) => key !== "show" && key !== 'id'
                               ).length -
                                 1 && (
                               <div
@@ -143,7 +143,14 @@ const Table: React.FC<TableTypes> = ({
                       );
                     })}
                 </tr>
-              ))}
+              ))
+            ) : (
+              <tr className="flex w-full justify-between gap-2 border-t-[1px] border-gray-200 p-2 sm:text-sm text-xs font-normal">
+                <td className="flex justify-between md:text-left items-center">
+                  <p className="truncate text-center">No data</p>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

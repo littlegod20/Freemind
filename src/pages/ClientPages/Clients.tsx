@@ -5,7 +5,6 @@ import FilterParent from "../../components/widgets/FilterParent";
 import { data } from "../../utils/constants";
 import {
   clientTableHeaders,
-  clientTableValues,
   moreClientOptions,
 } from "./clientData";
 import { useAction } from "@/hooks/useAction";
@@ -13,23 +12,43 @@ import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
 import { useEffect, useState } from "react";
 import { TableDetailsTypes } from "@/utils/types";
+import {v4 as uuid} from 'uuid';
 
 const Clients = () => {
   const { onClose, close } = useAction();
 
-  const [clientArray, setClientArray] = useState<TableDetailsTypes[] | null>(
-    clientTableValues
+  const initialClient: TableDetailsTypes = {
+    id: uuid(),
+    companyName: "",
+    createdBy: "Alex Johnson",
+    role: "General user",
+    firstLogged: "2023/01/08",
+    lastLogged: "2023/01/08",
+    numberOfProjects: "4",
+    contractExpiryDate: "2023/01/08",
+  };
+
+  const [clientArray, setClientArray] = useState<TableDetailsTypes[] | []>(
+    []
   );
 
   const [singleClient, setSingleClient] = useState<TableDetailsTypes | null>(
-    null
+    initialClient
   );
 
   const handleSubmitClient = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setClientArray((prev) => singleClient ? (prev ? [...prev, singleClient] : [singleClient]) : prev);
+    if (singleClient) {
+      setClientArray((prev) =>
+        prev ? [...prev, singleClient] : [singleClient]
+      );
+      localStorage.setItem("clients", JSON.stringify(clientArray));
+      setSingleClient(initialClient);
+    }
     console.log("Client submitted");
   };
+
+  const clientArrayFetched = localStorage.getItem("clients");
 
   useEffect(() => {
     console.log("Client Details:", singleClient);
@@ -59,7 +78,7 @@ const Clients = () => {
       <section className="pt-10">
         <Table
           tableTitles={clientTableHeaders}
-          tableDetails={clientArray}
+          tableDetails={clientArrayFetched ? JSON.parse(clientArrayFetched) : clientArray}
           moreOptions={moreClientOptions}
         />
       </section>
@@ -75,7 +94,10 @@ const Clients = () => {
           onCancel={onClose}
           submitForm={handleSubmitClient}
         >
-          <ClientEditInputs data={data} setSingleClient={setSingleClient} />
+          <ClientEditInputs
+            data={data}
+            setSingleClient={setSingleClient}
+          />
         </ModalWithForm>
       )}
     </main>
