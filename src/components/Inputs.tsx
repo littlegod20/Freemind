@@ -12,7 +12,6 @@ const Inputs: React.FC<InputsTypes> = ({
   type = "text",
   defaultSelect = true,
   className,
-  required,
   onChange,
 }) => {
   return (
@@ -39,7 +38,7 @@ const Inputs: React.FC<InputsTypes> = ({
                         placeholder={item.placeholder}
                         className={`text-sm ${className}`}
                         onChange={onChange}
-                        required={required}
+                        required={item.required || true}
                         type={item.type}
                       />
                       {item.Icon ? (
@@ -53,6 +52,7 @@ const Inputs: React.FC<InputsTypes> = ({
                     <DatePicker
                       placeholder={item.placeholder as string}
                       className={`w-full ${className}`}
+                      
                     />
                   ) : item.type === "select" ? (
                     <div className="flex flex-col space-y-1.5" key={index}>

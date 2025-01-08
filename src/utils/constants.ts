@@ -51,6 +51,7 @@ export const invitationTitles = [
 
 export const invtationDetails = [
   {
+    id:'0',
     name: "Alex Johnson",
     email: "alex.johnson@emailprovider.com",
     role: "General user",
@@ -58,6 +59,7 @@ export const invtationDetails = [
     expiresAt: "2023/01/08",
   },
   {
+    id:'1',
     name: "Alex Johnson",
     email: "alex.johnson@emailprovider.com",
     role: "General user",
@@ -65,6 +67,7 @@ export const invtationDetails = [
     expiresAt: "2023/01/08",
   },
   {
+    id:'2',
     name: "Alex Johnson",
     email: "alex.johnson@emailprovider.com",
     role: "General user",
@@ -72,6 +75,7 @@ export const invtationDetails = [
     expiresAt: "2023/01/08",
   },
   {
+    id:'3',
     name: "Alex Johnson",
     email: "alex.johnson@emailprovider.com",
     role: "General user",

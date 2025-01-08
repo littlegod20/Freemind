@@ -65,7 +65,6 @@ const ClientEditInputs = ({
       <Inputs
         data={[{ label: "Email", placeholder: "Enter email address", type:'email'}]}
         onChange={handleInputChange}
-        required={true}
       />
     </>
   );

@@ -41,37 +41,39 @@ export const analyticsSessionsTitles: string[] = ["Name", "Total sessions"];
 
 export const analyticsSessionsDetails: TableDetailsTypes[] = [
   {
+    id: "0",
     name: "Alex Johnson",
     totalSessions: "60",
   },
   {
+    id: "1",
     name: "Maria Rodriguez",
     totalSessions: "500",
   },
   {
+    id: "2",
     name: "Chris Thompson",
     totalSessions: "1000",
   },
 ];
 
-export const numOfCallsforServiceTitles = [
-  "Name",
-  "Open AI",
-  "Palm",
-];
+export const numOfCallsforServiceTitles = ["Name", "Open AI", "Palm"];
 
 export const numOfCallsforServiceDets = [
   {
+    id: "0",
     name: "Alex Johnson",
     openAI: "500",
     palm: "261",
   },
   {
+    id: "1",
     name: "Maria Rodriguez",
     openAI: "500",
     palm: "261",
   },
   {
+    id: "2",
     name: "Chris Thompson",
     openAI: "500",
     palm: "261",

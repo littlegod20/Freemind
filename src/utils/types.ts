@@ -77,6 +77,7 @@ export type LabelTypes = {
   options?: string[];
   type?: string;
   placeholder?: string;
+  required?:boolean;
   Icon?: LucideIcon;
   active?: boolean;
   title?: string;
