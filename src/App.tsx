@@ -1,14 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import DashboardLayout from "./layouts/DashboardLayout";
-// import Clients from "./pages/ClientPages/Clients";
-// import Invitations from "./pages/Invitations";
-// import Analytics from "./pages/Analytics/Analytics";
-// import Prefixed_Prompts from "./pages/Prefixed/Prefixed_Prompts";
-// import Invite_Mail_Settings from "./pages/settings/Invite_Mail_Settings";
-// import Profile_Settings from "./pages/settings/Profile_Settings";
-// import Users from "./pages/UserPages/Users";
-// import UserDetails from "./pages/UserPages/UserDetails";
-// import ClientDetails from "./pages/ClientPages/ClientDetailsPage";
 import { lazy } from "react";
 
 const Clients = lazy(() => import("./pages/ClientPages/Clients"));
