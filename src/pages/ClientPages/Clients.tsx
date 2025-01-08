@@ -12,7 +12,10 @@ import { TableDetailsTypes } from "@/utils/types";
 import { v4 as uuid } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store/store";
-import { postClientInvite } from "@/store/slices/clientSlice";
+import {
+  fetchClientsInvite,
+  postClientInvite,
+} from "@/store/slices/clientSlice";
 
 const Clients = () => {
   const { onClose, close } = useAction();
@@ -32,9 +35,21 @@ const Clients = () => {
     contractExpiryDate: "",
   };
 
-
   const [singleClient, setSingleClient] = useState<TableDetailsTypes | null>(
     initialClient
+  );
+
+  const [tableClients] = useState<TableDetailsTypes[] | []>(
+    clients.map((client) => ({
+      id: client.id,
+      companyName: client.companyName,
+      createdBy: client.createdBy,
+      role: client.role,
+      firstLogged: client.firstLogged,
+      lastLogged: client.lastLogged,
+      numberOfProjects: client.numberOfProjects,
+      contractExpiryDate: client.contractExpiryDate,
+    }))
   );
 
   const handleSubmitClient = (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,16 +59,29 @@ const Clients = () => {
       dispatch(postClientInvite(singleClient));
 
       setSingleClient(initialClient);
+      onClose();
     }
     console.log("Client submitted");
   };
 
   useEffect(() => {
-    console.log("Client Details:", singleClient);
-    console.log("Parent Details:", clients);
-    console.log("status:", status);
-    console.log("error:", error);
-  }, [clients, singleClient, status, error]);
+    dispatch(fetchClientsInvite());
+  }, [dispatch]);
+
+  // useEffect(() => {
+  //   console.log("Client Details:", singleClient);
+  //   console.log("Parent Details:", clients);
+  //   console.log("status:", status);
+  //   console.log("error:", error);
+  // }, [clients, singleClient, status, error]);
+
+  if (status === "loading") {
+    return <div>Loading data...</div>;
+  }
+
+  if (status === "failed" && error) {
+    return <div>Error loading data: {String(error)}</div>;
+  }
 
   return (
     <main>
@@ -78,7 +106,7 @@ const Clients = () => {
       <section className="pt-10">
         <Table
           tableTitles={clientTableHeaders}
-          tableDetails={clients}
+          tableDetails={tableClients}
           moreOptions={moreClientOptions}
         />
       </section>

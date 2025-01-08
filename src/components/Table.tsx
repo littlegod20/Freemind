@@ -1,6 +1,6 @@
 import { Tooltip } from "react-tooltip";
 import { TableDetailsTypes, TableTypes } from "../utils/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Pagination from "./widgets/Pagination";
 import { specialRenderers } from "@/utils/helpers";
@@ -34,6 +34,10 @@ const Table: React.FC<TableTypes> = ({
         : null
     );
   };
+
+  useEffect(()=>{
+    console.log('table:', details)
+  })
 
   return (
     <div
