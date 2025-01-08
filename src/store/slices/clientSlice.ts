@@ -13,7 +13,7 @@ const initialState: ClientState = {
   error: null,
 };
 
-const postClientInvite = createAsyncThunk<
+export const postClientInvite = createAsyncThunk<
   TableDetailsTypes[],
   TableDetailsTypes
 >("clients/post-invites", async (inviteData: TableDetailsTypes, thunkAPI) => {
@@ -38,7 +38,7 @@ const postClientInvite = createAsyncThunk<
   }
 });
 
-const fetchClientsInvite = createAsyncThunk(
+export const fetchClientsInvite = createAsyncThunk(
   "clients/fetch-invites",
   async (_, thunkAPI) => {
     try {

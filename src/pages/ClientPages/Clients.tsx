@@ -3,19 +3,23 @@ import Header from "../../components/Header";
 import Table from "../../components/Table";
 import FilterParent from "../../components/widgets/FilterParent";
 import { data } from "../../utils/constants";
-import {
-  clientTableHeaders,
-  moreClientOptions,
-} from "./clientData";
+import { clientTableHeaders, moreClientOptions } from "./clientData";
 import { useAction } from "@/hooks/useAction";
 import ModalWithForm from "@/components/widgets/ModalWithForm";
 import ClientEditInputs from "./components/ClientEditInputs";
 import { useEffect, useState } from "react";
 import { TableDetailsTypes } from "@/utils/types";
-import {v4 as uuid} from 'uuid';
+import { v4 as uuid } from "uuid";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/store/store";
+import { postClientInvite } from "@/store/slices/clientSlice";
 
 const Clients = () => {
   const { onClose, close } = useAction();
+  const dispatch = useDispatch<AppDispatch>();
+  const { status, error, clients } = useSelector(
+    (state: RootState) => state.client
+  );
 
   const initialClient: TableDetailsTypes = {
     id: uuid(),
@@ -25,12 +29,9 @@ const Clients = () => {
     firstLogged: "2023/01/08",
     lastLogged: "2023/01/08",
     numberOfProjects: "4",
-    contractExpiryDate: "2023/01/08",
+    contractExpiryDate: "",
   };
 
-  const [clientArray, setClientArray] = useState<TableDetailsTypes[] | []>(
-    []
-  );
 
   const [singleClient, setSingleClient] = useState<TableDetailsTypes | null>(
     initialClient
@@ -39,21 +40,20 @@ const Clients = () => {
   const handleSubmitClient = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (singleClient) {
-      setClientArray((prev) =>
-        prev ? [...prev, singleClient] : [singleClient]
-      );
-      localStorage.setItem("clients", JSON.stringify(clientArray));
+      // adding a new client invite
+      dispatch(postClientInvite(singleClient));
+
       setSingleClient(initialClient);
     }
     console.log("Client submitted");
   };
 
-  const clientArrayFetched = localStorage.getItem("clients");
-
   useEffect(() => {
     console.log("Client Details:", singleClient);
-    console.log("Parent Details:", clientArray);
-  }, [clientArray, singleClient]);
+    console.log("Parent Details:", clients);
+    console.log("status:", status);
+    console.log("error:", error);
+  }, [clients, singleClient, status, error]);
 
   return (
     <main>
@@ -78,7 +78,7 @@ const Clients = () => {
       <section className="pt-10">
         <Table
           tableTitles={clientTableHeaders}
-          tableDetails={clientArrayFetched ? JSON.parse(clientArrayFetched) : clientArray}
+          tableDetails={clients}
           moreOptions={moreClientOptions}
         />
       </section>
@@ -94,10 +94,7 @@ const Clients = () => {
           onCancel={onClose}
           submitForm={handleSubmitClient}
         >
-          <ClientEditInputs
-            data={data}
-            setSingleClient={setSingleClient}
-          />
+          <ClientEditInputs data={data} setSingleClient={setSingleClient} />
         </ModalWithForm>
       )}
     </main>
