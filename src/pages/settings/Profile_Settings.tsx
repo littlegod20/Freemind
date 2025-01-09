@@ -55,8 +55,8 @@ const Profile_Settings = () => {
         <Details
           statics={userDetailStatics}
           details={userDetail}
-          slice1={0}
-          slice2={3}
+          slice1={1}
+          slice2={4}
         />
         <EditContainer
           title="Log out"
